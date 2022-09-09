@@ -1,0 +1,52 @@
+@import "./App.scss";
+
+.add-case-form {
+    margin-top: 88px;
+    & h3 {
+        font-size: 20px;
+        margin-bottom: 33px;
+    }
+    width: 100%;
+}
+
+.right {
+    margin-right: 0 !important;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.case-info {
+    border-bottom: solid 1px #CFD4D7;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #CFD4D7;
+}
+
+.general-external-form {
+    margin-top: 31px;
+    & h3 {
+        font-size: 20px;
+    }
+
+    & .external-form-link {
+        text-decoration: none;
+        font-size: 12px;
+        color: $msp-blue;
+        font-weight: 600;
+    }
+    & .no-entry {
+        font-size: 12px;
+        color: #73787B;
+        font-style: italic;
+        margin-top: 11px;
+    }
+}

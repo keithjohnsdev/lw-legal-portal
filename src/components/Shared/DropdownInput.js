@@ -13,7 +13,7 @@ const DropdownInput = ({ onChange, id, label, value, options, placeholder }) => 
     <div className="floating-input-view">
       <div className="dropdown-label">{label}</div>
 
-      <select value={value} onChange={handleChange}>
+      <select value={value} onChange={onChange}>
         {arr.map((o) => {
           let disabled = o.value === "hint";
           let selected = o.selected;

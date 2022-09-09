@@ -6,4 +6,4 @@ import "./Shared/DropdownInput.scss";
 import "./Shared/Container.scss";
 import "./Shared/Button.scss";
 import "./Shared/Header.scss";
-import "./AddCaseForm.scss";
+import "./AddCase.scss";

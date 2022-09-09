@@ -6,6 +6,10 @@
     margin-right: 3%;
     margin-bottom: 40px;
 
+    &.right {
+        margin-right: 0;
+    }
+
     .placeholder {
         position: absolute;
         font-size: 12px;

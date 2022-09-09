@@ -2,7 +2,7 @@ import "./theme";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Header from "./components/Shared/Header";
 import Home from "./components/Home";
-import AddCaseForm from "./components/AddCaseForm";
+import AddCase from "./components/AddCase";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/add-new-case" element={<AddCaseForm />}/>
+        <Route path="/add-new-case" element={<AddCase />}/>
       </Routes>
     </div>
   );
