@@ -1,0 +1,61 @@
+@import url("https://rsms.me/inter/inter.css");
+.App {
+  font-family: "Inter", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFFFF;
+  display: flex;
+}
+
+.header {
+  display: flex;
+  height: 48px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0px 1px 0px 0px #CFD4D7;
+  padding: 10px 14px;
+  align-items: center;
+}
+.header h4 {
+  font-weight: 600;
+  color: #1B93C5;
+}
+
+.header1-left {
+  display: flex;
+}
+.header1-left img {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+}
+
+.header1-right {
+  display: flex;
+  position: absolute;
+  right: 14px;
+}
+.header1-right .user-text {
+  text-align: right;
+  padding-right: 13px;
+}
+.header1-right .caret {
+  padding-right: 14px;
+}
+.header1-right .icon-div {
+  border-left: 1px solid #CFD4D7;
+  padding-left: 14px;
+  align-self: center;
+}
+.header1-right .bell {
+  width: 18px;
+  height: 22px;
+}
+
+.add-first-case {
+  width: 30%;
+  margin: 25% auto;
+  text-align: center;
+}/*# sourceMappingURL=App.css.map */

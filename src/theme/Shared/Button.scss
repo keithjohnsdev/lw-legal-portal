@@ -1,0 +1,14 @@
+@import "../App.scss";
+
+.lw-button {
+    background-color: $msp-blue;
+    padding: 10px 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    &:hover {
+      background-color: $msp-blue-light;
+    }
+  }
