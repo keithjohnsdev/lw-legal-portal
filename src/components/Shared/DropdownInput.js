@@ -1,24 +1,23 @@
-const DropdownInput = ({ onChange, id, label, value, options, placeholder }) => {
- 
-  function handleChange (e) {
-    console.log(e)
-    onChange(id, e.target.value);
-}
- 
+const DropdownInput = ({
+  onChange,
+  id,
+  label,
+  value,
+  options,
+  placeholder,
+}) => {
   let arr = placeholder
-    ? [{ label: placeholder, value: "hint", selected: true }, ...options]
+    ? [{ label: placeholder, value: "hint" }, ...options]
     : options;
-
   return (
-    <div className="floating-input-view">
+    <>
       <div className="dropdown-label">{label}</div>
 
-      <select value={value} onChange={onChange}>
+      <select value={value} onChange={onChange} placeholder={placeholder}>
         {arr.map((o) => {
           let disabled = o.value === "hint";
-          let selected = o.selected;
           return (
-            <option disabled={disabled} selected={selected} key={arr.indexOf(o)}>
+            <option disabled={disabled} key={arr.indexOf(o)}>
               {o.label}
             </option>
           );
@@ -30,7 +29,7 @@ const DropdownInput = ({ onChange, id, label, value, options, placeholder }) => 
         src={require("../../theme/assets/images/icon-caret.png")}
         alt=""
       />
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,70 @@
+@import url("https://rsms.me/inter/inter.css");
+.App {
+  font-family: "Inter", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  min-width: 860px;
+}
+
+.form-section {
+  margin-top: 88px;
+  width: 100%;
+}
+.form-section h3 {
+  font-size: 20px;
+  margin-bottom: 33px;
+}
+
+.right {
+  margin-right: 0 !important;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.case-info {
+  border-bottom: solid 1px #CFD4D7;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #CFD4D7;
+}
+
+.general-external-form {
+  margin-top: 21px;
+  padding-bottom: 40px;
+  border-bottom: solid 1px #CFD4D7;
+}
+.general-external-form h3 {
+  font-size: 20px;
+  color: #313537;
+}
+.general-external-form .external-form-link {
+  text-decoration: none;
+  font-size: 12px;
+  color: #1B93C5;
+  font-weight: 600;
+  padding: 10px 0 10px 10px;
+}
+.general-external-form .external-form-link:hover {
+  color: #56beeb;
+}
+.general-external-form .no-entry {
+  font-size: 12px;
+  color: #73787B;
+  font-style: italic;
+  margin-top: 11px;
+}
+
+.date-dropdown-div {
+  display: flex;
+  width: 100%;
+}/*# sourceMappingURL=AddCase.css.map */

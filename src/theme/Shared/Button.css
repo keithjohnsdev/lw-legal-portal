@@ -1,0 +1,22 @@
+@import url("https://rsms.me/inter/inter.css");
+.App {
+  font-family: "Inter", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  min-width: 860px;
+}
+
+.lw-button {
+  background-color: #1B93C5;
+  padding: 10px 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border: none;
+}
+.lw-button:hover {
+  background-color: #56beeb;
+  cursor: pointer;
+}/*# sourceMappingURL=Button.css.map */

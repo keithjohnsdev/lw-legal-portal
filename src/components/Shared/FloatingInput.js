@@ -16,7 +16,7 @@ const FloatingInput = props => {
     return (
         <div className="floating-input-view">
             <p className={ isFocused ? "placeholder slide-up" : "placeholder"} >{props.placeholder}</p>
-            <input className="floating-input" onFocus={handleFocus} onBlur={handleBlur} onChange={props.onChange} value={props.value}></input>
+            <input className="floating-input" onFocus={handleFocus} onBlur={handleBlur} onChange={props.onChange} value={props.value} type={props.type || "text"}></input>
         </div>
     );
 };
