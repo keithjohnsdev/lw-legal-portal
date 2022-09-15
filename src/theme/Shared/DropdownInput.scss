@@ -36,6 +36,10 @@
   }
 }
 
+.flip-up {
+  transform: rotate(180deg);
+}
+
 .month, .day {
   width: 80px;
 }

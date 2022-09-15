@@ -62,4 +62,11 @@
 .date-dropdown-div {
     display: flex;
     width: 100%;
+
+    .date-invalid-msg {
+        color: salmon;
+        font-size: 11px;
+        position: absolute;
+        bottom: 120px;
+    }
 }

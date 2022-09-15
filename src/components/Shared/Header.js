@@ -45,9 +45,9 @@ export const Header2 = (props) => {
         <h5>{props.centerTitle}</h5>
       </div>
       <div className="header2-right">
-        <Link to="/" className="blue-link">
+        <h6 className="blue-link" onClick={props.onClick}>
           Save
-        </Link>
+        </h6>
       </div>
     </div>
   );

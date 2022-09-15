@@ -3,9 +3,11 @@ import DropdownInputSelectState from "./Shared/DropdownInputSelectState";
 import { Header, Header2 } from "./Shared/Header";
 import { useState } from "react";
 import Container from "./Shared/Container";
+import { useNavigate } from "react-router-dom";
 
 const AddOpposingCounsel = (props) => {
   const [opposingCounselData, setOpposingCounselData] = useState({});
+  const navigate = useNavigate();
 
   function handlePhoneChange(key, value) {
     const input = value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
@@ -19,9 +21,31 @@ const AddOpposingCounsel = (props) => {
     setOpposingCounselData((prev) => ({ ...prev, [key]: input }));
   }
 
+  function handleZipChange (key, value) {
+    const input = value.replace(/\D/g,'').substring(0,5);
+    setOpposingCounselData((prev) => ({ ...prev, [key]: input }));
+  }
+
   function handleChange(key, value) {
     setOpposingCounselData((prev) => ({ ...prev, [key]: value }));
+    // console.log(opposingCounselData);
+  }
+
+  function checkValidity(type, value) {
+    if (type === "email") {
+      return !value || (value.includes("@") && value.includes("."));
+    }
+    if (type === "phone") {
+      return !value || (value.length === 10);
+    }
+    if (type === "zip") {
+      return !value || (value.length === 5);
+    }
+  }
+
+  function handleSave () {
     console.log(opposingCounselData);
+    navigate("/");
   }
 
   return (
@@ -30,6 +54,7 @@ const AddOpposingCounsel = (props) => {
         <Header2
           centerTitle="Add Opposing Counsel"
           leftLinkTo="/add-new-case"
+          onClick={handleSave}
         />
       </Header>
       <section className="form-section">
@@ -50,6 +75,8 @@ const AddOpposingCounsel = (props) => {
               placeholder="Email Address"
               onChange={(e) => handleChange("email", e.target.value)}
               value={opposingCounselData.email || ""}
+              isValid={checkValidity("email", opposingCounselData.email)}
+              invalidMsg="Please provide a valid email."
             />
           </div>
           <div className="form-row">
@@ -57,6 +84,8 @@ const AddOpposingCounsel = (props) => {
               placeholder="Phone"
               onChange={(e) => handlePhoneChange("phone", e.target.value)}
               value={opposingCounselData.phone || ""}
+              isValid={checkValidity("phone", opposingCounselData.phone)}
+              invalidMsg="Please provide a valid phone number."
             />
             <FloatingInput
               placeholder="Street 1"
@@ -85,7 +114,7 @@ const AddOpposingCounsel = (props) => {
             </div>
             <FloatingInput
               placeholder="Zip Code"
-              onChange={(e) => handleChange("zip", e.target.value)}
+              onChange={(e) => handleZipChange("zip", e.target.value)}
               value={opposingCounselData.zip || ""}
             />
           </div>
