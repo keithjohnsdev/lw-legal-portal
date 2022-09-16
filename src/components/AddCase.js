@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Container from "./Shared/Container";
 import { Link, useNavigate } from "react-router-dom";
 import OpposingCounselTable from "./OpposingCounselTable";
+import moment from "moment";
 
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
@@ -21,18 +22,18 @@ const AddCase = (props) => {
   const [startDayOptions, setStartDayOptions] = useState([]);
   const [endDayOptions, setEndDayOptions] = useState([]);
   const monthOptions = [
-    { label: "01" },
-    { label: "02" },
-    { label: "03" },
-    { label: "04" },
-    { label: "05" },
-    { label: "06" },
-    { label: "07" },
-    { label: "08" },
-    { label: "09" },
-    { label: "10" },
-    { label: "11" },
-    { label: "12" },
+    { label: "Jan" },
+    { label: "Feb" },
+    { label: "Mar" },
+    { label: "Apr" },
+    { label: "May" },
+    { label: "Jun" },
+    { label: "Jul" },
+    { label: "Aug" },
+    { label: "Sep" },
+    { label: "Oct" },
+    { label: "Nov" },
+    { label: "Dec" },
   ];
   const yearOptions = [];
   const navigate = useNavigate();
@@ -41,34 +42,56 @@ const AddCase = (props) => {
   }
 
   function handleChange(key, value) {
-    setFormFilled(true);
+    // setFormFilled(true);
     setCaseInfoData((prev) => ({ ...prev, [key]: value }));
     // console.log(caseInfoData);
   }
 
-  function onChangeMonth(e, type) {
+  function onChangeDate(e, type, unit) {
     if (type === "start") {
-      pickedStartDate.setMonth(parseInt(e.target.value) - 1);
-      const daysArray = [
-        ...Array(
-          new Date(2022, pickedStartDate.getMonth() + 1, 0).getDate() + 1
-        ).keys(),
-      ].slice(1);
-      setStartDayDropdownOptions(daysArray);
-      handleChange("docStartMonth", e.target.value);
-    }
-
-    if (type === "end") {
-      pickedEndDate.setMonth(parseInt(e.target.value) - 1);
-      const daysArray = [
-        ...Array(
-          new Date(2022, pickedEndDate.getMonth() + 1, 0).getDate() + 1
-        ).keys(),
-      ].slice(1);
-      setEndDayDropdownOptions(daysArray);
-      handleChange("docEndMonth", e.target.value);
+      if (unit === "month") {
+        let date = caseInfoData.docStartYear
+          ? moment().year(caseInfoData.docStartYear).month(e.target.value)
+          : moment().month(e.target.value);
+        handleChange("docStartMonth", e.target.value);
+        let numOfDays = date.daysInMonth();
+        const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
+        setStartDayDropdownOptions(daysArray);
+      }
+      if (unit === "year") {
+        let date = caseInfoData.docStartMonth
+          ? moment().year(caseInfoData.docStartYear).month(e.target.value)
+          : moment().year(e.target.value);
+        handleChange("docStartYear", e.target.value);
+        let numOfDays = date.daysInMonth();
+        if (caseInfoData.docStartDay && caseInfoData.docStartDay > numOfDays) {
+          setCaseInfoData((prev) => ({ ...prev, docStartDay: null }));
+        }
+        const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
+        setStartDayDropdownOptions(daysArray);
+      }
     }
   }
+
+  // function onChangeMonth(e, type) {
+  //   if (type === "start") {
+  //     let date = caseInfoData.docStartYear
+  //       ? moment().year(caseInfoData.docStartYear).month(e.target.value)
+  //       : moment().month(e.target.value);
+  //     handleChange("docStartMonth", e.target.value);
+  //     let numOfDays = date.daysInMonth();
+  //     const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
+  //     setStartDayDropdownOptions(daysArray);
+  //   }
+
+  //   if (type === "end") {
+  //     let endMonth = moment().month(e.target.value);
+  //     let numOfDays = endMonth.daysInMonth();
+  //     const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
+  //     setEndDayDropdownOptions(daysArray);
+  //     handleChange("docEndMonth", e.target.value);
+  //   }
+  // }
 
   function setStartDayDropdownOptions(daysArray) {
     daysArray.forEach((day) => dayArray.push({ label: day.toString() }));
@@ -78,6 +101,51 @@ const AddCase = (props) => {
   function setEndDayDropdownOptions(daysArray) {
     daysArray.forEach((day) => dayArray.push({ label: day.toString() }));
     setEndDayOptions(dayArray);
+  }
+
+  function onChangeYear(e, type) {
+    if (type === "start") {
+      let startYear = moment().year(e.target.value);
+      console.log(startYear.format("YYYY"));
+      handleChange("docStartYear", e.target.value);
+      checkValidity("date");
+    }
+  }
+
+  // Check relevant inputs for validity, add valid state to isValid object
+  function checkValidity(type, value) {
+    if (type === "text") {
+      if (!formFilled) {
+        return value ? true : false;
+      }
+    }
+    if (type === "email") {
+      if (!formFilled) {
+        return (
+          (value ? true : false) && value.includes("@") && value.includes(".")
+        );
+      }
+      return !value || (value.includes("@") && value.includes("."));
+    }
+    if (type === "date") {
+      if (!formFilled) {
+        return (
+          (value ? true : false) &&
+          caseInfoData.docEndDate > caseInfoData.docStartDate
+        );
+      }
+      if (caseInfoData.docStartDate) {
+        let startDate = moment(
+          `${caseInfoData.docStartYear}-${caseInfoData.docStartMonth}-${caseInfoData.docStartDay}`
+        );
+        console.log(startDate.format("YYYY MM DD"));
+        console.log(startDate.isValid());
+      }
+      if (caseInfoData.docEndDate && caseInfoData.docStartDate) {
+        return caseInfoData.docEndDate > caseInfoData.docStartDate;
+      }
+      return true;
+    }
   }
 
   // Create and store Date object in caseInfoData once month, day and year are selected
@@ -115,32 +183,8 @@ const AddCase = (props) => {
     caseInfoData.docStartYear,
   ]);
 
-  // Check relevant inputs for validity, add valid state to isValid object
-  function checkValidity(type, value) {
-    if (type === "text") {
-      if (!formFilled) {
-        return (value ? true : false)
-      }
-    }
-    if (type === "email") {
-      if (!formFilled) {
-        return (value ? true : false)
-      }
-      return !value || (value.includes("@") && value.includes("."));
-    }
-    if (type === "docEndDate") {
-      if (!formFilled) {
-        return (value ? true : false)
-      }
-      if (caseInfoData.docEndDate && caseInfoData.docStartDate) {
-        return (caseInfoData.docEndDate > caseInfoData.docStartDate)
-      }
-      return true;
-    }
-  }
-
   function handleSave() {
-    if ((
+    if (
       caseInfoData.caseTitle &&
       caseInfoData.defendant &&
       caseInfoData.lawsuitType &&
@@ -149,8 +193,10 @@ const AddCase = (props) => {
       caseInfoData.circuit &&
       caseInfoData.caseFileEmail &&
       caseInfoData.docStartDate &&
-      caseInfoData.docEndDate
-    ) && ( checkValidity("email", caseInfoData.caseFileEmail) && checkValidity("docEndDate", caseInfoData.docEndDate))) {
+      caseInfoData.docEndDate &&
+      checkValidity("email", caseInfoData.caseFileEmail) &&
+      checkValidity("docEndDate", caseInfoData.docEndDate)
+    ) {
       console.log(caseInfoData);
       navigate("/");
     } else {
@@ -202,17 +248,17 @@ const AddCase = (props) => {
               />
             </div>
             <div className="form-row">
-                <DropdownInput
-                  label="Select Jurisdiction"
-                  placeholder="Select Value"
-                  onChange={(e) => handleChange("jurisdiction", e.target.value)}
-                  value={caseInfoData.jurisdiction || "Select Value"}
-                  options={[
-                    { value: "Type 1", label: "Type 1" },
-                    { value: "Type 2", label: "Type 2" },
-                  ]}
-                  isValid={checkValidity("text", caseInfoData.jurisdiction)}
-                />
+              <DropdownInput
+                label="Select Jurisdiction"
+                placeholder="Select Value"
+                onChange={(e) => handleChange("jurisdiction", e.target.value)}
+                value={caseInfoData.jurisdiction || "Select Value"}
+                options={[
+                  { value: "Type 1", label: "Type 1" },
+                  { value: "Type 2", label: "Type 2" },
+                ]}
+                isValid={checkValidity("text", caseInfoData.jurisdiction)}
+              />
               <FloatingInput
                 placeholder="Enter Judge Name"
                 onChange={(e) => handleChange("judge", e.target.value)}
@@ -281,62 +327,68 @@ const AddCase = (props) => {
         <Container>
           <h3 style={{ padding: "5px 0 33px 0" }}>Document Dates</h3>
           <div className="date-dropdown-div">
-              <DropdownInput
-                label="Start Date"
-                placeholder={"MM"}
-                onChange={(e) => onChangeMonth(e, "start")}
-                value={caseInfoData.docStartMonth || "MM"}
-                options={monthOptions}
-                modifier="month"
-                isValid={checkValidity("text", caseInfoData.docStartDate)}
-              ></DropdownInput>
-              <DropdownInput
-                label=""
-                placeholder={"DD"}
-                onChange={(e) => handleChange("docStartDay", e.target.value)}
-                value={caseInfoData.docStartDay || "DD"}
-                options={startDayOptions}
-                modifier="day"
-                isValid={checkValidity("text", caseInfoData.docStartDate)}
-              ></DropdownInput>
-              <DropdownInput
-                label=""
-                placeholder={"YEAR"}
-                onChange={(e) => handleChange("docStartYear", e.target.value)}
-                value={caseInfoData.docStartYear || "YEAR"}
-                options={yearOptions.reverse()}
-                modifier="year"
-                isValid={checkValidity("text", caseInfoData.docStartDate)}
-              ></DropdownInput>
+            <DropdownInput
+              label="Start Date"
+              placeholder={"MM"}
+              onChange={(e) => onChangeDate(e, "start", "month")}
+              value={caseInfoData.docStartMonth || "MM"}
+              options={monthOptions}
+              modifier="month"
+              isValid={checkValidity("text", caseInfoData.docStartDate)}
+            ></DropdownInput>
+            <DropdownInput
+              label=""
+              placeholder={"DD"}
+              onChange={(e) => handleChange("docStartDay", e.target.value)}
+              value={caseInfoData.docStartDay || "DD"}
+              options={startDayOptions}
+              modifier="day"
+              isValid={checkValidity("text", caseInfoData.docStartDate)}
+            ></DropdownInput>
+            <DropdownInput
+              label=""
+              placeholder={"YEAR"}
+              onChange={(e) => onChangeYear(e, "start")}
+              value={caseInfoData.docStartYear || "YEAR"}
+              options={yearOptions.reverse()}
+              modifier="year"
+              isValid={checkValidity("text", caseInfoData.docStartDate)}
+            ></DropdownInput>
             <div style={{ width: "70px" }}></div>
-              <DropdownInput
-                label="End Date"
-                placeholder={"MM"}
-                onChange={(e) => onChangeMonth(e, "end")}
-                value={caseInfoData.docEndMonth || "MM"}
-                options={monthOptions}
-                modifier="month"
-                isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
-              ></DropdownInput>
-              <DropdownInput
-                label=""
-                placeholder={"DD"}
-                onChange={(e) => handleChange("docEndDay", e.target.value)}
-                value={caseInfoData.docEndDay || "DD"}
-                options={endDayOptions}
-                modifier="day"
-                isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
-              ></DropdownInput>
-              <DropdownInput
-                label=""
-                placeholder={"YEAR"}
-                onChange={(e) => handleChange("docEndYear", e.target.value)}
-                value={caseInfoData.docEndYear || "YEAR"}
-                options={yearOptions}
-                isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
-                modifier="year"
-              ></DropdownInput>
-              {checkValidity("docEndDate", caseInfoData.docEndDate) !== true && <p className="date-invalid-msg">{caseInfoData.docStartDate && caseInfoData.docEndDate ? "End date must be after start date." : ""}</p>}
+            <DropdownInput
+              label="End Date"
+              placeholder={"MM"}
+              onChange={(e) => onChangeDate(e, "end", "month")}
+              value={caseInfoData.docEndMonth || "MM"}
+              options={monthOptions}
+              modifier="month"
+              isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
+            ></DropdownInput>
+            <DropdownInput
+              label=""
+              placeholder={"DD"}
+              onChange={(e) => handleChange("docEndDay", e.target.value)}
+              value={caseInfoData.docEndDay || "DD"}
+              options={endDayOptions}
+              modifier="day"
+              isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
+            ></DropdownInput>
+            <DropdownInput
+              label=""
+              placeholder={"YEAR"}
+              onChange={(e) => handleChange("docEndYear", e.target.value)}
+              value={caseInfoData.docEndYear || "YEAR"}
+              options={yearOptions}
+              isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
+              modifier="year"
+            ></DropdownInput>
+            {checkValidity("date", caseInfoData.docEndDate) !== true && (
+              <p className="date-invalid-msg">
+                {caseInfoData.docStartDate && caseInfoData.docEndDate
+                  ? "End date must be after start date."
+                  : ""}
+              </p>
+            )}
           </div>
         </Container>
       </section>
