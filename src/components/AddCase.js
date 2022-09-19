@@ -16,8 +16,7 @@ const AddCase = (props) => {
   const [procedureCodes, setProcedureCodes] = useState(null);
   const [diagnosisCodes, setDiagnosisCodes] = useState(null);
   const [NDCCodes, setNDCCodes] = useState(null);
-  const pickedStartDate = new Date();
-  const pickedEndDate = new Date();
+  const currentYear = new Date();
   const dayArray = [];
   const [startDayOptions, setStartDayOptions] = useState([]);
   const [endDayOptions, setEndDayOptions] = useState([]);
@@ -37,14 +36,13 @@ const AddCase = (props) => {
   ];
   const yearOptions = [];
   const navigate = useNavigate();
-  for (var i = 1900; i <= pickedStartDate.getFullYear(); i++) {
+  for (var i = 1900; i <= currentYear.getFullYear(); i++) {
     yearOptions.push({ label: i.toString() });
   }
 
   function handleChange(key, value) {
-    // setFormFilled(true);
     setCaseInfoData((prev) => ({ ...prev, [key]: value }));
-    // console.log(caseInfoData);
+    console.log(caseInfoData);
   }
 
   function onChangeDate(e, type, unit) {
@@ -60,8 +58,9 @@ const AddCase = (props) => {
       }
       if (unit === "year") {
         let date = caseInfoData.docStartMonth
-          ? moment().year(caseInfoData.docStartYear).month(e.target.value)
+          ? moment().year(e.target.value).month(caseInfoData.docStartMonth)
           : moment().year(e.target.value);
+          console.log(date.format("MM DD YYYY"));
         handleChange("docStartYear", e.target.value);
         let numOfDays = date.daysInMonth();
         if (caseInfoData.docStartDay && caseInfoData.docStartDay > numOfDays) {
@@ -69,6 +68,31 @@ const AddCase = (props) => {
         }
         const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
         setStartDayDropdownOptions(daysArray);
+      }
+    }
+
+    if (type === "end") {
+      if (unit === "month") {
+        let date = caseInfoData.docEndYear
+          ? moment().year(caseInfoData.docEndYear).month(e.target.value)
+          : moment().month(e.target.value);
+        handleChange("docEndMonth", e.target.value);
+        let numOfDays = date.daysInMonth();
+        const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
+        setEndDayDropdownOptions(daysArray);
+      }
+      if (unit === "year") {
+        let date = caseInfoData.docEndMonth
+          ? moment().year(e.target.value).month(caseInfoData.docEndMonth)
+          : moment().year(e.target.value);
+          console.log(date.format("MM DD YYYY"));
+        handleChange("docEndYear", e.target.value);
+        let numOfDays = date.daysInMonth();
+        if (caseInfoData.docEndDay && caseInfoData.docEndDay > numOfDays) {
+          setCaseInfoData((prev) => ({ ...prev, docEndDay: null }));
+        }
+        const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
+        setEndDayDropdownOptions(daysArray);
       }
     }
   }
@@ -103,14 +127,14 @@ const AddCase = (props) => {
     setEndDayOptions(dayArray);
   }
 
-  function onChangeYear(e, type) {
-    if (type === "start") {
-      let startYear = moment().year(e.target.value);
-      console.log(startYear.format("YYYY"));
-      handleChange("docStartYear", e.target.value);
-      checkValidity("date");
-    }
-  }
+  // function onChangeYear(e, type) {
+  //   if (type === "start") {
+  //     let startYear = moment().year(e.target.value);
+  //     console.log(startYear.format("YYYY"));
+  //     handleChange("docStartYear", e.target.value);
+  //     checkValidity("date");
+  //   }
+  // }
 
   // Check relevant inputs for validity, add valid state to isValid object
   function checkValidity(type, value) {
@@ -134,13 +158,11 @@ const AddCase = (props) => {
           caseInfoData.docEndDate > caseInfoData.docStartDate
         );
       }
-      if (caseInfoData.docStartDate) {
-        let startDate = moment(
-          `${caseInfoData.docStartYear}-${caseInfoData.docStartMonth}-${caseInfoData.docStartDay}`
-        );
-        console.log(startDate.format("YYYY MM DD"));
-        console.log(startDate.isValid());
-      }
+      // if (caseInfoData.docStartDate) {
+      //   let startDate = moment(
+      //     `${caseInfoData.docStartYear}-${caseInfoData.docStartMonth}-${caseInfoData.docStartDay}`
+      //   );
+      // }
       if (caseInfoData.docEndDate && caseInfoData.docStartDate) {
         return caseInfoData.docEndDate > caseInfoData.docStartDate;
       }
@@ -155,24 +177,20 @@ const AddCase = (props) => {
       caseInfoData.docStartDay &&
       caseInfoData.docStartYear
     ) {
-      let date = new Date(
-        parseInt(caseInfoData.docStartYear),
-        parseInt(caseInfoData.docStartMonth) - 1,
-        parseInt(caseInfoData.docStartDay)
+      let startDate = new Date(
+        moment().year(caseInfoData.docStartYear).month(caseInfoData.docStartMonth).date(caseInfoData.docStartDay).toDate()
       );
-      handleChange("docStartDate", date);
+      handleChange("docStartDate", startDate);
     }
     if (
       caseInfoData.docEndMonth &&
       caseInfoData.docEndDay &&
       caseInfoData.docEndYear
     ) {
-      let date = new Date(
-        parseInt(caseInfoData.docEndYear),
-        parseInt(caseInfoData.docEndMonth) - 1,
-        parseInt(caseInfoData.docEndDay)
+      let endDate = new Date(
+        moment().year(caseInfoData.docEndYear).month(caseInfoData.docEndMonth).date(caseInfoData.docEndDay).toDate()
       );
-      handleChange("docEndDate", date);
+      handleChange("docEndDate", endDate);
     }
   }, [
     caseInfoData.docEndDay,
@@ -182,6 +200,24 @@ const AddCase = (props) => {
     caseInfoData.docStartMonth,
     caseInfoData.docStartYear,
   ]);
+
+  useEffect(() => {
+    if (
+      caseInfoData.caseTitle &&
+      caseInfoData.defendant &&
+      caseInfoData.lawsuitType &&
+      caseInfoData.jurisdiction &&
+      caseInfoData.judge &&
+      caseInfoData.circuit &&
+      caseInfoData.caseFileEmail &&
+      caseInfoData.docStartDate &&
+      caseInfoData.docEndDate &&
+      checkValidity("email", caseInfoData.caseFileEmail) &&
+      checkValidity("date", caseInfoData.docEndDate)
+    ) {
+      setFormFilled(true);
+     }
+  }, [caseInfoData])
 
   function handleSave() {
     if (
@@ -195,10 +231,10 @@ const AddCase = (props) => {
       caseInfoData.docStartDate &&
       caseInfoData.docEndDate &&
       checkValidity("email", caseInfoData.caseFileEmail) &&
-      checkValidity("docEndDate", caseInfoData.docEndDate)
+      checkValidity("date", caseInfoData.docEndDate)
     ) {
       console.log(caseInfoData);
-      navigate("/");
+      // navigate("/");
     } else {
       setFormFilled(false);
     }
@@ -334,7 +370,7 @@ const AddCase = (props) => {
               value={caseInfoData.docStartMonth || "MM"}
               options={monthOptions}
               modifier="month"
-              isValid={checkValidity("text", caseInfoData.docStartDate)}
+              isValid={checkValidity("text", caseInfoData.docStartMonth)}
             ></DropdownInput>
             <DropdownInput
               label=""
@@ -343,16 +379,16 @@ const AddCase = (props) => {
               value={caseInfoData.docStartDay || "DD"}
               options={startDayOptions}
               modifier="day"
-              isValid={checkValidity("text", caseInfoData.docStartDate)}
+              isValid={checkValidity("text", caseInfoData.docStartDay)}
             ></DropdownInput>
             <DropdownInput
               label=""
               placeholder={"YEAR"}
-              onChange={(e) => onChangeYear(e, "start")}
+              onChange={(e) => onChangeDate(e, "start", "year")}
               value={caseInfoData.docStartYear || "YEAR"}
               options={yearOptions.reverse()}
               modifier="year"
-              isValid={checkValidity("text", caseInfoData.docStartDate)}
+              isValid={checkValidity("text", caseInfoData.docStartYear)}
             ></DropdownInput>
             <div style={{ width: "70px" }}></div>
             <DropdownInput
@@ -362,7 +398,7 @@ const AddCase = (props) => {
               value={caseInfoData.docEndMonth || "MM"}
               options={monthOptions}
               modifier="month"
-              isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
+              isValid={checkValidity("text", caseInfoData.docEndMonth)}
             ></DropdownInput>
             <DropdownInput
               label=""
@@ -371,15 +407,15 @@ const AddCase = (props) => {
               value={caseInfoData.docEndDay || "DD"}
               options={endDayOptions}
               modifier="day"
-              isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
+              isValid={checkValidity("text", caseInfoData.docEndDay)}
             ></DropdownInput>
             <DropdownInput
               label=""
               placeholder={"YEAR"}
-              onChange={(e) => handleChange("docEndYear", e.target.value)}
+              onChange={(e) => onChangeDate(e, "end", "year")}
               value={caseInfoData.docEndYear || "YEAR"}
               options={yearOptions}
-              isValid={checkValidity("docEndDate", caseInfoData.docEndDate)}
+              isValid={checkValidity("text", caseInfoData.docEndYear)}
               modifier="year"
             ></DropdownInput>
             {checkValidity("date", caseInfoData.docEndDate) !== true && (
