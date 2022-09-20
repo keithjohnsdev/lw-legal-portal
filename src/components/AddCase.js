@@ -13,8 +13,6 @@ const AddCase = (props) => {
   const [formFilled, setFormFilled] = useState(true);
   const [internalCounsel, setInternalCounsel] = useState(null);
   const [opposingCounsel, setOpposingCounsel] = useState(null);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
   const [procedureCodes, setProcedureCodes] = useState(null);
   const [diagnosisCodes, setDiagnosisCodes] = useState(null);
   const [NDCCodes, setNDCCodes] = useState(null);
@@ -22,37 +20,11 @@ const AddCase = (props) => {
 
   function handleChange(key, value) {
     setCaseInfoData((prev) => ({ ...prev, [key]: value }));
-    // console.log(caseInfoData);
+    console.log(caseInfoData);
   }
 
-  // Check relevant inputs for validity
-  function checkValidity(type, value) {
-    if (type === "text") {
-      if (!formFilled) {
-        return value ? true : false;
-      }
-    } else if (type === "email") {
-      if (!formFilled) {
-        return (
-          (value ? true : false) && value.includes("@") && value.includes(".")
-        );
-      }
-      return !value || (value.includes("@") && value.includes("."));
-    } else if (type === "date") {
-      if (!formFilled) {
-        return (value ? true : false) && startDate.isBefore(endDate);
-      } else {
-        return startDate && endDate
-          ? startDate.isValid() &&
-              endDate.isValid() &&
-              startDate.isBefore(endDate)
-          : true;
-      }
-    } else return false;
-  }
-
-  useEffect(() => {
-    if (
+  function checkFormFilled() {
+    return (
       caseInfoData.caseTitle &&
       caseInfoData.defendant &&
       caseInfoData.lawsuitType &&
@@ -60,53 +32,21 @@ const AddCase = (props) => {
       caseInfoData.judge &&
       caseInfoData.circuit &&
       caseInfoData.caseFileEmail &&
-      caseInfoData.docStartMonth &&
-      caseInfoData.docStartDay &&
-      caseInfoData.docStartYear &&
-      caseInfoData.docEndMonth &&
-      caseInfoData.docEndDay &&
-      caseInfoData.docEndYear
-      // checkValidity("email", caseInfoData.caseFileEmail) &&
-      // checkValidity("date", endDate)
-    ) {
+      caseInfoData.docStartDate &&
+      caseInfoData.docEndDate
+    );
+  }
+
+  useEffect(() => {
+    if (checkFormFilled()) {
       console.log("form filled use effect triggered");
-      console.log(
-        caseInfoData.caseTitle &&
-          caseInfoData.defendant &&
-          caseInfoData.lawsuitType &&
-          caseInfoData.jurisdiction &&
-          caseInfoData.judge &&
-          caseInfoData.circuit &&
-          caseInfoData.caseFileEmail &&
-          caseInfoData.docStartMonth &&
-          caseInfoData.docStartDay &&
-          caseInfoData.docStartYear &&
-          caseInfoData.docEndMonth &&
-          caseInfoData.docEndDay &&
-          caseInfoData.docEndYear
-      );
       setFormFilled(true);
     }
   }, [caseInfoData]);
 
   function handleSave() {
-    if (
-      caseInfoData.caseTitle &&
-      caseInfoData.defendant &&
-      caseInfoData.lawsuitType &&
-      caseInfoData.jurisdiction &&
-      caseInfoData.judge &&
-      caseInfoData.circuit &&
-      caseInfoData.caseFileEmail &&
-      caseInfoData.docStartMonth &&
-      caseInfoData.docStartDay &&
-      caseInfoData.docStartYear &&
-      caseInfoData.docEndMonth &&
-      caseInfoData.docEndDay &&
-      caseInfoData.docEndYear &&
-      checkValidity("email", caseInfoData.caseFileEmail) &&
-      checkValidity("date", endDate)
-    ) {
+    if (checkFormFilled()) {
+      setFormFilled(true);
       console.log(caseInfoData);
       console.log("save successful");
       // navigate("/");
@@ -137,14 +77,12 @@ const AddCase = (props) => {
               <FloatingInput
                 placeholder="Enter Case Title"
                 onChange={(e) => handleChange("caseTitle", e.target.value)}
-                value={caseInfoData.caseTitle || ""}
-                isValid={checkValidity("text", caseInfoData.caseTitle)}
+                value={caseInfoData.caseTitle}
               />
               <FloatingInput
                 placeholder="Enter Defendant Name"
                 onChange={(e) => handleChange("defendant", e.target.value)}
-                value={caseInfoData.defendant || ""}
-                isValid={checkValidity("text", caseInfoData.defendant)}
+                value={caseInfoData.defendant}
               />
               <DropdownInput
                 label="Select Lawsuit Type"
@@ -155,7 +93,6 @@ const AddCase = (props) => {
                   { value: "Type 1", label: "Type 1" },
                   { value: "Type 2", label: "Type 2" },
                 ]}
-                isValid={checkValidity("text", caseInfoData.lawsuitType)}
                 modifier="right"
               />
             </div>
@@ -169,13 +106,11 @@ const AddCase = (props) => {
                   { value: "Type 1", label: "Type 1" },
                   { value: "Type 2", label: "Type 2" },
                 ]}
-                isValid={checkValidity("text", caseInfoData.jurisdiction)}
               />
               <FloatingInput
                 placeholder="Enter Judge Name"
                 onChange={(e) => handleChange("judge", e.target.value)}
                 value={caseInfoData.judge || ""}
-                isValid={checkValidity("text", caseInfoData.judge)}
               />
               <DropdownInput
                 label="Select Circuit"
@@ -186,7 +121,6 @@ const AddCase = (props) => {
                   { value: "Type 1", label: "Type 1" },
                   { value: "Type 2", label: "Type 2" },
                 ]}
-                isValid={checkValidity("text", caseInfoData.circuit)}
                 modifier="right"
               />
             </div>
@@ -194,8 +128,7 @@ const AddCase = (props) => {
               <FloatingInput
                 placeholder="Enter Case File Email"
                 onChange={(e) => handleChange("caseFileEmail", e.target.value)}
-                value={caseInfoData.caseFileEmail || ""}
-                isValid={checkValidity("email", caseInfoData.caseFileEmail)}
+                value={caseInfoData.caseFileEmail}
                 invalidMsg="Please provide a valid email."
               />
             </div>
@@ -242,22 +175,18 @@ const AddCase = (props) => {
           <div className="date-dropdown-div">
             <DateDropdownInput
               label="Start Date"
-              handleChange={d => handleChange("startDate", d)}
-              isValid={checkValidity("date", startDate)}
+              handleChange={(d) => handleChange("docStartDate", d)}
             />
             <div style={{ width: "70px" }}></div>
             <DateDropdownInput
               label="End Date"
-              handleChange={d => handleChange("endDate", d)}
-              isValid={checkValidity("date", endDate)}
+              handleChange={(d) => handleChange("docEndDate", d)}
             />
-            {checkValidity("date", endDate) !== true && (
-              <p className="date-invalid-msg">
-                {startDate && endDate && !startDate.isBefore(endDate)
-                  ? "End date must be after start date."
-                  : ""}
-              </p>
-            )}
+            <p className="date-invalid-msg">
+              {caseInfoData.docStartDate && caseInfoData.docEndDate && !moment(caseInfoData.docStartDate).isBefore(moment(caseInfoData.docEndDate))
+                ? "End date must be after start date."
+                : ""}
+            </p>
           </div>
         </Container>
       </section>

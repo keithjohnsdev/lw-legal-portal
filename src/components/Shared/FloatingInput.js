@@ -25,7 +25,7 @@ const FloatingInput = (props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={props.onChange}
-        value={props.value}
+        value={props.value || ""}
         type={props.type || "text"}
       ></input>
       {!isValid && (

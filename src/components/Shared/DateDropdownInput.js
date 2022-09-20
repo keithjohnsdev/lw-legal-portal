@@ -6,53 +6,52 @@ const DateDropdownInput = (props) => {
   const [month, setMonth] = useState();
   const [day, setDay] = useState();
   const [year, setYear] = useState();
-  const currentYear = new Date();
   const dayArray = [];
   const [dayOptions, setDayOptions] = useState([]);
   const isValid = props.isValid;
   const monthOptions = moment.monthsShort();
   const yearOptions = [];
-  for (var i = 1900; i <= currentYear.getFullYear(); i++) {
+  for (var i = 1900; i <= moment().year(); i++) {
     yearOptions.push({ label: i.toString() });
   }
 
   function onChangeDate(e, unit) {
     if (unit === "month") {
-      let date = year
-        ? moment().year(year).month(e.target.value)
-        : moment().month(e.target.value);
-      setMonth(date.format("MMM"));
-      let numOfDays = date.daysInMonth();
-      const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
-      setDayDropdownOptions(daysArray);
-    }
-    if (unit === "day") {
+      setMonth(e.target.value);
+      let numOfDays = moment().month(e.target.value).daysInMonth();
+      setDayDropdownOptions(numOfDays);
+    } else if (unit === "year") {
+      setYear(e.target.value);
+      let numOfDays = moment().year(e.target.value).daysInMonth();
+      setDayDropdownOptions(numOfDays);
+    } else {
       setDay(e.target.value);
-    }
-    if (unit === "year") {
-      let date = month
-        ? moment().year(e.target.value).month(month)
-        : moment().year(e.target.value);
-      setYear(date.format("YYYY"));
-      let numOfDays = date.daysInMonth();
-      if (day && day > numOfDays) {
-        setDay(null);
-      }
-      const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
-      setDayDropdownOptions(daysArray);
     }
   }
 
-  function setDayDropdownOptions(daysArray) {
+  useEffect(() => {
+    if (month && year) {
+      let numOfDays = moment().year(year).month(month).daysInMonth();
+      if (day && day > numOfDays) {
+        setDay(null);
+      }
+      setDayDropdownOptions(numOfDays);
+    }
+  }, [month, year]);
+
+  function setDayDropdownOptions(numOfDays) {
+    const daysArray = [...Array(numOfDays + 1).keys()].slice(1);
     daysArray.forEach((day) => dayArray.push({ label: day.toString() }));
-    setDayOptions(dayArray);
+    setDayOptions(daysArray.map((day) => ({ label: day.toString() })));
   }
 
   useEffect(() => {
     if (day && month && year) {
-        props.handleChange(moment().year(year).month(month).date(day).format("MM/DD/YYYY"));
+      props.handleChange(
+        moment().year(year).month(month).date(day).format("MM/DD/YYYY")
+      );
     }
-  }, [day, month, year])
+  }, [day, month, year]);
 
   return (
     <>
@@ -61,7 +60,7 @@ const DateDropdownInput = (props) => {
         placeholder={"MM"}
         onChange={(e) => onChangeDate(e, "month")}
         value={month}
-        options={monthOptions}
+        options={monthOptions.map((m) => ({ label: m }))}
         modifier="month"
         isValid={isValid}
       ></DropdownInput>
