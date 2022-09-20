@@ -16,10 +16,6 @@
   margin-bottom: 33px;
 }
 
-.right {
-  margin-right: 0 !important;
-}
-
 .form-row {
   display: flex;
   justify-content: space-between;
@@ -67,4 +63,10 @@
 .date-dropdown-div {
   display: flex;
   width: 100%;
+}
+.date-dropdown-div .date-invalid-msg {
+  color: rgb(255, 145, 125);
+  font-size: 11px;
+  position: absolute;
+  bottom: 120px;
 }/*# sourceMappingURL=AddCase.css.map */

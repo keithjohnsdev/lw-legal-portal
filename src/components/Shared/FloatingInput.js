@@ -16,7 +16,7 @@ const FloatingInput = (props) => {
   }
 
   return (
-    <div className="floating-input-view" style={{borderBottom: !isValid && "1px solid salmon"}}>
+    <div className="floating-input-view" style={{borderBottom: !isValid && "1px solid rgb(255, 145, 125)"}}>
       <p className={isFocused ? "placeholder slide-up" : "placeholder"}>
         {props.placeholder}
       </p>
@@ -34,7 +34,7 @@ const FloatingInput = (props) => {
             fontSize: "11px",
             position: "absolute",
             bottom: "-20px",
-            color: "salmon",
+            color: "rgb(255, 145, 125)",
           }}
         >
           {props.invalidMsg}

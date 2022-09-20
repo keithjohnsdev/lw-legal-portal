@@ -109,7 +109,7 @@
 }
 
 .form-incomplete-msg {
-  color: salmon;
+  color: $error-color;
   font-size: 12px;
   position: absolute;
   bottom: -36px;

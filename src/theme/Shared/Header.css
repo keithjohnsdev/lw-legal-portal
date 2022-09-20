@@ -80,6 +80,10 @@
   font-weight: 600;
   font-size: 14px;
 }
+.header2 .header2-right h6 {
+  font-weight: 400;
+  cursor: pointer;
+}
 
 .gray-link {
   font-weight: 400;
@@ -100,4 +104,13 @@
 }
 .blue-link:hover {
   color: #75cef5;
+}
+
+.form-incomplete-msg {
+  color: rgb(255, 145, 125);
+  font-size: 12px;
+  position: absolute;
+  bottom: -36px;
+  right: 0;
+  padding: 10px 13px;
 }/*# sourceMappingURL=Header.css.map */

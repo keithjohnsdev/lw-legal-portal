@@ -9,10 +9,6 @@
     width: 100%;
 }
 
-.right {
-    margin-right: 0 !important;
-}
-
 .form-row {
     display: flex;
     justify-content: space-between;
@@ -64,7 +60,7 @@
     width: 100%;
 
     .date-invalid-msg {
-        color: salmon;
+        color: $error-color;
         font-size: 11px;
         position: absolute;
         bottom: 120px;

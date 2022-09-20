@@ -39,10 +39,18 @@
   z-index: 0;
 }
 
+.flip-up {
+  transform: rotate(180deg);
+}
+
 .month, .day {
   width: 80px;
 }
 
 .year {
   width: 140px;
+}
+
+.right {
+  margin-right: 0;
 }/*# sourceMappingURL=DropdownInput.css.map */

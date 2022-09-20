@@ -1,15 +1,7 @@
-import { useState } from "react";
+const DropdownInput = (props) => {
 
-const DropdownInput = ({
-  onChange,
-  id,
-  label,
-  value,
-  options,
-  placeholder,
-  modifier,
-  ...props
-}) => {
+  const { onChange, label, value, options, placeholder, modifier } = props;
+
   let arr = placeholder
     ? [{ label: placeholder, value: "hint" }, ...options]
     : options;
@@ -17,14 +9,17 @@ const DropdownInput = ({
   let isValid;
   props.isValid === undefined ? (isValid = true) : (isValid = props.isValid);
   return (
-    <div className={`floating-input-view ${modifier}`} style={{borderBottom: !isValid && "1px solid salmon"}}>
+    <div
+      className={`floating-input-view ${modifier}`}
+      style={{ borderBottom: !isValid && "1px solid rgb(255, 145, 125)" }}
+    >
       <div className="dropdown-label">{label}</div>
 
-      <select value={value} onChange={onChange} placeholder={placeholder}>
+      <select value={value || "hint"} onChange={onChange} placeholder={placeholder}>
         {arr.map((o) => {
           let disabled = o.value === "hint";
           return (
-            <option disabled={disabled} key={arr.indexOf(o)}>
+            <option disabled={disabled} key={arr.indexOf(o)} value={o.value}>
               {o.label}
             </option>
           );
