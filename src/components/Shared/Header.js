@@ -53,4 +53,24 @@ export const Header2 = (props) => {
   );
 };
 
+export const ModalHeader = (props) => {
+  return (
+    <div className="header2">
+      <div className="header2-left">
+        <h6 onClick={props.onClickLeft} className="gray-link">
+          Cancel
+        </h6>
+      </div>
+      <div className="header2-center">
+        <h5>{props.centerTitle}</h5>
+      </div>
+      <div className="header2-right">
+        <h6 className="blue-link" onClick={props.onClickRight}>
+          Save
+        </h6>
+      </div>
+    </div>
+  );
+};
+
 export default Header;

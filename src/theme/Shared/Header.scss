@@ -91,6 +91,7 @@
   color: #73787b;
   font-size: 14px;
   padding: 14px;
+  cursor: pointer;
 
   &:hover {
     color: #b9bbbd;
@@ -102,7 +103,8 @@
   text-decoration: none;
   font-size: 14px;
   padding: 14px;
-  
+  outline-style: none;
+
   &:hover {
     color: #75cef5;
   }

@@ -12,8 +12,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/add-new-case" element={<AddCase />}/>
-        <Route path="/add-opposing-counsel" element={<AddOpposingCounsel />}/>
-        <Route path="/add-internal-counsel" element={<AddInternalCounsel />}/>
       </Routes>
     </div>
   );

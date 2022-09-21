@@ -52,6 +52,7 @@
 }
 .general-external-form .external-form-link:hover {
   color: #56beeb;
+  cursor: pointer;
 }
 .general-external-form .no-entry {
   font-size: 12px;

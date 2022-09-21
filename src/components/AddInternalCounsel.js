@@ -1,9 +1,10 @@
 import FloatingInput from "./Shared/FloatingInput";
 import DropdownInputSelectState from "./Shared/DropdownInputSelectState";
-import { Header, Header2 } from "./Shared/Header";
+import { Header, ModalHeader } from "./Shared/Header";
 import { useState } from "react";
 import Container from "./Shared/Container";
 import { useNavigate } from "react-router-dom";
+import { SassColor } from "sass";
 
 const AddInternalCounsel = (props) => {
   const [internalCounselData, setInternalCounselData] = useState({});
@@ -37,47 +38,46 @@ const AddInternalCounsel = (props) => {
       return !value || (value.includes("@") && value.includes("."));
     }
     if (type === "phone") {
-      return !value || (value.length === 10);
+      return !value || value.length === 10;
     }
     if (type === "zip") {
-      return !value || (value.length === 5);
+      return !value || value.length === 5;
     }
   }
 
-  function handleSave () {
+  function handleSave() {
     console.log(internalCounselData);
-    navigate("/");
+    props.closeModal();
+    // navigate("/");
   }
 
   return (
     <>
-      <Header>
-        <Header2
-          centerTitle="Add Internal Counsel"
-          leftLinkTo="/add-new-case"
-          onClick={handleSave}
-        />
-      </Header>
-      <section className="form-section">
+      <ModalHeader
+        centerTitle="Add Internal Counsel"
+        onClickRight={handleSave}
+        onClickLeft={props.closeModal}
+      />
+      <section className="form-section" style={{marginTop: "5px", paddingTop: "50px", borderTop: "solid 1px #CFD4D7"}}>
         <Container>
           <h3>Internal Counsel Information</h3>
           <div className="form-row">
             <FloatingInput
               placeholder="First Name"
               onChange={(e) => handleChange("firstName", e.target.value)}
-              value={internalCounselData.firstName || ""}
+              value={internalCounselData.firstName}
               isValid={true}
             />
             <FloatingInput
               placeholder="Last Name"
               onChange={(e) => handleChange("lastName", e.target.value)}
-              value={internalCounselData.lastName || ""}
+              value={internalCounselData.lastName}
               isValid={true}
             />
             <FloatingInput
               placeholder="Email Address"
               onChange={(e) => handleChange("email", e.target.value)}
-              value={internalCounselData.email || ""}
+              value={internalCounselData.email}
               isValid={checkValidity("email", internalCounselData.email)}
               invalidMsg="Please provide a valid email."
             />
@@ -86,20 +86,20 @@ const AddInternalCounsel = (props) => {
             <FloatingInput
               placeholder="Phone"
               onChange={(e) => handlePhoneChange("phone", e.target.value)}
-              value={internalCounselData.phone || ""}
+              value={internalCounselData.phone}
               isValid={checkValidity("phone", internalCounselData.phone)}
               invalidMsg="Please provide a valid phone number."
             />
             <FloatingInput
               placeholder="Street 1"
               onChange={(e) => handleChange("street1", e.target.value)}
-              value={internalCounselData.street1 || ""}
+              value={internalCounselData.street1}
               isValid={true}
             />
             <FloatingInput
               placeholder="Street 2"
               onChange={(e) => handleChange("street2", e.target.value)}
-              value={internalCounselData.street2 || ""}
+              value={internalCounselData.street2}
               isValid={true}
             />
           </div>
@@ -107,7 +107,7 @@ const AddInternalCounsel = (props) => {
             <FloatingInput
               placeholder="City"
               onChange={(e) => handleChange("city", e.target.value)}
-              value={internalCounselData.city || ""}
+              value={internalCounselData.city}
               isValid={true}
             />
             <div className="floating-input-view">
@@ -115,13 +115,13 @@ const AddInternalCounsel = (props) => {
                 label="State"
                 placeholder="Select State"
                 onChange={(e) => handleChange("state", e.target.value)}
-                value={internalCounselData.state || "Select State"}
+                value={internalCounselData.state}
               />
             </div>
             <FloatingInput
               placeholder="Zip Code"
               onChange={(e) => handleZipChange("zip", e.target.value)}
-              value={internalCounselData.zip || ""}
+              value={internalCounselData.zip}
               isValid={checkValidity("zip", internalCounselData.zip)}
               invalidMsg="Please provide a valid zip code."
             />

@@ -1,0 +1,109 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.425);
+  -webkit-animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.modal-backdrop.out {
+  -webkit-animation: fadeOut 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: fadeOut 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  -webkit-animation: scaleUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: scaleUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  min-width: 690px;
+}
+
+.out {
+  -webkit-animation: scaleDown 0.3s ease-in forwards;
+          animation: scaleDown 0.3s ease-in forwards;
+}
+
+.internal-counsel-modal {
+  width: 75%;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+@-webkit-keyframes scaleUp {
+  0% {
+    transform: translate(-50%, 200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@keyframes scaleUp {
+  0% {
+    transform: translate(-50%, 200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scaleDown {
+  0% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 200%);
+    opacity: 0;
+  }
+}
+@keyframes scaleDown {
+  0% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 200%);
+    opacity: 0;
+  }
+}/*# sourceMappingURL=Modal.css.map */

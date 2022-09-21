@@ -4,8 +4,8 @@ const DropdownInput = ({ onChange, label, value, placeholder }) => {
     <>
       <div className="dropdown-label">{label}</div>
 
-      <select value={value} onChange={onChange}>
-        <option value="" disabled>{placeholder}</option>
+      <select value={value || "hint"} onChange={onChange}>
+        <option value="hint" disabled>{placeholder}</option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AS">American Samoa</option>

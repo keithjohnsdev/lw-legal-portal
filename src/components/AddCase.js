@@ -1,12 +1,14 @@
 import FloatingInput from "./Shared/FloatingInput";
 import DropdownInput from "./Shared/DropdownInput";
 import { Header, Header2 } from "./Shared/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Container from "./Shared/Container";
 import { Link, useNavigate } from "react-router-dom";
 import OpposingCounselTable from "./OpposingCounselTable";
 import moment from "moment";
 import DateDropdownInput from "./Shared/DateDropdownInput";
+import Modal from "./Shared/Modal";
+import AddInternalCounsel from "./AddInternalCounsel";
 
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
@@ -16,7 +18,9 @@ const AddCase = (props) => {
   const [procedureCodes, setProcedureCodes] = useState(null);
   const [diagnosisCodes, setDiagnosisCodes] = useState(null);
   const [NDCCodes, setNDCCodes] = useState(null);
+  const [internalCounselModal, setInternalCounselModal] = useState(false);
   const navigate = useNavigate();
+  const [animateOut, setAnimateOut] = useState("");
 
   function handleChange(key, value) {
     setCaseInfoData((prev) => ({ ...prev, [key]: value }));
@@ -35,6 +39,16 @@ const AddCase = (props) => {
       caseInfoData.docStartDate &&
       caseInfoData.docEndDate
     );
+  }
+
+  function openICModal() {
+    setAnimateOut("");
+    setInternalCounselModal(true);
+  }
+
+  function closeICModal() {
+    setAnimateOut("out");
+    setTimeout(() => setInternalCounselModal(false), 300);
   }
 
   useEffect(() => {
@@ -139,9 +153,9 @@ const AddCase = (props) => {
         <Container>
           <div className="section-title">
             <h3>Internal Counsel</h3>
-            <Link to="/add-internal-counsel" className="external-form-link">
+            <h5 className="external-form-link" onClick={openICModal}>
               Select Internal Counsel
-            </Link>
+            </h5>
           </div>
           {internalCounsel ? (
             ""
@@ -150,15 +164,18 @@ const AddCase = (props) => {
               No internal counsel members currently listed.
             </p>
           )}
+          {internalCounselModal && (
+            <Modal onBackdropClick={closeICModal} class="internal-counsel-modal" animateOut={animateOut}>
+              <AddInternalCounsel closeModal={closeICModal}/>
+            </Modal>
+          )}
         </Container>
       </section>
       <section id="opposing-counsel" className="general-external-form">
         <Container>
           <div className="section-title">
             <h3>Opposing Counsel</h3>
-            <Link to="/add-opposing-counsel" className="external-form-link">
-              + Add Opposing Counsel
-            </Link>
+            <h5 className="external-form-link">+ Add Opposing Counsel</h5>
           </div>
           {opposingCounsel ? (
             <OpposingCounselTable />
@@ -183,7 +200,11 @@ const AddCase = (props) => {
               handleChange={(d) => handleChange("docEndDate", d)}
             />
             <p className="date-invalid-msg">
-              {caseInfoData.docStartDate && caseInfoData.docEndDate && !moment(caseInfoData.docStartDate).isBefore(moment(caseInfoData.docEndDate))
+              {caseInfoData.docStartDate &&
+              caseInfoData.docEndDate &&
+              !moment(caseInfoData.docStartDate).isBefore(
+                moment(caseInfoData.docEndDate)
+              )
                 ? "End date must be after start date."
                 : ""}
             </p>
