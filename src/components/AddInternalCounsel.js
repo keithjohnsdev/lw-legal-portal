@@ -1,24 +1,14 @@
 import FloatingInput from "./Shared/FloatingInput";
 import DropdownInputSelectState from "./Shared/DropdownInputSelectState";
-import { Header, ModalHeader } from "./Shared/Header";
+import { ModalHeader } from "./Shared/Header";
 import { useState } from "react";
 import Container from "./Shared/Container";
-import { useNavigate } from "react-router-dom";
-import { SassColor } from "sass";
 
 const AddInternalCounsel = (props) => {
   const [internalCounselData, setInternalCounselData] = useState({});
-  const navigate = useNavigate();
 
   function handlePhoneChange(key, value) {
     const input = value.replace(/\D/g, "").substring(0, 10); // First ten digits of input only
-    // const areaCode = input.substring(0,3);
-    // const middle = input.substring(3,6);
-    // const last = input.substring(6,10);
-
-    // if(input.length > 6){value = `(${areaCode}) ${middle} - ${last}`;}
-    // else if(input.length > 3){value = `(${areaCode}) ${middle}`;}
-    // else if(input.length > 0){value = `(${areaCode}`;}
     setInternalCounselData((prev) => ({ ...prev, [key]: input }));
   }
 
@@ -32,7 +22,7 @@ const AddInternalCounsel = (props) => {
     // console.log(internalCounselData);
   }
 
-  // Check relevant inputs for validity, add valid state to isValid object
+  // Check relevant inputs for validity
   function checkValidity(type, value) {
     if (type === "email") {
       return !value || (value.includes("@") && value.includes("."));
@@ -48,7 +38,6 @@ const AddInternalCounsel = (props) => {
   function handleSave() {
     console.log(internalCounselData);
     props.closeModal();
-    // navigate("/");
   }
 
   return (
@@ -56,9 +45,9 @@ const AddInternalCounsel = (props) => {
       <ModalHeader
         centerTitle="Add Internal Counsel"
         onClickRight={handleSave}
-        onClickLeft={props.closeModal}
+        onClickLeft={() => {console.log(props)}}
       />
-      <section className="form-section" style={{marginTop: "5px", paddingTop: "50px", borderTop: "solid 1px #CFD4D7"}}>
+      <section className="form-section modal-form">
         <Container>
           <h3>Internal Counsel Information</h3>
           <div className="form-row">

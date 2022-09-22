@@ -1,7 +1,7 @@
 import FloatingInput from "./Shared/FloatingInput";
 import DropdownInput from "./Shared/DropdownInput";
 import { Header, Header2 } from "./Shared/Header";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Container from "./Shared/Container";
 import { Link, useNavigate } from "react-router-dom";
 import OpposingCounselTable from "./OpposingCounselTable";
@@ -9,22 +9,23 @@ import moment from "moment";
 import DateDropdownInput from "./Shared/DateDropdownInput";
 import Modal from "./Shared/Modal";
 import AddInternalCounsel from "./AddInternalCounsel";
+import AddOpposingCounsel from "./AddOpposingCounsel";
 
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
   const [formFilled, setFormFilled] = useState(true);
+  const [internalCounselModal, setInternalCounselModal] = useState(false);
   const [internalCounsel, setInternalCounsel] = useState(null);
+  const [opposingCounselModal, setOpposingCounselModal] = useState(false);
   const [opposingCounsel, setOpposingCounsel] = useState(null);
   const [procedureCodes, setProcedureCodes] = useState(null);
   const [diagnosisCodes, setDiagnosisCodes] = useState(null);
   const [NDCCodes, setNDCCodes] = useState(null);
-  const [internalCounselModal, setInternalCounselModal] = useState(false);
   const navigate = useNavigate();
-  const [animateOut, setAnimateOut] = useState("");
 
   function handleChange(key, value) {
     setCaseInfoData((prev) => ({ ...prev, [key]: value }));
-    console.log(caseInfoData);
+    // console.log(caseInfoData);
   }
 
   function checkFormFilled() {
@@ -41,19 +42,8 @@ const AddCase = (props) => {
     );
   }
 
-  function openICModal() {
-    setAnimateOut("");
-    setInternalCounselModal(true);
-  }
-
-  function closeICModal() {
-    setAnimateOut("out");
-    setTimeout(() => setInternalCounselModal(false), 300);
-  }
-
   useEffect(() => {
     if (checkFormFilled()) {
-      console.log("form filled use effect triggered");
       setFormFilled(true);
     }
   }, [caseInfoData]);
@@ -153,10 +143,27 @@ const AddCase = (props) => {
         <Container>
           <div className="section-title">
             <h3>Internal Counsel</h3>
-            <h5 className="external-form-link" onClick={openICModal}>
+            <h5
+              className="external-form-link"
+              onClick={() => {
+                setInternalCounselModal(true);
+              }}
+            >
               Select Internal Counsel
             </h5>
           </div>
+          <Modal
+            show={internalCounselModal}
+            onBackdropClick={() => {
+              setInternalCounselModal(false);
+            }}
+          >
+            <AddInternalCounsel
+              closeModal={() => {
+                setInternalCounselModal(false);
+              }}
+            />
+          </Modal>
           {internalCounsel ? (
             ""
           ) : (
@@ -164,19 +171,33 @@ const AddCase = (props) => {
               No internal counsel members currently listed.
             </p>
           )}
-          {internalCounselModal && (
-            <Modal onBackdropClick={closeICModal} class="internal-counsel-modal" animateOut={animateOut}>
-              <AddInternalCounsel closeModal={closeICModal}/>
-            </Modal>
-          )}
         </Container>
       </section>
       <section id="opposing-counsel" className="general-external-form">
         <Container>
           <div className="section-title">
             <h3>Opposing Counsel</h3>
-            <h5 className="external-form-link">+ Add Opposing Counsel</h5>
+            <h5
+              className="external-form-link"
+              onClick={() => {
+                setOpposingCounselModal(true);
+              }}
+            >
+              + Add Opposing Counsel
+            </h5>
           </div>
+          <Modal
+            show={opposingCounselModal}
+            onBackdropClick={() => {
+              setOpposingCounselModal(false);
+            }}
+          >
+            <AddOpposingCounsel
+              closeModal={() => {
+                setOpposingCounselModal(false);
+              }}
+            />
+          </Modal>
           {opposingCounsel ? (
             <OpposingCounselTable />
           ) : (

@@ -1,23 +1,14 @@
 import FloatingInput from "./Shared/FloatingInput";
 import DropdownInputSelectState from "./Shared/DropdownInputSelectState";
-import { Header, Header2 } from "./Shared/Header";
+import { ModalHeader } from "./Shared/Header";
 import { useState } from "react";
 import Container from "./Shared/Container";
-import { useNavigate } from "react-router-dom";
 
 const AddOpposingCounsel = (props) => {
   const [opposingCounselData, setOpposingCounselData] = useState({});
-  const navigate = useNavigate();
 
   function handlePhoneChange(key, value) {
     const input = value.replace(/\D/g,'').substring(0,10); // First ten digits of input only
-    // const areaCode = input.substring(0,3);
-    // const middle = input.substring(3,6);
-    // const last = input.substring(6,10);
-
-    // if(input.length > 6){value = `(${areaCode}) ${middle} - ${last}`;}
-    // else if(input.length > 3){value = `(${areaCode}) ${middle}`;}
-    // else if(input.length > 0){value = `(${areaCode}`;}
     setOpposingCounselData((prev) => ({ ...prev, [key]: input }));
   }
 
@@ -28,7 +19,6 @@ const AddOpposingCounsel = (props) => {
 
   function handleChange(key, value) {
     setOpposingCounselData((prev) => ({ ...prev, [key]: value }));
-    // console.log(opposingCounselData);
   }
 
   function checkValidity(type, value) {
@@ -45,19 +35,17 @@ const AddOpposingCounsel = (props) => {
 
   function handleSave () {
     console.log(opposingCounselData);
-    navigate("/");
+    props.closeModal();
   }
 
   return (
     <>
-      <Header>
-        <Header2
-          centerTitle="Add Opposing Counsel"
-          leftLinkTo="/add-new-case"
-          onClick={handleSave}
-        />
-      </Header>
-      <section className="form-section">
+      <ModalHeader
+        centerTitle="Add Opposing Counsel"
+        onClickRight={handleSave}
+        onClickLeft={() => {console.log(props)}}
+      />
+      <section className="form-section modal-form">
         <Container>
           <h3>Opposing Counsel Information</h3>
           <div className="form-row">
