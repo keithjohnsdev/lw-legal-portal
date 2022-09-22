@@ -30,8 +30,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
-  border-bottom: solid 1px #CFD4D7;
+  padding-bottom: 5px;
 }
 
 .general-external-form {
@@ -42,6 +41,12 @@
 .general-external-form h3 {
   font-size: 20px;
   color: #313537;
+}
+.general-external-form hr {
+  border-top: 1px solid #CFD4D7;
+  border-bottom: none;
+  margin: none;
+  padding: none;
 }
 .general-external-form .external-form-link {
   text-decoration: none;
@@ -65,9 +70,18 @@
   display: flex;
   width: 100%;
 }
+.date-dropdown-div .floating-input-view {
+  margin-bottom: 20px;
+}
 .date-dropdown-div .date-invalid-msg {
   color: rgb(255, 145, 125);
   font-size: 11px;
   position: absolute;
   bottom: 120px;
+}
+
+.modal-form {
+  margin: 5px 0 30px;
+  padding-top: 40px;
+  border-top: solid 1px #CFD4D7;
 }/*# sourceMappingURL=AddCase.css.map */

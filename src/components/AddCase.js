@@ -10,6 +10,7 @@ import DateDropdownInput from "./Shared/DateDropdownInput";
 import Modal from "./Shared/Modal";
 import AddInternalCounsel from "./AddInternalCounsel";
 import AddOpposingCounsel from "./AddOpposingCounsel";
+import InternalCounselTable from "./InternalCounselTable";
 
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
@@ -18,8 +19,11 @@ const AddCase = (props) => {
   const [internalCounsel, setInternalCounsel] = useState(null);
   const [opposingCounselModal, setOpposingCounselModal] = useState(false);
   const [opposingCounsel, setOpposingCounsel] = useState(null);
+  const [procedureCodesModal, setProcedureCodesModal] = useState(false);
   const [procedureCodes, setProcedureCodes] = useState(null);
+  const [diagnosisCodesModal, setDiagnosisCodesModal] = useState(false);
   const [diagnosisCodes, setDiagnosisCodes] = useState(null);
+  const [NDCCodesModal, setNDCCodesModal] = useState(false);
   const [NDCCodes, setNDCCodes] = useState(null);
   const navigate = useNavigate();
 
@@ -162,14 +166,18 @@ const AddCase = (props) => {
               closeModal={() => {
                 setInternalCounselModal(false);
               }}
+              handleSave={data => setInternalCounsel([data])}
             />
           </Modal>
           {internalCounsel ? (
-            ""
+            <InternalCounselTable />
           ) : (
-            <p className="no-entry">
-              No internal counsel members currently listed.
-            </p>
+            <>
+              <hr />
+              <p className="no-entry">
+                No internal counsel members currently listed.
+              </p>
+            </>
           )}
         </Container>
       </section>
@@ -201,9 +209,12 @@ const AddCase = (props) => {
           {opposingCounsel ? (
             <OpposingCounselTable />
           ) : (
-            <p className="no-entry">
-              No opposing counsel members currently listed.
-            </p>
+            <>
+              <hr />
+              <p className="no-entry">
+                No opposing counsel members currently listed.
+              </p>
+            </>
           )}
         </Container>
       </section>
@@ -236,14 +247,31 @@ const AddCase = (props) => {
         <Container>
           <div className="section-title">
             <h3>Procedure Codes</h3>
-            <Link to="/" className="external-form-link">
+            <h5
+              to="/"
+              className="external-form-link"
+              onClick={() => {
+                setProcedureCodesModal(true);
+              }}
+            >
               + Add Procedure Code(s)
-            </Link>
+            </h5>
           </div>
+          <Modal
+            show={procedureCodesModal}
+            onBackdropClick={() => {
+              setProcedureCodesModal(false);
+            }}
+          >
+            Content Pending.
+          </Modal>
           {procedureCodes ? (
             ""
           ) : (
-            <p className="no-entry">No procedure codes currently listed.</p>
+            <>
+              <hr />
+              <p className="no-entry">No procedure codes currently listed.</p>
+            </>
           )}
         </Container>
       </section>
@@ -251,14 +279,31 @@ const AddCase = (props) => {
         <Container>
           <div className="section-title">
             <h3>Diagnosis Codes</h3>
-            <Link to="/" className="external-form-link">
+            <h5
+              to="/"
+              className="external-form-link"
+              onClick={() => {
+                setDiagnosisCodesModal(true);
+              }}
+            >
               + Add Diagnosis Code(s)
-            </Link>
+            </h5>
           </div>
+          <Modal
+            show={diagnosisCodesModal}
+            onBackdropClick={() => {
+              setDiagnosisCodesModal(false);
+            }}
+          >
+            Content Pending.
+          </Modal>
           {diagnosisCodes ? (
             ""
           ) : (
-            <p className="no-entry">No diagnosis codes currently listed.</p>
+            <>
+              <hr />
+              <p className="no-entry">No diagnosis codes currently listed.</p>
+            </>
           )}
         </Container>
       </section>
@@ -266,14 +311,31 @@ const AddCase = (props) => {
         <Container>
           <div className="section-title">
             <h3>NDC Codes</h3>
-            <Link to="/" className="external-form-link">
+            <h5
+              to="/"
+              className="external-form-link"
+              onClick={() => {
+                setNDCCodesModal(true);
+              }}
+            >
               + Add NDC Code(s)
-            </Link>
+            </h5>
           </div>
+          <Modal
+            show={NDCCodesModal}
+            onBackdropClick={() => {
+              setNDCCodesModal(false);
+            }}
+          >
+            Content Pending.
+          </Modal>
           {NDCCodes ? (
             ""
           ) : (
-            <p className="no-entry">No NDC codes currently listed.</p>
+            <>
+              <hr />
+              <p className="no-entry">No NDC codes currently listed.</p>
+            </>
           )}
         </Container>
       </section>

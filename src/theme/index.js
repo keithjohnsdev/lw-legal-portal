@@ -9,3 +9,4 @@ import "./Shared/Header.scss";
 import "./AddCase.scss";
 import "./Shared/Modal.scss";
 import "./Shared/Card.scss";
+import "./Shared/FlexTable.scss";

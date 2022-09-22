@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = (props) => {
   return <div className="header">{props.children}</div>;
 };
 
 export const Header1 = (props) => {
+  const navigate = useNavigate();
   return (
     <>
-        <div className="header1-left">
-          <img src={require("../../theme/assets/images/dash.png")} alt="" />
+        <div className="header1-left" onClick={() => {navigate("/")}}>
+          <img src={require("../../theme/assets/images/dash.png")} alt="" className="dash" />
+          <Link to="/" className="cases-link">Cases</Link>
         </div>
-        <Link to="/" className="cases-link">Cases</Link>
       <div className="header1-right">
         <div className="user-text">
           <h5>Allen Admin</h5>

@@ -19,7 +19,6 @@ const AddInternalCounsel = (props) => {
 
   function handleChange(key, value) {
     setInternalCounselData((prev) => ({ ...prev, [key]: value }));
-    // console.log(internalCounselData);
   }
 
   // Check relevant inputs for validity
@@ -36,7 +35,7 @@ const AddInternalCounsel = (props) => {
   }
 
   function handleSave() {
-    console.log(internalCounselData);
+    props.handleSave(internalCounselData);
     props.closeModal();
   }
 

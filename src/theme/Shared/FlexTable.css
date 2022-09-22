@@ -1,0 +1,47 @@
+.flex-table {
+  border-radius: 5px;
+  overflow: hidden;
+  border: solid 1px #cfd4d7;
+}
+
+.table-header {
+  display: flex;
+  padding: 0 16px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #313537;
+  background-color: #f6f8f8;
+  align-items: center;
+}
+
+.col {
+  flex: 1;
+  padding: 8px 0;
+}
+.col .caret {
+  background-color: #f6f8f8;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  margin-left: 2px;
+}
+
+.short {
+  flex: 0.85;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.table-row {
+  display: flex;
+  padding: 0 16px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #313537;
+  background-color: #FFFFFF;
+  align-items: center;
+  height: 47px;
+  border-top: solid 1px #CFD4D7;
+}/*# sourceMappingURL=FlexTable.css.map */

@@ -26,12 +26,20 @@
 
 .header1-left {
   display: flex;
-  padding-left: 14px;
+  padding: 14px;
+  cursor: pointer;
 }
 .header1-left img {
   width: 16px;
   height: 16px;
-  margin-right: 12px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.header1-left:hover .cases-link {
+  color: #56beeb;
+}
+.header1-left:hover .dash {
+  filter: brightness(133%) hue-rotate(-4deg);
 }
 
 .cases-link {
@@ -40,9 +48,6 @@
 }
 .cases-link:visited {
   color: #1B93C5;
-}
-.cases-link:hover {
-  color: #56beeb;
 }
 
 .header1-right {

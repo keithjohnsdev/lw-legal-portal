@@ -1,9 +1,8 @@
-
+import FlexTable from "./Shared/FlexTable";
 
 const OpposingCounselTable = props => {
 
-    return <>
-    </>
+    return <FlexTable />
 }
 
 export default OpposingCounselTable;

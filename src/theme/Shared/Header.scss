@@ -20,11 +20,21 @@
 
 .header1-left {
   display: flex;
-  padding-left: 14px;
+  padding: 14px;
+  cursor: pointer;
   img {
     width: 16px;
     height: 16px;
-    margin-right: 12px;
+    margin-right: 10px;
+    margin-top: 2px;
+  }
+  &:hover {
+    .cases-link {
+      color: $msp-blue-light;
+    }
+    .dash {
+      filter: brightness(133%) hue-rotate(-4deg);
+    }
   }
 }
 
@@ -33,9 +43,6 @@
   text-decoration: none;
   &:visited {
     color: $msp-blue;
-  }
-  &:hover {
-    color: $msp-blue-light;
   }
 }
 
