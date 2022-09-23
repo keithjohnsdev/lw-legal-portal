@@ -1,31 +1,21 @@
 const FlexTable = (props) => {
-  const data = props.data;
-  console.log(data);
   return (
     <div className="flex-table">
       <div className="table-header">
-        <div className="col">
-          Name{" "}
+        <div className={`col ${props.col1mod}`}>
+          {props.header1}{" "}
           <img
             className="caret"
             src={require("../../theme/assets/images/icon-caret.png")}
             alt=""
           />
         </div>
-        <div className="col short">Role</div>
-        <div className="col">Email</div>
-        <div className="col">Phone</div>
+        <div className={`col ${props.col2mod}`}>{props.header2}</div>
+        {props.header3 && <div className={`col ${props.col3mod}`}>{props.header3}</div>}
+        {props.header4 && <div className={`col ${props.col4mod}`}>{props.header4}</div>}
+        {props.header5 && <div className={`col ${props.col5mod}`}>{props.header5}</div>}
       </div>
-      {data.map((counsel, index) => {
-        return (
-          <div className="table-row" key={index}>
-            <div className="col bold">{`${counsel.firstName} ${counsel.lastName}`}</div>
-            <div className="col short">Role</div>
-            <div className="col">Email</div>
-            <div className="col">Phone</div>
-          </div>
-        );
-      })}
+      {props.children}
     </div>
   );
 };

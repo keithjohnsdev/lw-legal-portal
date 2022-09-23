@@ -34,7 +34,7 @@ const AddOpposingCounsel = (props) => {
   }
 
   function handleSave () {
-    console.log(opposingCounselData);
+    props.handleSave(opposingCounselData);
     props.closeModal();
   }
 

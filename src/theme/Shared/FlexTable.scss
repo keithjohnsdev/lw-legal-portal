@@ -2,6 +2,7 @@
   border-radius: 5px;
   overflow: hidden;
   border: solid 1px #cfd4d7;
+  margin-top: 8px;
 }
 
 .table-header {
@@ -15,8 +16,10 @@
 }
 
 .col {
+  position: relative;
   flex: 1;
   padding: 8px 0;
+  align-items: center;
   .caret {
     background-color: #f6f8f8;
     width: 16px;
@@ -30,11 +33,28 @@
   flex: 0.85;
 }
 
+.long {
+  flex: 1.15;
+}
+
+.double-long {
+  flex: 2
+}
+
+.spacer {
+  flex: 0.15;
+}
+
 .bold {
     font-weight: 600;
 }
 
+.flex {
+  display: flex;
+}
+
 .table-row {
+  position: relative;
     display: flex;
     padding: 0 16px;
     font-weight: 400;
@@ -45,3 +65,40 @@
     height: 47px;
     border-top: solid 1px #CFD4D7;
   }
+
+  .dots-div {
+    position: absolute;
+    right: 7px;
+    cursor: pointer;
+    padding: 10px;
+    svg {
+      margin-bottom: 2px;
+    }
+    &:hover {
+      svg path {
+        fill: #000000;
+      }
+    }
+  }
+
+  .profile-div {
+    width: 30px;
+    margin-right: 11px;
+    // position: absolute;
+    background-color: transparent;
+    .profile-letters {
+      color: #FFFFFF;
+      z-index: 1;
+      position: absolute;
+      background-color: transparent;
+      top: 8px;
+      left: 8px;
+      font-size: 12px;
+    }
+    .profile-circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+

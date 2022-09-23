@@ -11,6 +11,8 @@ import Modal from "./Shared/Modal";
 import AddInternalCounsel from "./AddInternalCounsel";
 import AddOpposingCounsel from "./AddOpposingCounsel";
 import InternalCounselTable from "./InternalCounselTable";
+import ProcedureCodesTable from "./ProcedureCodesTable";
+import AddProcedureCode from "./AddProcedureCode";
 
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
@@ -166,7 +168,7 @@ const AddCase = (props) => {
               closeModal={() => {
                 setInternalCounselModal(false);
               }}
-              handleSave={data => setInternalCounsel([data])}
+              handleSave={(data) => setInternalCounsel([data])}
             />
           </Modal>
           {internalCounsel ? (
@@ -204,6 +206,7 @@ const AddCase = (props) => {
               closeModal={() => {
                 setOpposingCounselModal(false);
               }}
+              handleSave={(data) => setOpposingCounsel([data])}
             />
           </Modal>
           {opposingCounsel ? (
@@ -263,10 +266,16 @@ const AddCase = (props) => {
               setProcedureCodesModal(false);
             }}
           >
-            Content Pending.
+            <AddProcedureCode
+              closeModal={() => {
+                setProcedureCodesModal(false);
+              }}
+              handleSave={(data) => setProcedureCodes([data])}
+            />
           </Modal>
+          {console.log(`Procedure codes: ${procedureCodes}`)}
           {procedureCodes ? (
-            ""
+            <ProcedureCodesTable />
           ) : (
             <>
               <hr />
