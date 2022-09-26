@@ -1,0 +1,72 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://rsms.me/inter/inter.css");
+.App {
+  font-family: "Inter", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  min-width: 860px;
+  overflow-y: auto;
+}
+
+.cases-page {
+  margin-top: 49px;
+  font-family: "Inter", sans-serif;
+}
+
+.cases-toolbar {
+  border-bottom: solid 1px #cfd4d7;
+  padding: 9px 16px;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.cases-toolbar-left {
+  align-items: center;
+}
+
+.search-div {
+  display: flex;
+  border: solid 1px #cfd4d7;
+  padding: 8px 9px;
+  border-radius: 4px;
+  height: 32px;
+  width: 280px;
+  align-items: center;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  margin-left: 6px;
+  color: #73787b;
+  width: 250px;
+}
+
+::-moz-placeholder {
+  color: #73787b;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #73787b;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #73787b;
+  opacity: 1;
+}
+
+.filter {
+  font-weight: 400;
+}
+
+.cases-toolbar-right {
+  align-items: center;
+}
+.cases-toolbar-right .lw-button {
+  font-size: 12px;
+  padding: 8px 16px 9px;
+}/*# sourceMappingURL=CasesTable.css.map */

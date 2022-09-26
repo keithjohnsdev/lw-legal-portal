@@ -10,3 +10,6 @@ import "./AddCase.scss";
 import "./Shared/Modal.scss";
 import "./Shared/Card.scss";
 import "./Shared/FlexTable.scss";
+import "./Cases.scss";
+import "./CasesTable.scss";
+import "./CasesTableRow.scss";

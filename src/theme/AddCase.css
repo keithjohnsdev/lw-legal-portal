@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: #ffffff;
   min-width: 860px;
+  overflow-y: auto;
 }
 
 .form-section {
@@ -51,7 +52,7 @@
 .general-external-form .external-form-link {
   text-decoration: none;
   font-size: 12px;
-  color: #1B93C5;
+  color: #1b93c5;
   font-weight: 600;
   padding: 10px 0 10px 10px;
 }
@@ -73,13 +74,19 @@
 .date-dropdown-div .floating-input-view {
   margin-bottom: 20px;
 }
-.date-dropdown-div .date-invalid-msg {
+
+.date-invalid-msg {
   color: rgb(255, 145, 125);
   font-size: 11px;
   position: absolute;
-  bottom: 120px;
+  bottom: 90px;
 }
 
+@media only screen and (max-width: 859px) {
+  .date-invalid-msg {
+    bottom: 73px;
+  }
+}
 .modal-form {
   margin: 5px 0 30px;
   padding-top: 40px;

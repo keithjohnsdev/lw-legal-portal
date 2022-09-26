@@ -1,0 +1,54 @@
+@import "./App.scss";
+@import url("https://rsms.me/inter/inter.css");
+
+.cases-page {
+  margin-top: 49px;
+  font-family: "Inter", sans-serif;
+}
+
+.cases-toolbar {
+  border-bottom: solid 1px #cfd4d7;
+  padding: 9px 16px;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.cases-toolbar-left {
+  align-items: center;
+}
+
+.search-div {
+  display: flex;
+  border: solid 1px #cfd4d7;
+  padding: 8px 9px;
+  border-radius: 4px;
+  height: 32px;
+  width: 280px;
+  align-items: center;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  margin-left: 6px;
+  color: #73787b;
+  width: 250px;
+}
+
+::placeholder {
+    color: #73787b;
+    opacity: 1;
+  }
+
+.filter {
+  font-weight: 400;
+}
+
+.cases-toolbar-right {
+  align-items: center;
+  .lw-button {
+    font-size: 12px;
+    padding: 8px 16px 9px;
+  }
+}

@@ -1,15 +1,33 @@
 @import "../App.scss";
 
 .lw-button {
-    background-color: $msp-blue;
-    padding: 10px 32px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-    border: none;
-    &:hover {
-      background-color: $msp-blue-light;
-      cursor: pointer;
-    }
+  background-color: $msp-blue;
+  padding: 10px 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  font-family: "Inter", sans-serif;
+  &:hover {
+    background-color: $msp-blue-light;
+    cursor: pointer;
   }
+}
+
+.gray-button {
+  margin-right: 8px;
+  background-color: #e8ecee;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px 9px;
+  color: $msp-blue;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  &:hover {
+    background-color: #edf1f3;
+    // box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.24);
+    color: $msp-blue-light;
+  }
+}

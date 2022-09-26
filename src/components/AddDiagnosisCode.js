@@ -1,19 +1,19 @@
 import { ModalHeader } from "./Shared/Header";
 import { useState } from "react";
 
-const AddProcedureCode = (props) => {
-    const [procedureCodesData, setProcedureCodesData] = useState({});
+const AddDiagnosisCode = (props) => {
+    const [diagnosisCodesData, setDiagnosisCodesData] = useState({});
 
 
   function handleSave() {
-    props.handleSave(procedureCodesData);
+    props.handleSave(diagnosisCodesData);
     props.closeModal();
   }
 
   return (
     <>
       <ModalHeader
-        centerTitle="Add Procedure Code(s)"
+        centerTitle="Add Diagnosis Code(s)"
         onClickRight={handleSave}
         onClickLeft={() => {
           console.log(props);
@@ -23,4 +23,4 @@ const AddProcedureCode = (props) => {
   );
 };
 
-export default AddProcedureCode;
+export default AddDiagnosisCode;

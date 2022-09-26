@@ -13,6 +13,8 @@ import AddOpposingCounsel from "./AddOpposingCounsel";
 import InternalCounselTable from "./InternalCounselTable";
 import ProcedureCodesTable from "./ProcedureCodesTable";
 import AddProcedureCode from "./AddProcedureCode";
+import DiagnosisCodesTable from "./DiagnosisCodesTable";
+import AddDiagnosisCode from "./AddDiagnosisCode";
 
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
@@ -55,14 +57,14 @@ const AddCase = (props) => {
   }, [caseInfoData]);
 
   function handleSave() {
-    if (checkFormFilled()) {
+    // if (checkFormFilled()) {
       setFormFilled(true);
       console.log(caseInfoData);
       console.log("save successful");
-      // navigate("/");
-    } else {
-      setFormFilled(false);
-    }
+      navigate("/");
+    // } else {
+    //   setFormFilled(false);
+    // }
   }
 
   return (
@@ -234,16 +236,16 @@ const AddCase = (props) => {
               label="End Date"
               handleChange={(d) => handleChange("docEndDate", d)}
             />
-            <p className="date-invalid-msg">
-              {caseInfoData.docStartDate &&
-              caseInfoData.docEndDate &&
-              !moment(caseInfoData.docStartDate).isBefore(
-                moment(caseInfoData.docEndDate)
-              )
-                ? "End date must be after start date."
-                : ""}
-            </p>
           </div>
+          <p className="date-invalid-msg">
+            {caseInfoData.docStartDate &&
+            caseInfoData.docEndDate &&
+            !moment(caseInfoData.docStartDate).isBefore(
+              moment(caseInfoData.docEndDate)
+            )
+              ? "End date must be after start date."
+              : ""}
+          </p>
         </Container>
       </section>
       <section id="procedure-codes" className="general-external-form">
@@ -273,7 +275,6 @@ const AddCase = (props) => {
               handleSave={(data) => setProcedureCodes([data])}
             />
           </Modal>
-          {console.log(`Procedure codes: ${procedureCodes}`)}
           {procedureCodes ? (
             <ProcedureCodesTable />
           ) : (
@@ -304,10 +305,15 @@ const AddCase = (props) => {
               setDiagnosisCodesModal(false);
             }}
           >
-            Content Pending.
+            <AddDiagnosisCode
+              closeModal={() => {
+                setDiagnosisCodesModal(false);
+              }}
+              handleSave={(data) => setDiagnosisCodes([data])}
+            />
           </Modal>
           {diagnosisCodes ? (
-            ""
+            <DiagnosisCodesTable />
           ) : (
             <>
               <hr />

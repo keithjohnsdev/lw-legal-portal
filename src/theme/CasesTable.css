@@ -1,0 +1,56 @@
+.cases-table {
+  display: block;
+}
+.cases-table h5 {
+  background-color: transparent;
+  font-weight: 400;
+  cursor: default;
+  font-size: 12px;
+}
+.cases-table h5.open {
+  font-weight: 600 !important;
+  color: #3BC86B;
+}
+.cases-table h5.closed {
+  font-weight: 600 !important;
+  color: #FB3156;
+}
+
+.header-row {
+  display: flex;
+  width: 100%;
+  background-color: #f6f8f8;
+  border-bottom: solid 1px #cfd4d7;
+}
+
+.header-col {
+  border-left: solid 1px #cfd4d7;
+  padding: 4px 20px 4px 12px;
+  display: flex;
+  width: 10%;
+  position: relative;
+  align-items: center;
+  min-width: 95px;
+}
+.header-col.medium {
+  width: 12%;
+}
+.header-col.long {
+  width: 18%;
+}
+
+.title-col {
+  border-left: none;
+  box-shadow: 5px 0px 4px rgba(49, 53, 55, 0.1607843137);
+  padding-left: 32px;
+}
+
+.vertical-dots-div {
+  padding: 4px 8px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+.vertical-dots-div:hover svg path {
+  fill: #000000;
+}/*# sourceMappingURL=CasesTable.css.map */

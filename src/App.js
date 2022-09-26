@@ -2,8 +2,7 @@ import "./theme";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Home from "./components/Home";
 import AddCase from "./components/AddCase";
-import AddOpposingCounsel from "./components/AddOpposingCounsel";
-import AddInternalCounsel from "./components/AddInternalCounsel";
+import Cases from "./components/Cases";
 
 function App() {
   return (

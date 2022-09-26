@@ -42,6 +42,40 @@ export const dummyProcedureCodesData = [
     code: "92626",
     description: "Auditory Evaluation"
   }
+];
+
+export const dummyDiagnosisCodesData = [
+  {
+    code: "92625",
+    description: "Tinnitus, bilateral"
+  },
+  {code: "92634",
+description: "Cooties, advanced stage"}
+]
+
+export const dummyCasesData = [
+  {
+    title: "Camp Lejeune",
+    defendant: "Department of Justice",
+    lawsuitType: "Tort",
+    jurisdiction: "Federal",
+    judge: "George Smith",
+    court: "E.D.N.C.",
+    docketNumber: "1234567890",
+    opposingCounsel: "2 Members",
+    caseStatus: "Open"
+  },
+  {
+    title: "CPAP",
+    defendant: "Phillips",
+    lawsuitType: "Tort",
+    jurisdiction: "Federal",
+    judge: "Maria Mendelson",
+    court: "W.D.PA.",
+    docketNumber: "8475492873",
+    opposingCounsel: "3 Members",
+    caseStatus: "Closed"
+  }
 ]
 
 export default dummyInternalCounselData;

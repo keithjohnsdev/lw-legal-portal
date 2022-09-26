@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: #ffffff;
   min-width: 860px;
+  overflow-y: auto;
 }
 
 .header {
@@ -21,7 +22,7 @@
 }
 .header h4 {
   font-weight: 600;
-  color: #1B93C5;
+  color: #1b93c5;
 }
 
 .header1-left {
@@ -47,7 +48,7 @@
   text-decoration: none;
 }
 .cases-link:visited {
-  color: #1B93C5;
+  color: #1b93c5;
 }
 
 .header1-right {
@@ -103,11 +104,12 @@
 }
 
 .blue-link {
-  color: #1B93C5;
+  color: #1b93c5;
   text-decoration: none;
   font-size: 14px;
   padding: 14px;
   outline-style: none;
+  cursor: pointer;
 }
 .blue-link:hover {
   color: #75cef5;
