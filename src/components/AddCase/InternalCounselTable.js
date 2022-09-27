@@ -1,6 +1,6 @@
-import FlexTable from "./Shared/FlexTable";
-import FlexTableRowProfile from "./Shared/FlexTableRowProfile";
-import { dummyInternalCounselData as data } from "../graphql/dummyData";
+import FlexTable from "../Shared/FlexTable";
+import FlexTableRowProfile from "../Shared/FlexTableRowProfile";
+import { dummyInternalCounselData as data } from "../../graphql/dummyData";
 
 const InternalCounselTable = (props) => {
   return (

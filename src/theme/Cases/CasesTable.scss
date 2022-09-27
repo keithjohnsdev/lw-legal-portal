@@ -1,0 +1,26 @@
+.cases-table {
+  position: relative;
+  margin-top: 48px;
+  overflow-y: auto;
+  // height: 1000px;
+  h5 {
+    background-color: transparent;
+    font-weight: 400;
+    cursor: default;
+    font-size: 12px;
+    &.open {
+        font-weight: 600 !important;
+        color: #3BC86B;
+    }
+    &.closed {
+        font-weight: 600 !important;
+        color: #FB3156;
+    }
+  }
+}
+
+.title-col {
+  border-left: none;
+  box-shadow: 5px 0px 4px #31353729;
+  padding-left: 32px;
+}

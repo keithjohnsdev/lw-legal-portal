@@ -1,13 +1,13 @@
-import FloatingInput from "./Shared/FloatingInput";
-import DropdownInput from "./Shared/DropdownInput";
-import { Header, Header2 } from "./Shared/Header";
+import FloatingInput from "../Shared/FloatingInput";
+import DropdownInput from "../Shared/DropdownInput";
+import { Header, Header2 } from "../Shared/Header";
 import { useEffect, useState } from "react";
-import Container from "./Shared/Container";
-import { Link, useNavigate } from "react-router-dom";
+import Container from "../Shared/Container";
+import { useNavigate } from "react-router-dom";
 import OpposingCounselTable from "./OpposingCounselTable";
 import moment from "moment";
-import DateDropdownInput from "./Shared/DateDropdownInput";
-import Modal from "./Shared/Modal";
+import DateDropdownInput from "../Shared/DateDropdownInput";
+import Modal from "../Shared/Modal";
 import AddInternalCounsel from "./AddInternalCounsel";
 import AddOpposingCounsel from "./AddOpposingCounsel";
 import InternalCounselTable from "./InternalCounselTable";
@@ -15,7 +15,6 @@ import ProcedureCodesTable from "./ProcedureCodesTable";
 import AddProcedureCode from "./AddProcedureCode";
 import DiagnosisCodesTable from "./DiagnosisCodesTable";
 import AddDiagnosisCode from "./AddDiagnosisCode";
-
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
   const [formFilled, setFormFilled] = useState(true);

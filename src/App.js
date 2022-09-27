@@ -1,8 +1,7 @@
 import "./theme";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import AddCase from "./components/AddCase";
-import Cases from "./components/Cases";
+import AddCase from "./components/AddCase/AddCase";
 
 function App() {
   return (

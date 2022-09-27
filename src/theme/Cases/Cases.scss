@@ -1,17 +1,11 @@
+@import "../App.scss";
 @import url("https://rsms.me/inter/inter.css");
-@import url("https://rsms.me/inter/inter.css");
-.App {
-  font-family: "Inter", sans-serif;
-  width: 100vw;
-  height: 100vh;
-  background-color: #ffffff;
-  min-width: 860px;
-  overflow-y: auto;
-}
 
 .cases-page {
   margin-top: 49px;
   font-family: "Inter", sans-serif;
+  font-size: 12px;
+  overflow-y: hidden;
 }
 
 .cases-toolbar {
@@ -20,6 +14,10 @@
   justify-content: space-between;
   align-items: center;
   height: 48px;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  background-color: #FFFFFF;
 }
 
 .cases-toolbar-left {
@@ -45,20 +43,10 @@
   width: 250px;
 }
 
-::-moz-placeholder {
-  color: #73787b;
-  opacity: 1;
-}
-
-:-ms-input-placeholder {
-  color: #73787b;
-  opacity: 1;
-}
-
 ::placeholder {
-  color: #73787b;
-  opacity: 1;
-}
+    color: #73787b;
+    opacity: 1;
+  }
 
 .filter {
   font-weight: 400;
@@ -66,8 +54,8 @@
 
 .cases-toolbar-right {
   align-items: center;
+  .lw-button {
+    font-size: 12px;
+    padding: 8px 16px 9px;
+  }
 }
-.cases-toolbar-right .lw-button {
-  font-size: 12px;
-  padding: 8px 16px 9px;
-}/*# sourceMappingURL=Cases.css.map */

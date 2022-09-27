@@ -1,14 +1,14 @@
 import { Header, Header1 } from "./Shared/Header";
 import Button from "./Shared/Button";
 import { useNavigate } from "react-router-dom";
-import Cases from "./Cases";
+import Cases from "./Cases/Cases";
 import { useState } from "react";
 
 const Home = (props) => {
   const [cases, setCases] = useState(true);
   const navigate = useNavigate();
   return (
-    <>
+    <div className="home">
       <Header>
         <Header1 />
       </Header>
@@ -24,7 +24,7 @@ const Home = (props) => {
         </p>
         <Button onClick={() => {navigate("/add-new-case")}}>+ Add New Case</Button>
       </div>}
-    </>
+    </div>
   );
 };
 

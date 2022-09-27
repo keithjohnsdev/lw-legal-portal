@@ -1,8 +1,8 @@
-import FloatingInput from "./Shared/FloatingInput";
-import DropdownInputSelectState from "./Shared/DropdownInputSelectState";
-import { ModalHeader } from "./Shared/Header";
+import FloatingInput from "../Shared/FloatingInput";
+import DropdownInputSelectState from "../Shared/DropdownInputSelectState";
+import { ModalHeader } from "../Shared/Header";
 import { useState } from "react";
-import Container from "./Shared/Container";
+import Container from "../Shared/Container";
 
 const AddOpposingCounsel = (props) => {
   const [opposingCounselData, setOpposingCounselData] = useState({});
