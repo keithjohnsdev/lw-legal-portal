@@ -1,7 +1,7 @@
 import { Header, Header1 } from "./Shared/Header";
 import Button from "./Shared/Button";
 import { useNavigate } from "react-router-dom";
-import Cases from "./Cases/Cases";
+import Cases from "./Cases";
 import { useState } from "react";
 
 const Home = (props) => {

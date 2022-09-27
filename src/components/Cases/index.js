@@ -1,7 +1,7 @@
 import { default as Button, GrayButton } from "../Shared/Button";
 import { useNavigate } from "react-router-dom";
 import {useRef} from 'react';
-import CasesTable from "./CasesTable";
+import Table from "./Table";
 
 const Cases = (props) => {
     const navigate = useNavigate();
@@ -44,7 +44,7 @@ const Cases = (props) => {
           <Button className="toolbar-button" onClick={() => navigate("/add-new-case")}>+ Add New Case</Button>
         </div>
       </div>
-      <CasesTable />
+      <Table />
     </div>
   );
 };
