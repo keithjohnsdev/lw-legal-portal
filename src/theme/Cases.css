@@ -29,11 +29,12 @@
 .search-div {
   display: flex;
   border: solid 1px #cfd4d7;
-  padding: 8px 9px;
+  padding: 8px 4px 8px 9px;
   border-radius: 4px;
   height: 32px;
   width: 280px;
   align-items: center;
+  cursor: text;
 }
 
 .search-input {
@@ -69,4 +70,4 @@
 .cases-toolbar-right .lw-button {
   font-size: 12px;
   padding: 8px 16px 9px;
-}/*# sourceMappingURL=CasesTable.css.map */
+}/*# sourceMappingURL=Cases.css.map */

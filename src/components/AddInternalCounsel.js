@@ -44,7 +44,7 @@ const AddInternalCounsel = (props) => {
       <ModalHeader
         centerTitle="Add Internal Counsel"
         onClickRight={handleSave}
-        onClickLeft={() => {console.log(props)}}
+        onClickLeft={() => {props.closeModal()}}
       />
       <section className="form-section modal-form">
         <Container>

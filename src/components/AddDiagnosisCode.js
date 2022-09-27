@@ -16,7 +16,7 @@ const AddDiagnosisCode = (props) => {
         centerTitle="Add Diagnosis Code(s)"
         onClickRight={handleSave}
         onClickLeft={() => {
-          console.log(props);
+          props.closeModal();
         }}
       />
     </>

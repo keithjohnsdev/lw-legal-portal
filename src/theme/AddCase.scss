@@ -75,13 +75,7 @@
     color: $error-color;
     font-size: 11px;
     position: absolute;
-    bottom: 90px;
-}
-
-@media only screen and (max-width: 859px) {
-    .date-invalid-msg {
-        bottom: 73px;
-    }
+    bottom: 0px;
 }
 
 .modal-form {

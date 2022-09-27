@@ -16,7 +16,7 @@ const AddProcedureCode = (props) => {
         centerTitle="Add Procedure Code(s)"
         onClickRight={handleSave}
         onClickLeft={() => {
-          console.log(props);
+          props.closeModal();
         }}
       />
     </>

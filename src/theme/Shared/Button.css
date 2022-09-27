@@ -35,6 +35,6 @@
   font-family: "Inter", sans-serif;
 }
 .gray-button:hover {
-  background-color: #edf1f3;
-  color: #56beeb;
+  background-color: rgb(221, 227, 230);
+  color: #1b93c5;
 }/*# sourceMappingURL=Button.css.map */

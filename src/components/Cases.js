@@ -1,14 +1,21 @@
 import { default as Button, GrayButton } from "./Shared/Button";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {useRef} from 'react';
 import CasesTable from "./CasesTable";
 
 const Cases = (props) => {
     const navigate = useNavigate();
+    const ref = useRef(null);
+
+    const focusInput = () => {
+      ref.current.focus();
+    };
+
   return (
     <div className="cases-page">
       <div className="cases-toolbar flex">
         <div className="cases-toolbar-left flex">
-          <div className="search-div">
+          <div className="search-div" onClick={focusInput}>
             <svg
               width="16"
               height="16"
@@ -28,7 +35,7 @@ const Cases = (props) => {
                 </clipPath>
               </defs>
             </svg>
-            <input className="search-input" placeholder="Search by name, defendant"></input>
+            <input className="search-input" placeholder="Search by name, defendant" ref={ref}></input>
           </div>
           <h5 className="filter blue-link">Filter</h5>
         </div>
