@@ -1,0 +1,7 @@
+9/29:
+
+almost got cases grid working exactly as desired. header sticks under the filter toolbar instead of stopping just beneath it.
+
+for tomorrow: try to control which container is doing the scrolling. if it's just the grid instead of the page, should stick to the top.
+
+also explore: is horizontal sticky possible? if so, make title column part of the grid and have it stick horizontally so it will scroll vertically with rest of grid.

@@ -1,20 +1,14 @@
 .cases-table-row {
-    display: flex;
     width: 100%;
     border-bottom: solid 1px #cfd4d7;
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 .cases-col {
     padding: 16px 20px 16px 12px;
     font-size: 12px;
     border-left: solid 1px #cfd4d7;
-    width: 10%;
     min-width: 95px;
-    &.medium {
-        width: 12%;
-    }
-    &.long {
-        width: 18%;
-    }
     &.title-col {
         padding-left: 32px;
         border-left: none;

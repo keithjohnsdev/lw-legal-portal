@@ -8,7 +8,7 @@ export const Header1 = (props) => {
   const navigate = useNavigate();
   return (
     <>
-        <div className="header1-left" onClick={() => {navigate("/")}}>
+        <div className="header1-left" onClick={props.onClick}>
           <img src={require("../../theme/assets/images/dash.png")} alt="" className="dash" />
           <Link to="/" className="cases-link">Cases</Link>
         </div>

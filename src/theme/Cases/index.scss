@@ -5,7 +5,26 @@
   margin-top: 49px;
   font-family: "Inter", sans-serif;
   font-size: 12px;
-  overflow-y: hidden;
+  height: 94.5vh;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+  }
+  &::-webkit-scrollbar:horizontal {
+    display: block;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(212, 212, 212);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track-piece:start {
+    margin-top: 48px;
+  }
+  &::-webkit-scrollbar-track-piece:horizontal:start {
+    margin-left: 226px;
+  }
 }
 
 .cases-toolbar {
@@ -17,7 +36,7 @@
   width: 100%;
   position: fixed;
   z-index: 10;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .cases-toolbar-left {
@@ -44,9 +63,9 @@
 }
 
 ::placeholder {
-    color: #73787b;
-    opacity: 1;
-  }
+  color: #73787b;
+  opacity: 1;
+}
 
 .filter {
   font-weight: 400;
@@ -54,6 +73,7 @@
 
 .cases-toolbar-right {
   align-items: center;
+  min-width: fit-content;
   .lw-button {
     font-size: 12px;
     padding: 8px 16px 9px;

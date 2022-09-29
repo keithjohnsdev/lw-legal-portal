@@ -1,18 +1,22 @@
 import { default as Button, GrayButton } from "../Shared/Button";
+import { Header, Header1 } from "../Shared/Header";
 import { useNavigate } from "react-router-dom";
-import {useRef} from 'react';
+import { useRef } from "react";
 import Table from "./Table";
 
 const Cases = (props) => {
-    const navigate = useNavigate();
-    const ref = useRef(null);
+  const navigate = useNavigate();
+  const ref = useRef(null);
 
-    const focusSearchInput = () => {
-      ref.current.focus();
-    };
+  const focusSearchInput = () => {
+    ref.current.focus();
+  };
 
   return (
     <div className="cases-page">
+      <Header>
+        <Header1 />
+      </Header>
       <div className="cases-toolbar flex">
         <div className="cases-toolbar-left flex">
           <div className="search-div" onClick={focusSearchInput}>
@@ -35,13 +39,22 @@ const Cases = (props) => {
                 </clipPath>
               </defs>
             </svg>
-            <input className="search-input" placeholder="Search by name, defendant" ref={ref}></input>
+            <input
+              className="search-input"
+              placeholder="Search by name, defendant"
+              ref={ref}
+            ></input>
           </div>
           <h5 className="filter blue-link">Filter</h5>
         </div>
         <div className="cases-toolbar-right flex">
           <GrayButton>Customize</GrayButton>
-          <Button className="toolbar-button" onClick={() => navigate("/add-new-case")}>+ Add New Case</Button>
+          <Button
+            className="toolbar-button"
+            onClick={() => navigate("/add-new-case")}
+          >
+            + Add New Case
+          </Button>
         </div>
       </div>
       <Table />

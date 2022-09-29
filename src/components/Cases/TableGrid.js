@@ -1,16 +1,26 @@
 import { dummyCasesData } from "../../graphql/dummyData";
+import TableRow from "./TableRow";
 
-const CasesTableGrid = (props) => {
-  const titleArray = ["Defendant", "Lawsuit Type", "Jurisdiction", "Judge", "Court", "Docket No.", "Opposing Counsel", "Case Status"];
+const TableGrid = (props) => {
+  const titleArray = [
+    "Defendant",
+    "Lawsuit Type",
+    "Jurisdiction",
+    "Judge",
+    "Court",
+    "Docket No.",
+    "Opposing Counsel",
+    "Case Status",
+  ];
 
   return (
     <div className="cases-grid">
-      <div className="header-row-div">
-        <div className="header-row flex">
-          {titleArray.map((title, index) => {
-            return (<div className="header-col" key={index}>
-              <h5>{title}</h5>
-              <div className="vertical-dots-div">
+      {titleArray.map((title, index) => {
+        return (
+          <div className="header-col" key={`${index}a`}>
+            <h5>
+              {title}{" "}
+              <span className="vertical-dots-div">
                 <svg
                   width="4"
                   height="12"
@@ -23,13 +33,43 @@ const CasesTableGrid = (props) => {
                     fill="#73787B"
                   />
                 </svg>
-              </div>
-            </div>);
-          })}
-        </div>
-      </div>
+              </span>
+            </h5>
+          </div>
+        );
+      })}
+      {dummyCasesData.map((c, index) => {
+        return (
+          <>
+            <div className="case-col" key={`${index}b`}>
+              {c.defendant}
+            </div>
+            <div className="case-col" key={`${index}c`}>
+              {c.lawsuitType}
+            </div>
+            <div className="case-col" key={`${index}d`}>
+              {c.jurisdiction}
+            </div>
+            <div className="case-col" key={`${index}e`}>
+              {c.judge}
+            </div>
+            <div className="case-col" key={`${index}f`}>
+              {c.court}
+            </div>
+            <div className="case-col" key={`${index}g`}>
+              {c.docketNumber}
+            </div>
+            <div className="case-col" key={`${index}h`}>
+              {c.opposingCounsel}
+            </div>
+            <div className="case-col" key={`${index}i`}>
+              {c.caseStatus}
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 };
 
-export default CasesTableGrid;
+export default TableGrid;

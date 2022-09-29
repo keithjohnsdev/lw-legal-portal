@@ -1,6 +1,6 @@
 import { dummyCasesData } from "../../graphql/dummyData";
 
-const CasesTableTitleColumn = (props) => {
+const TableTitleColumn = (props) => {
 
   return (
     <div className="cases-title-col">
@@ -18,4 +18,4 @@ const CasesTableTitleColumn = (props) => {
   );
 };
 
-export default CasesTableTitleColumn;
+export default TableTitleColumn;
