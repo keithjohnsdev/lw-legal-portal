@@ -15,3 +15,4 @@ import "./Cases/Table.scss";
 import "./Cases/TableRow.scss";
 import "./Cases/TableTitleColumn.scss";
 import "./Cases/TableGrid.scss";
+import "./Cases/Table2.scss";

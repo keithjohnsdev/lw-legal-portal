@@ -2,44 +2,64 @@
 @import url("https://rsms.me/inter/inter.css");
 
 .cases-page {
-  margin-top: 49px;
   font-family: "Inter", sans-serif;
   font-size: 12px;
-  height: 94.5vh;
-  overflow: auto;
-  &::-webkit-scrollbar {
-    display: block;
-    width: 10px;
-  }
-  &::-webkit-scrollbar:horizontal {
-    display: block;
-    height: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgb(212, 212, 212);
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-track-piece:start {
-    margin-top: 48px;
-  }
-  &::-webkit-scrollbar-track-piece:horizontal:start {
-    margin-left: 226px;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
+
+
+
+
+
+
+
+
+// .cases-page {
+//   margin-top: 49px;
+//   font-family: "Inter", sans-serif;
+//   font-size: 12px;
+//   height: 94.5vh;
+//   overflow: auto;
+//   &::-webkit-scrollbar {
+//     display: block;
+//     width: 10px;
+//   }
+//   &::-webkit-scrollbar:horizontal {
+//     display: block;
+//     height: 10px;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background-color: rgb(212, 212, 212);
+//     border-radius: 5px;
+//   }
+//   &::-webkit-scrollbar-track-piece:start {
+//     margin-top: 48px;
+//   }
+//   &::-webkit-scrollbar-track-piece:horizontal:start {
+//     margin-left: 226px;
+//   }
+// }
+
 .cases-toolbar {
+  display: flex;
+  flex: 0 0 48px;
   border-bottom: solid 1px #cfd4d7;
-  padding: 9px 16px;
+  padding: 0px 16px;
   justify-content: space-between;
   align-items: center;
-  height: 48px;
   width: 100%;
-  position: fixed;
-  z-index: 10;
   background-color: #ffffff;
+  min-width: fit-content;
+  white-space: nowrap;
+  .lw-button {
+    font-size: 12px;
+  }
 }
 
 .cases-toolbar-left {
+  display: flex;
   align-items: center;
 }
 

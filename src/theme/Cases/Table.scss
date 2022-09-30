@@ -1,24 +1,94 @@
 .cases-table {
-  position: relative;
-  margin-top: 48px;
-  h5 {
-    background-color: transparent;
-    font-weight: 400;
-    cursor: default;
-    font-size: 12px;
-    &.open {
-        font-weight: 600 !important;
-        color: #3BC86B;
-    }
-    &.closed {
-        font-weight: 600 !important;
-        color: #FB3156;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  cursor: default;
+}
+
+.cases-header-row {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 28px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.header-cell {
+  background-color: #f6f8f8;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+  min-width: fit-content;
+  white-space: nowrap;
+  border-left: solid 1px #CFD4D7;
+  border-bottom: solid 1px #CFD4D7;
+}
+
+.title-column {
+  display: flex;
+  padding-left: 32px;
+  min-width: 224px;
+  box-shadow: 5px 0px 3px #31353729;
+  height: 100%;
+  z-index: 3;
+  position: sticky;
+  left: 0;
+  align-items: center;
+  border-bottom: solid 1px #CFD4D7;
+  background-color: #ffffff;
+}
+
+.corner-cell {
+  background-color: #f6f8f8;
+  display: flex;
+  padding-left: 32px;
+  min-width: 224px;
+  flex: 0 0;
+  align-items: center;
+  border-bottom: solid 1px #CFD4D7;
+  box-shadow: 5px 0px 3px #31353729;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.vertical-dots-div {
+  padding: 5px 10px 3px 16px;
+  cursor: pointer;
+  &:hover {
+    svg path {
+      fill: #000000;
     }
   }
 }
 
-.title-col {
-  border-left: none;
-  box-shadow: 5px 0px 4px #31353729;
-  padding-left: 32px;
-}
+// .cases-table {
+//   position: relative;
+//   margin-top: 48px;
+//   h5 {
+//     background-color: transparent;
+//     font-weight: 400;
+//     cursor: default;
+//     font-size: 12px;
+//     &.open {
+//         font-weight: 600 !important;
+//         color: #3BC86B;
+//     }
+//     &.closed {
+//         font-weight: 600 !important;
+//         color: #FB3156;
+//     }
+//   }
+// }
+
+// .title-col {
+//   border-left: none;
+//   box-shadow: 5px 0px 4px #31353729;
+//   padding-left: 32px;
+// }

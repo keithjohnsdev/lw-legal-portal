@@ -8,7 +8,7 @@ const Home = (props) => {
   const [cases, setCases] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="home">
+    <>
       {cases ? (
         <Cases />
       ) : (
@@ -36,7 +36,7 @@ const Home = (props) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };
 

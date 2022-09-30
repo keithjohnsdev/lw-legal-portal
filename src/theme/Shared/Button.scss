@@ -9,6 +9,8 @@
   color: white;
   border: none;
   font-family: "Inter", sans-serif;
+  min-width: fit-content;
+  white-space: nowrap;
   &:hover {
     background-color: $msp-blue-light;
     cursor: pointer;
@@ -20,6 +22,7 @@
   background-color: #e8ecee;
   border: none;
   border-radius: 4px;
+  font-size: 12px;
   padding: 8px 16px 9px;
   color: $msp-blue;
   font-weight: 600;

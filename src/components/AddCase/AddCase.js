@@ -57,17 +57,17 @@ const AddCase = (props) => {
 
   function handleSave() {
     // if (checkFormFilled()) {
-      setFormFilled(true);
-      console.log(caseInfoData);
-      console.log("save successful");
-      navigate("/");
+    setFormFilled(true);
+    console.log(caseInfoData);
+    console.log("save successful");
+    navigate("/");
     // } else {
     //   setFormFilled(false);
     // }
   }
 
   return (
-    <>
+    <div className="add-case-page fullscreen">
       <Header>
         <Header2
           centerTitle="Add New Case"
@@ -80,7 +80,7 @@ const AddCase = (props) => {
           </p>
         )}
       </Header>
-      <section className="form-section">
+      <div className="add-case-view">
         <div className="case-info">
           <Container>
             <h3>Case Information</h3>
@@ -145,215 +145,216 @@ const AddCase = (props) => {
             </div>
           </Container>
         </div>
-      </section>
-      <section id="internal-counsel" className="general-external-form">
-        <Container>
-          <div className="section-title">
-            <h3>Internal Counsel</h3>
-            <h5
-              className="external-form-link"
-              onClick={() => {
-                setInternalCounselModal(true);
-              }}
-            >
-              Select Internal Counsel
-            </h5>
-          </div>
-          <Modal
-            show={internalCounselModal}
-            onBackdropClick={() => {
-              setInternalCounselModal(false);
-            }}
-          >
-            <AddInternalCounsel
-              closeModal={() => {
+
+        <section id="internal-counsel" className="general-external-form">
+          <Container>
+            <div className="section-title">
+              <h3>Internal Counsel</h3>
+              <h5
+                className="external-form-link"
+                onClick={() => {
+                  setInternalCounselModal(true);
+                }}
+              >
+                Select Internal Counsel
+              </h5>
+            </div>
+            <Modal
+              show={internalCounselModal}
+              onBackdropClick={() => {
                 setInternalCounselModal(false);
               }}
-              handleSave={(data) => setInternalCounsel([data])}
-            />
-          </Modal>
-          {internalCounsel ? (
-            <InternalCounselTable />
-          ) : (
-            <>
-              <hr />
-              <p className="no-entry">
-                No internal counsel members currently listed.
-              </p>
-            </>
-          )}
-        </Container>
-      </section>
-      <section id="opposing-counsel" className="general-external-form">
-        <Container>
-          <div className="section-title">
-            <h3>Opposing Counsel</h3>
-            <h5
-              className="external-form-link"
-              onClick={() => {
-                setOpposingCounselModal(true);
-              }}
             >
-              + Add Opposing Counsel
-            </h5>
-          </div>
-          <Modal
-            show={opposingCounselModal}
-            onBackdropClick={() => {
-              setOpposingCounselModal(false);
-            }}
-          >
-            <AddOpposingCounsel
-              closeModal={() => {
+              <AddInternalCounsel
+                closeModal={() => {
+                  setInternalCounselModal(false);
+                }}
+                handleSave={(data) => setInternalCounsel([data])}
+              />
+            </Modal>
+            {internalCounsel ? (
+              <InternalCounselTable />
+            ) : (
+              <>
+                <hr />
+                <p className="no-entry">
+                  No internal counsel members currently listed.
+                </p>
+              </>
+            )}
+          </Container>
+        </section>
+        <section id="opposing-counsel" className="general-external-form">
+          <Container>
+            <div className="section-title">
+              <h3>Opposing Counsel</h3>
+              <h5
+                className="external-form-link"
+                onClick={() => {
+                  setOpposingCounselModal(true);
+                }}
+              >
+                + Add Opposing Counsel
+              </h5>
+            </div>
+            <Modal
+              show={opposingCounselModal}
+              onBackdropClick={() => {
                 setOpposingCounselModal(false);
               }}
-              handleSave={(data) => setOpposingCounsel([data])}
-            />
-          </Modal>
-          {opposingCounsel ? (
-            <OpposingCounselTable />
-          ) : (
-            <>
-              <hr />
-              <p className="no-entry">
-                No opposing counsel members currently listed.
-              </p>
-            </>
-          )}
-        </Container>
-      </section>
-      <section id="document-dates" className="general-external-form">
-        <Container>
-          <h3 style={{ padding: "5px 0 33px 0" }}>Document Dates</h3>
-          <div className="date-dropdown-div">
-            <DateDropdownInput
-              label="Start Date"
-              handleChange={(d) => handleChange("docStartDate", d)}
-            />
-            <div style={{ width: "70px" }}></div>
-            <DateDropdownInput
-              label="End Date"
-              handleChange={(d) => handleChange("docEndDate", d)}
-            />
-          </div>
-          <p className="date-invalid-msg">
-            {caseInfoData.docStartDate &&
-            caseInfoData.docEndDate &&
-            !moment(caseInfoData.docStartDate).isBefore(
-              moment(caseInfoData.docEndDate)
-            )
-              ? "End date must be after start date."
-              : ""}
-          </p>
-        </Container>
-      </section>
-      <section id="procedure-codes" className="general-external-form">
-        <Container>
-          <div className="section-title">
-            <h3>Procedure Codes</h3>
-            <h5
-              to="/"
-              className="external-form-link"
-              onClick={() => {
-                setProcedureCodesModal(true);
-              }}
             >
-              + Add Procedure Code(s)
-            </h5>
-          </div>
-          <Modal
-            show={procedureCodesModal}
-            onBackdropClick={() => {
-              setProcedureCodesModal(false);
-            }}
-          >
-            <AddProcedureCode
-              closeModal={() => {
+              <AddOpposingCounsel
+                closeModal={() => {
+                  setOpposingCounselModal(false);
+                }}
+                handleSave={(data) => setOpposingCounsel([data])}
+              />
+            </Modal>
+            {opposingCounsel ? (
+              <OpposingCounselTable />
+            ) : (
+              <>
+                <hr />
+                <p className="no-entry">
+                  No opposing counsel members currently listed.
+                </p>
+              </>
+            )}
+          </Container>
+        </section>
+        <section id="document-dates" className="general-external-form">
+          <Container>
+            <h3 style={{ padding: "5px 0 33px 0" }}>Document Dates</h3>
+            <div className="date-dropdown-div">
+              <DateDropdownInput
+                label="Start Date"
+                handleChange={(d) => handleChange("docStartDate", d)}
+              />
+              <div style={{ width: "70px" }}></div>
+              <DateDropdownInput
+                label="End Date"
+                handleChange={(d) => handleChange("docEndDate", d)}
+              />
+            </div>
+            <p className="date-invalid-msg">
+              {caseInfoData.docStartDate &&
+              caseInfoData.docEndDate &&
+              !moment(caseInfoData.docStartDate).isBefore(
+                moment(caseInfoData.docEndDate)
+              )
+                ? "End date must be after start date."
+                : ""}
+            </p>
+          </Container>
+        </section>
+        <section id="procedure-codes" className="general-external-form">
+          <Container>
+            <div className="section-title">
+              <h3>Procedure Codes</h3>
+              <h5
+                to="/"
+                className="external-form-link"
+                onClick={() => {
+                  setProcedureCodesModal(true);
+                }}
+              >
+                + Add Procedure Code(s)
+              </h5>
+            </div>
+            <Modal
+              show={procedureCodesModal}
+              onBackdropClick={() => {
                 setProcedureCodesModal(false);
               }}
-              handleSave={(data) => setProcedureCodes([data])}
-            />
-          </Modal>
-          {procedureCodes ? (
-            <ProcedureCodesTable />
-          ) : (
-            <>
-              <hr />
-              <p className="no-entry">No procedure codes currently listed.</p>
-            </>
-          )}
-        </Container>
-      </section>
-      <section id="diagnosis-codes" className="general-external-form">
-        <Container>
-          <div className="section-title">
-            <h3>Diagnosis Codes</h3>
-            <h5
-              to="/"
-              className="external-form-link"
-              onClick={() => {
-                setDiagnosisCodesModal(true);
-              }}
             >
-              + Add Diagnosis Code(s)
-            </h5>
-          </div>
-          <Modal
-            show={diagnosisCodesModal}
-            onBackdropClick={() => {
-              setDiagnosisCodesModal(false);
-            }}
-          >
-            <AddDiagnosisCode
-              closeModal={() => {
+              <AddProcedureCode
+                closeModal={() => {
+                  setProcedureCodesModal(false);
+                }}
+                handleSave={(data) => setProcedureCodes([data])}
+              />
+            </Modal>
+            {procedureCodes ? (
+              <ProcedureCodesTable />
+            ) : (
+              <>
+                <hr />
+                <p className="no-entry">No procedure codes currently listed.</p>
+              </>
+            )}
+          </Container>
+        </section>
+        <section id="diagnosis-codes" className="general-external-form">
+          <Container>
+            <div className="section-title">
+              <h3>Diagnosis Codes</h3>
+              <h5
+                to="/"
+                className="external-form-link"
+                onClick={() => {
+                  setDiagnosisCodesModal(true);
+                }}
+              >
+                + Add Diagnosis Code(s)
+              </h5>
+            </div>
+            <Modal
+              show={diagnosisCodesModal}
+              onBackdropClick={() => {
                 setDiagnosisCodesModal(false);
               }}
-              handleSave={(data) => setDiagnosisCodes([data])}
-            />
-          </Modal>
-          {diagnosisCodes ? (
-            <DiagnosisCodesTable />
-          ) : (
-            <>
-              <hr />
-              <p className="no-entry">No diagnosis codes currently listed.</p>
-            </>
-          )}
-        </Container>
-      </section>
-      <section id="NDC-codes" className="general-external-form">
-        <Container>
-          <div className="section-title">
-            <h3>NDC Codes</h3>
-            <h5
-              to="/"
-              className="external-form-link"
-              onClick={() => {
-                setNDCCodesModal(true);
+            >
+              <AddDiagnosisCode
+                closeModal={() => {
+                  setDiagnosisCodesModal(false);
+                }}
+                handleSave={(data) => setDiagnosisCodes([data])}
+              />
+            </Modal>
+            {diagnosisCodes ? (
+              <DiagnosisCodesTable />
+            ) : (
+              <>
+                <hr />
+                <p className="no-entry">No diagnosis codes currently listed.</p>
+              </>
+            )}
+          </Container>
+        </section>
+        <section id="NDC-codes" className="general-external-form">
+          <Container>
+            <div className="section-title">
+              <h3>NDC Codes</h3>
+              <h5
+                to="/"
+                className="external-form-link"
+                onClick={() => {
+                  setNDCCodesModal(true);
+                }}
+              >
+                + Add NDC Code(s)
+              </h5>
+            </div>
+            <Modal
+              show={NDCCodesModal}
+              onBackdropClick={() => {
+                setNDCCodesModal(false);
               }}
             >
-              + Add NDC Code(s)
-            </h5>
-          </div>
-          <Modal
-            show={NDCCodesModal}
-            onBackdropClick={() => {
-              setNDCCodesModal(false);
-            }}
-          >
-            Content Pending.
-          </Modal>
-          {NDCCodes ? (
-            ""
-          ) : (
-            <>
-              <hr />
-              <p className="no-entry">No NDC codes currently listed.</p>
-            </>
-          )}
-        </Container>
-      </section>
-    </>
+              Content Pending.
+            </Modal>
+            {NDCCodes ? (
+              ""
+            ) : (
+              <>
+                <hr />
+                <p className="no-entry">No NDC codes currently listed.</p>
+              </>
+            )}
+          </Container>
+        </section>
+      </div>
+    </div>
   );
 };
 
