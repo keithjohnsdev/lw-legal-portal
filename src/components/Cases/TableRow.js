@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
+
 const TableRow = (props) => {
+  const navigate = useNavigate();
+
   return (
     <div className="whole-row">
       <div className="title-column">{props.col1}</div>

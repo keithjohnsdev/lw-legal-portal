@@ -2,13 +2,13 @@ import { default as Button, GrayButton } from "../Shared/Button";
 import { Header, Header1 } from "../Shared/Header";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import Table2 from "./Table2";
+import Table from "./Table";
 
 const Cases = (props) => {
   const navigate = useNavigate();
-    const ref = useRef(null);
+  const ref = useRef(null);
 
-    const focusSearchInput = () => {
+  const focusSearchInput = () => {
     ref.current.focus();
   };
 
@@ -18,9 +18,9 @@ const Cases = (props) => {
         <Header1 />
       </Header>
       <div className="cases-toolbar">
-         <div className="cases-toolbar-left">
-           <div className="search-div" onClick={focusSearchInput}>
-             <svg
+        <div className="cases-toolbar-left">
+          <div className="search-div" onClick={focusSearchInput}>
+            <svg
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -47,7 +47,7 @@ const Cases = (props) => {
           </div>
           <h5 className="filter blue-link">Filter</h5>
         </div>
-        <div className="cases-toolbar-right flex">
+        <div className="cases-toolbar-right">
           <GrayButton>Customize</GrayButton>
           <Button
             className="toolbar-button"
@@ -57,17 +57,12 @@ const Cases = (props) => {
           </Button>
         </div>
       </div>
-      <Table2 />
+      <Table />
     </div>
   );
-}
+};
 
 export default Cases;
-
-
-
-
-
 
 // const Cases = (props) => {
 //   const navigate = useNavigate();

@@ -14,16 +14,28 @@ const DateDropdownInput = (props) => {
   for (var i = 1900; i <= moment().year(); i++) {
     yearOptions.push({ label: i.toString() });
   }
+  const dayArrayInit = [...Array(32).keys()].slice(1);
+  const dayObjectArrayInit = [];
+  dayArrayInit.forEach((day) => dayObjectArrayInit.push({label: day.toString()}))
+  useEffect(() => {
+    setDayOptions(dayArrayInit.map((day) => ({ "label": day.toString() })));
+  }, [])
 
   function onChangeDate(e, unit) {
     if (unit === "month") {
       setMonth(e.target.value);
       let numOfDays = moment().month(e.target.value).daysInMonth();
       setDayDropdownOptions(numOfDays);
+      if (day && day > numOfDays) {
+        setDay(null);
+      }
     } else if (unit === "year") {
       setYear(e.target.value);
       let numOfDays = moment().year(e.target.value).daysInMonth();
       setDayDropdownOptions(numOfDays);
+      if (day && day > numOfDays) {
+        setDay(null);
+      }
     } else {
       setDay(e.target.value);
     }

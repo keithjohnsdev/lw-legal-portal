@@ -4,6 +4,18 @@
   width: 100%;
   overflow: auto;
   cursor: default;
+  &::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+  }
+  &::-webkit-scrollbar:horizontal {
+    display: block;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(212, 212, 212);
+    border-radius: 5px;
+  }
 }
 
 .cases-header-row {
@@ -41,6 +53,8 @@
   align-items: center;
   border-bottom: solid 1px #CFD4D7;
   background-color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .corner-cell {
@@ -67,28 +81,3 @@
     }
   }
 }
-
-// .cases-table {
-//   position: relative;
-//   margin-top: 48px;
-//   h5 {
-//     background-color: transparent;
-//     font-weight: 400;
-//     cursor: default;
-//     font-size: 12px;
-//     &.open {
-//         font-weight: 600 !important;
-//         color: #3BC86B;
-//     }
-//     &.closed {
-//         font-weight: 600 !important;
-//         color: #FB3156;
-//     }
-//   }
-// }
-
-// .title-col {
-//   border-left: none;
-//   box-shadow: 5px 0px 4px #31353729;
-//   padding-left: 32px;
-// }

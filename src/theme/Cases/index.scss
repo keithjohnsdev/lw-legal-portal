@@ -6,41 +6,8 @@
   font-size: 12px;
   display: flex;
   flex-direction: column;
+  
 }
-
-
-
-
-
-
-
-
-
-// .cases-page {
-//   margin-top: 49px;
-//   font-family: "Inter", sans-serif;
-//   font-size: 12px;
-//   height: 94.5vh;
-//   overflow: auto;
-//   &::-webkit-scrollbar {
-//     display: block;
-//     width: 10px;
-//   }
-//   &::-webkit-scrollbar:horizontal {
-//     display: block;
-//     height: 10px;
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background-color: rgb(212, 212, 212);
-//     border-radius: 5px;
-//   }
-//   &::-webkit-scrollbar-track-piece:start {
-//     margin-top: 48px;
-//   }
-//   &::-webkit-scrollbar-track-piece:horizontal:start {
-//     margin-left: 226px;
-//   }
-// }
 
 .cases-toolbar {
   display: flex;
@@ -92,6 +59,7 @@
 }
 
 .cases-toolbar-right {
+  display: flex;
   align-items: center;
   min-width: fit-content;
   .lw-button {
