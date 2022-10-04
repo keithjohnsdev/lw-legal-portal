@@ -1,11 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Header = (props) => {
   return <div className="header">{props.children}</div>;
 };
 
 export const Header1 = (props) => {
-  const navigate = useNavigate();
   return (
     <>
         <div className="header1-left" onClick={props.onClick}>

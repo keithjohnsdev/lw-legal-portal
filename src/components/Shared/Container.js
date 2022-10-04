@@ -6,3 +6,10 @@ const Container = props => {
 }
 
 export default Container;
+
+export const Container2 = props => {
+
+    return (
+        <div className="container2">{props.children}</div>
+    );
+}

@@ -5,7 +5,7 @@ const TableRow = (props) => {
   const navigate = useNavigate();
 
   return (
-    <div className="whole-row">
+    <div className="whole-row" onClick={() => navigate("/case-details")}>
       <div className="title-column">{props.col1}</div>
       <div className="case-info-row">
         <div className="cases-col col2"><p className="cell-text">{props.col2}</p></div>

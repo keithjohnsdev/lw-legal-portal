@@ -1,6 +1,6 @@
 import FloatingInput from "../Shared/FloatingInput";
 import DropdownInputSelectState from "../Shared/DropdownInputSelectState";
-import { ModalHeader } from "../Shared/Header";
+import { ModalHeader } from "../Shared/Headers";
 import { useState } from "react";
 import Container from "../Shared/Container";
 

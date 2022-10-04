@@ -1,0 +1,26 @@
+.case-details-page {
+    display: flex;
+    flex-direction: column;
+    min-width: 860px;
+}
+
+.case-details {
+    padding-top: 40px;
+    border-bottom: solid 1px #CFD4D7;
+    & h3 {
+        padding-bottom: 33px;
+    }
+    & .info-div {
+        width: 30%;
+        min-width: fit-content;
+        white-space: nowrap;
+        padding-bottom: 40px;
+        & p {
+            font-size: 12px;
+        }
+        & .info-p {
+            font-weight: 600;
+            margin-top: 6px;
+        }
+    }
+}

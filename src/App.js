@@ -2,7 +2,8 @@ import "./theme";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import AddCase from "./components/AddCase/AddCase";
-import CaseDetails from "./components/CaseDetails/CaseDetails";
+import CaseDetails from "./components/CaseDetails/index";
+import Clients from "./components/CaseDetails/Clients";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/add-new-case" element={<AddCase />}/>
         <Route path="/case-details" element={<CaseDetails />}/>
+        <Route path="/clients" element={<Clients />}/>
       </Routes>
     </div>
   );

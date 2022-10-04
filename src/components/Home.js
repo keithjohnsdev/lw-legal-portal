@@ -1,4 +1,4 @@
-import { Header, Header1 } from "./Shared/Header";
+import { Header, Header1 } from "./Shared/Headers";
 import Button from "./Shared/Button";
 import { useNavigate } from "react-router-dom";
 import Cases from "./Cases";

@@ -1,4 +1,4 @@
-import { ModalHeader } from "../Shared/Header";
+import { ModalHeader } from "../Shared/Headers";
 import { useState } from "react";
 
 const AddDiagnosisCode = (props) => {

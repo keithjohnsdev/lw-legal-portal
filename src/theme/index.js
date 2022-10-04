@@ -13,3 +13,6 @@ import "./Shared/FlexTable.scss";
 import "./Cases/index.scss";
 import "./Cases/Table.scss";
 import "./Cases/TableRow.scss";
+import "./CaseDetails/CaseDetails.scss";
+import "./CaseDetails/CaseDetailsHeaders.scss";
+import "./CaseDetails/ClaimMetrics.scss";

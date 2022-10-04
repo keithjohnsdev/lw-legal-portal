@@ -1,6 +1,6 @@
 import FloatingInput from "../Shared/FloatingInput";
 import DropdownInput from "../Shared/DropdownInput";
-import { Header, Header2 } from "../Shared/Header";
+import { Header, Header2 } from "../Shared/Headers";
 import { useEffect, useState } from "react";
 import Container from "../Shared/Container";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,7 @@ import ProcedureCodesTable from "./ProcedureCodesTable";
 import AddProcedureCode from "./AddProcedureCode";
 import DiagnosisCodesTable from "./DiagnosisCodesTable";
 import AddDiagnosisCode from "./AddDiagnosisCode";
+
 const AddCase = (props) => {
   const [caseInfoData, setCaseInfoData] = useState({});
   const [formFilled, setFormFilled] = useState(true);

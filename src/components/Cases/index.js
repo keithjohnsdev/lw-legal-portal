@@ -1,5 +1,5 @@
 import { default as Button, GrayButton } from "../Shared/Button";
-import { Header, Header1 } from "../Shared/Header";
+import { Header, Header1 } from "../Shared/Headers";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import Table from "./Table";
