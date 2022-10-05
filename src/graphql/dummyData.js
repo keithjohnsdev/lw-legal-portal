@@ -8,7 +8,7 @@ export const dummyInternalCounselData = [
     state: "FL",
     street: "11100 SW 61st Ct.",
     zip: "12321",
-    role: "Attorney"
+    role: "Attorney",
   },
   {
     city: "Albequerque",
@@ -19,7 +19,7 @@ export const dummyInternalCounselData = [
     state: "NM",
     street: "1254 Wallaby Way",
     zip: "53847",
-    role: "Paralegal"
+    role: "Paralegal",
   },
 ];
 
@@ -33,25 +33,24 @@ export const dummyOpposingCounselData = [
     state: "MD",
     street: "555 Cherry St.",
     zip: "20192",
-    role: "Attorney"
-  }
+    role: "Attorney",
+  },
 ];
 
 export const dummyProcedureCodesData = [
   {
     code: "92626",
-    description: "Auditory Evaluation"
-  }
+    description: "Auditory Evaluation",
+  },
 ];
 
 export const dummyDiagnosisCodesData = [
   {
     code: "92625",
-    description: "Tinnitus, bilateral"
+    description: "Tinnitus, bilateral",
   },
-  {code: "92634",
-description: "Cooties, advanced stage"}
-]
+  { code: "92634", description: "Cooties, advanced stage" },
+];
 
 export const dummyCasesData = [
   {
@@ -63,7 +62,7 @@ export const dummyCasesData = [
     court: "E.D.N.C.",
     docketNumber: "1234567890",
     opposingCounsel: "2 Members",
-    caseStatus: "Open"
+    caseStatus: "Open",
   },
   {
     title: "CPAP",
@@ -74,9 +73,9 @@ export const dummyCasesData = [
     court: "W.D.PA.",
     docketNumber: "8475492873",
     opposingCounsel: "3 Members",
-    caseStatus: "Closed"
-  }
-]
+    caseStatus: "Closed",
+  },
+];
 
 export const dummyClaimMetricsData = {
   totalClaims: 1124895,
@@ -86,7 +85,37 @@ export const dummyClaimMetricsData = {
   totalLawsuitsFiled: 875488,
   medRecordsMissing: 118400,
   milRecordsMissing: 56789,
-  totalDamagesBil: 357.3
+  totalDamagesBil: 357.3,
+};
+
+export const dummyBarGraphsData = {
+  commonClaimsSubmitted: [
+    {
+      name: "Camp Lejeune",
+      numClaims: 83679,
+      percentage: 100,
+    },
+    {
+      name: "Hearing Loss",
+      numClaims: 21232,
+      percentage: 9,
+    },
+    {
+      name: "Tinnitus",
+      numClaims: 11240,
+      percentage: 7,
+    },
+    {
+      name: "PTS",
+      numClaims: 4995,
+      percentage: 4,
+    },
+    {
+      name: "Scars, General",
+      numClaims: 2498,
+      percentage: 2,
+    },
+  ],
 };
 
 export default dummyInternalCounselData;

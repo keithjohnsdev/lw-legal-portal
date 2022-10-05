@@ -5,8 +5,10 @@
   align-items: center;
   cursor: pointer;
   &:hover {
-    background-color: #f8fafa;
     .title-column {
+      background-color: #f8fafa;
+    }
+    .cases-col {
       background-color: #f8fafa;
     }
   }

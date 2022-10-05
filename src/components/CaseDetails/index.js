@@ -1,13 +1,13 @@
 import { Header, Header1 } from "../Shared/Headers";
 import { CaseDetailsHeader1, CaseDetailsHeader2 } from "./CaseDetailsHeaders";
 import {Container2} from "../Shared/Container";
-import { dummyCasesData, dummyClaimMetricsData } from "../../graphql/dummyData";
+import { dummyCasesData } from "../../graphql/dummyData";
 import ClaimMetrics from "./ClaimMetrics";
 
 const CaseDetails = () => {
 
   return (
-    <div className="case-details-page fullscreen">
+    <div className="case-details-page">
       <Header>
         <Header1 />
       </Header>
@@ -51,8 +51,9 @@ const CaseDetails = () => {
             </div>
           </div>
         </Container2>
+        <ClaimMetrics />
       </div>
-      <ClaimMetrics />
+
     </div>
   );
 };

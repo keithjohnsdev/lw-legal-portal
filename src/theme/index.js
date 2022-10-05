@@ -16,3 +16,4 @@ import "./Cases/TableRow.scss";
 import "./CaseDetails/CaseDetails.scss";
 import "./CaseDetails/CaseDetailsHeaders.scss";
 import "./CaseDetails/ClaimMetrics.scss";
+import "./CaseDetails/BarGraphs.scss";
