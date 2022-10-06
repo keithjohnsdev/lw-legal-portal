@@ -1,10 +1,21 @@
 .percentage-bars-div {
     margin-bottom: 18px;
     width: 30%;
+    min-width: fit-content;
+    white-space: nowrap;
+    & h4 {
+        margin-bottom: 18px;
+    }
+    &.right {
+        margin-right: 0;
+    }
 }
 
-.bar-graph-div {
+.bar-graph-info {
     justify-content: space-between;
+    & p {
+        margin-bottom: 7px;
+    }
 }
 
 .claim-name {
@@ -16,4 +27,23 @@
     font-size: 12px;
     font-weight: 600;
     color: #1B93C5;
+}
+
+.bar-graph-bg {
+    height: 12px;
+    background-color: #E8ECEE;
+    margin-bottom: 14px;
+}
+
+.bar-graph {
+    background-color: #CFD4D7;
+    height: 12px;
+    width: 100%;
+}
+
+.bar-graph-div:first-child {
+    & .bar-graph-bg {
+        background-color: #1B93C5;
+    }
+
 }

@@ -88,34 +88,88 @@ export const dummyClaimMetricsData = {
   totalDamagesBil: 357.3,
 };
 
-export const dummyBarGraphsData = {
-  commonClaimsSubmitted: [
+export const dummyCommonClaimsData = [
     {
       name: "Camp Lejeune",
-      numClaims: 83679,
+      num: 83679,
       percentage: 100,
     },
     {
       name: "Hearing Loss",
-      numClaims: 21232,
+      num: 21232,
       percentage: 9,
     },
     {
       name: "Tinnitus",
-      numClaims: 11240,
+      num: 11240,
       percentage: 7,
     },
     {
-      name: "PTS",
-      numClaims: 4995,
+      name: "PTSD",
+      num: 4995,
       percentage: 4,
     },
     {
       name: "Scars, General",
-      numClaims: 2498,
+      num: 2498,
       percentage: 2,
-    },
-  ],
-};
+    }
+  ];
+
+export const dummyDisabilityScoreData = [
+  {
+    name: "70% - 80%",
+    num: 56202,
+    percentage: 45
+  },
+  {
+    name: "40% - 50%",
+    num: 34970,
+    percentage: 28,
+  },
+  {
+    name: "20% - 30%",
+    num: 23730,
+    percentage: 19,
+  },
+  {
+    name: "90% - 100%",
+    num: 18734,
+    percentage: 15,
+  },
+  {
+    name: "10% - 20%",
+    num: 12489,
+    percentage: 10,
+  }
+];
+
+export const dummyPayoutRangeData = [
+  {
+    name: "$250,000 - $500,000",
+    num: 71190,
+    percentage: 57
+  },
+  {
+    name: "$1,000,000 - $1,500,000",
+    num: 26227,
+    percentage: 21,
+  },
+  {
+    name: "$100,000 - $250,000",
+    num: 17485,
+    percentage: 14,
+  },
+  {
+    name: "$500,000 - $750,000",
+    num: 14987,
+    percentage: 12,
+  },
+  {
+    name: "$3,000,000+",
+    num: 6244,
+    percentage: 5,
+  }
+];
 
 export default dummyInternalCounselData;

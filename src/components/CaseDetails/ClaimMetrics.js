@@ -1,7 +1,7 @@
 import { Container2 } from "../Shared/Container";
 import BarGraphs from "./BarGraphs";
 import { VictoryPie, VictoryContainer } from "victory";
-import { dummyClaimMetricsData } from "../../graphql/dummyData";
+import { dummyClaimMetricsData, dummyCommonClaimsData, dummyDisabilityScoreData, dummyPayoutRangeData } from "../../graphql/dummyData";
 import { useEffect, useState } from "react";
 const defaultDonutData = [0, 0, 0];
 
@@ -84,7 +84,9 @@ const ClaimMetrics = (props) => {
             </div>
           </div>
           <div className="percentage-bars-section flex">
-            <BarGraphs title="MOST COMMON CLAIMS SUBMITTED"/>
+            <BarGraphs title="MOST COMMON CLAIMS SUBMITTED" data={dummyCommonClaimsData}/>
+            <BarGraphs title="DISABILITY SCORE BREAKDOWN" data={dummyDisabilityScoreData}/>
+            <BarGraphs title="PAYOUT RANGE OF CLAIMS" data={dummyPayoutRangeData} mod="right"/>
           </div>
         </div>
       </Container2>

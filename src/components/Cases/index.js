@@ -1,4 +1,4 @@
-import { default as Button, GrayButton } from "../Shared/Button";
+import { default as BlueButton, GrayButton } from "../Shared/Buttons";
 import { Header, Header1 } from "../Shared/Headers";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
@@ -49,12 +49,12 @@ const Cases = (props) => {
         </div>
         <div className="cases-toolbar-right">
           <GrayButton>Customize</GrayButton>
-          <Button
+          <BlueButton
             className="toolbar-button"
             onClick={() => navigate("/add-new-case")}
           >
             + Add New Case
-          </Button>
+          </BlueButton>
         </div>
       </div>
       <Table />

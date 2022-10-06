@@ -1,5 +1,5 @@
 import { Header, Header1 } from "./Shared/Headers";
-import Button from "./Shared/Button";
+import BlueButton from "./Shared/Buttons";
 import { useNavigate } from "react-router-dom";
 import Cases from "./Cases";
 import { useState } from "react";
@@ -26,13 +26,13 @@ const Home = (props) => {
               Looks like you do not have any cases created yet. Want to add your
               first one?
             </p>
-            <Button
+            <BlueButton
               onClick={() => {
                 navigate("/add-new-case");
               }}
             >
               + Add New Case
-            </Button>
+            </BlueButton>
           </div>
         </>
       )}
