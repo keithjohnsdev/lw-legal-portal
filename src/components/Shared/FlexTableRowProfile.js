@@ -1,4 +1,12 @@
 const FlexTableRowProfile = (props) => {
+  function generatePastelColor() {
+    let R = Math.floor(Math.random() * 127 + 75);
+    let G = Math.floor(Math.random() * 127 + 75);
+    let B = Math.floor(Math.random() * 127 + 100);
+    let rgb = (R << 16) + (G << 8) + B;
+    return `#${rgb.toString(16)}92`;
+  }
+
   return (
     <div className="table-row">
       <div className={`col flex ${props.col1mod}`}>
@@ -12,7 +20,7 @@ const FlexTableRowProfile = (props) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="16" cy="16" r="16" fill="#B4D8D8" />
+            <circle cx="16" cy="16" r="16" fill={generatePastelColor()} />
           </svg>
           <h4 className="profile-letters">{props.profile}</h4>
         </div>

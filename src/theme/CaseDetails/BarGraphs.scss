@@ -1,7 +1,7 @@
 .percentage-bars-div {
-    margin-bottom: 18px;
+    padding-bottom: 18px;
     width: 30%;
-    min-width: fit-content;
+    min-width: 220px;
     white-space: nowrap;
     & h4 {
         margin-bottom: 18px;
@@ -9,6 +9,8 @@
     &.right {
         margin-right: 0;
     }
+    margin-right: min(15px);
+    position: relative;
 }
 
 .bar-graph-info {
@@ -46,4 +48,10 @@
         background-color: #1B93C5;
     }
 
+}
+
+.view-all-btn {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
 }

@@ -10,4 +10,12 @@ export const BlueBorderButton = props => {
     return <button className="blue-border-button" onClick={props.onClick}>{props.children}</button>
 }
 
+export const RedBorderButton = props => {
+    return <button className="red-border-button" onClick={props.onClick}>{props.children}</button>
+}
+
+export const BlueButtonSmall = props => {
+    return <button disabled className="lw-button-small" onClick={props.onClick}>{props.children}</button>
+}
+
 export default BlueButton;

@@ -4,7 +4,14 @@ import { dummyInternalCounselData as data } from "../../graphql/dummyData";
 
 const InternalCounselTable = (props) => {
   return (
-    <FlexTable header1="Name" header2="Role" header3="Email" header4="Phone" col2mod="short">
+    <FlexTable
+      header1="Name"
+      header2="Role"
+      header3="Email"
+      header4="Phone"
+      col2mod="short"
+    >
+  
       {data.map((counsel, index) => {
         return (
           <FlexTableRowProfile

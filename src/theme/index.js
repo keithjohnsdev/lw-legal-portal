@@ -17,3 +17,7 @@ import "./CaseDetails/CaseDetails.scss";
 import "./CaseDetails/CaseDetailsHeaders.scss";
 import "./CaseDetails/ClaimMetrics.scss";
 import "./CaseDetails/BarGraphs.scss";
+import "./CaseDetails/ClientMetrics.scss";
+import "./Shared/GrayDropdown.scss";
+import "./CaseDetails/Clients.scss";
+import "./CaseDetails/ClientTable.scss";

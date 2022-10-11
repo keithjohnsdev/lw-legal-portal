@@ -1,0 +1,30 @@
+.client-actions-toolbar {
+    flex: 0 0 48px;
+    border-bottom: solid 1px #CFD4D7;
+    display: flex;
+    align-items: center;
+    padding: 0px 32px;
+    & * {
+        font-size: 12px;
+    }
+    & .lw-button {
+        padding: 7px;
+    }
+}
+
+.checkbox-wrapper {
+    margin-right: 24px;
+}
+
+.button-wrapper {
+    padding: 0 2px;
+}
+
+.button-inactive-overlay {
+    position: fixed;
+    width: 500px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.712);
+    left: 70px;
+    z-index: 2;
+}

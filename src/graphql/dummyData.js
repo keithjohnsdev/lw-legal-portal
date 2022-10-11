@@ -172,4 +172,257 @@ export const dummyPayoutRangeData = [
   }
 ];
 
+export const dummyClientMetricsData = {
+  totalClients: 1345000,
+  activeClients: 901150,
+  inactiveClients: 443850,
+  pendingClaims6mo: 341968,
+  totalLawsuitsFiled: 875488,
+  medRecordsMissing: 118400,
+  milRecordsMissing: 56789,
+  totalDamagesBil: 357.3,
+};
+
+export const dummyMilitaryBranchData = [
+  {
+    name: "Marine Corps",
+    num: 245151,
+    percentage: 57,
+  },
+  {
+    name: "Army",
+    num: 137628,
+    percentage: 32,
+  },
+  {
+    name: "Navy",
+    num: 30106,
+    percentage: 7,
+  },
+  {
+    name: "Air Force",
+    num: 12902,
+    percentage: 3,
+  },
+  {
+    name: "Other",
+    num: 4301,
+    percentage: 1,
+  }
+];
+
+export const dummyClientAgeRangeData = [
+  {
+    name: "50 - 55 yrs old",
+    num: 141929,
+    percentage: 33,
+  },
+  {
+    name: "40 - 45 yrs old",
+    num: 107522,
+    percentage: 25,
+  },
+  {
+    name: "25 - 30 yrs old",
+    num: 81717,
+    percentage: 19,
+  },
+  {
+    name: "35 - 40 yrs old",
+    num: 38708,
+    percentage: 9,
+  },
+  {
+    name: "18 - 25 yrs old",
+    num: 25805,
+    percentage: 6,
+  }
+];
+
+export const dummyGenderBreakdownData = [
+  {
+    name: "Male",
+    num: 378479,
+    percentage: 88,
+  },
+  {
+    name: "Female",
+    num: 47309,
+    percentage: 11,
+  },
+  {
+    name: "Other",
+    num: 4301,
+    percentage: 1,
+  }
+];
+
+export const dummyClientsData = [
+  {
+    name: "Edwin Rivera",
+    submittingParty: "Legal Firm 1",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "90%",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "David Donaldson",
+    submittingParty: "Legal Firm 2",
+    armedForces: "Navy",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "Not Rated",
+    elements: "Missing Data",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Clair Candles",
+    submittingParty: "Legal Firm 3",
+    armedForces: "Air Force",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "Not Rated",
+    elements: "Missing Records",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Rodney Raymonds",
+    submittingParty: "Legal Firm 4",
+    armedForces: "Army",
+    diagnosis: "2",
+    procedures: "3",
+    ndcs: "-",
+    disabilityRating: "70%",
+    elements: "Satisfied",
+    claimStatus: "Rejected by the Navy",
+  },
+  {
+    name: "Maria Mendez",
+    submittingParty: "Legal Firm 1",
+    armedForces: "Army",
+    diagnosis: "1",
+    procedures: "5",
+    ndcs: "-",
+    disabilityRating: "Not Rated",
+    elements: "Missing Records",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Jorge Rodriguez",
+    submittingParty: "Legal Firm 2",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "90%",
+    elements: "Satisfied",
+    claimStatus: "Awaiting Response",
+  },
+  {
+    name: "Robert Redman",
+    submittingParty: "Legal Firm 3",
+    armedForces: "Army",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "Awaiting Rating",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Larry Lackler",
+    submittingParty: "Legal Firm 4",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "Awaiting Rating",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Dennis Daniels",
+    submittingParty: "Legal Firm 1",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "2",
+    ndcs: "-",
+    disabilityRating: "Not Rated",
+    elements: "Missing Records",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Rita Rackers",
+    submittingParty: "Legal Firm 2",
+    armedForces: "Army",
+    diagnosis: "2",
+    procedures: "3",
+    ndcs: "-",
+    disabilityRating: "Awaiting Rating",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Chris Cramers",
+    submittingParty: "Legal Firm 3",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "90%",
+    elements: "Satisfied",
+    claimStatus: "Submitted",
+  },
+  {
+    name: "Steven Sampson",
+    submittingParty: "Legal Firm 4",
+    armedForces: "Army",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "Not Rated",
+    elements: "Missing Data",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Pauline Peters",
+    submittingParty: "Legal Firm 1",
+    armedForces: "Army",
+    diagnosis: "1",
+    procedures: "1",
+    ndcs: "-",
+    disabilityRating: "Awaiting Rating",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Ryan Randal",
+    submittingParty: "Legal Firm 2",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "2",
+    ndcs: "-",
+    disabilityRating: "Awaiting Rating",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+  {
+    name: "Nancy North",
+    submittingParty: "Legal Firm 3",
+    armedForces: "Marine Corps",
+    diagnosis: "1",
+    procedures: "2",
+    ndcs: "-",
+    disabilityRating: "Awaiting Rating",
+    elements: "Satisfied",
+    claimStatus: "Not Submitted",
+  },
+];
+
 export default dummyInternalCounselData;

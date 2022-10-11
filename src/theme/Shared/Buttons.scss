@@ -15,6 +15,8 @@
     background-color: $msp-blue-light;
     cursor: pointer;
   }
+  min-width: fit-content;
+  white-space: nowrap;
 }
 
 .gray-button {
@@ -33,6 +35,8 @@
     // box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.24);
     color: $msp-blue;
   }
+  min-width: fit-content;
+  white-space: nowrap;
 }
 
 .blue-border-button {
@@ -50,4 +54,45 @@
     background-color: #1B93C5;
     color: white;
   }
+  min-width: fit-content;
+  white-space: nowrap;
+}
+
+.red-border-button {
+  border-radius: 4px;
+  border: 1px solid #FB3156;
+  background-color: #FFFFFF;
+  color: #FB3156;
+  width: 100%;
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  &:hover {
+    background-color: #FB3156;
+    color: white;
+  }
+  min-width: fit-content;
+  white-space: nowrap;
+}
+
+.lw-button-small {
+    border-radius: 4px;
+  border: 1px solid $msp-blue;
+  background-color: $msp-blue;
+  color: #FFFFFF;
+  width: 100%;
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  &:hover {
+    background-color: $msp-blue-light;
+    color: white;
+    border-color: $msp-blue-light;
+  }
+  min-width: fit-content;
+  white-space: nowrap;
 }

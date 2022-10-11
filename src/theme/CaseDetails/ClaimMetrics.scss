@@ -1,13 +1,14 @@
 .claim-metrics {
   padding-top: 31px;
   border-top: solid 1px #cfd4d7;
+  padding-bottom: 66px;
+  border-bottom: solid 1px #cfd4d7;
 }
 
 .claim-status-breakdown {
   margin-top: 36px;
   & h4 {
     font-size: 14px;
-    // margin-bottom: 19px;
   }
 }
 
@@ -81,18 +82,38 @@
   }
 }
 
+.more-stats {
+  justify-content: space-between;
+}
+
 .more-stats-div {
-    width: 34%;
+    width: 30%;
     margin-bottom: 50px;
     min-width: fit-content;
     white-space: nowrap;
     & h1 {
         margin-top: 12px;
         font-size: 44px;
+        font-weight: 600;
+    }
+    margin-right: min(15px);
+    &.right {
+      margin-right: 0px;
+    }
+    @media screen and (max-width: 900px) {
+      h1 {
+        font-size: 36px
+      }
     }
 }
 
 .percentage-bars-section {
     margin-top: 21px;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 1000px) {
+  .claim-status-breakdown h4 {
+      font-size: 12px;
+  }
 }

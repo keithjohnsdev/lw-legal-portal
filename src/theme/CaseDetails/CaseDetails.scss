@@ -13,8 +13,10 @@
     padding-top: 40px;
     border-bottom: solid 1px #CFD4D7;
     overflow-y: auto;
+    overflow-x: visible;
     & h3 {
-        padding-bottom: 33px;
+        font-size: 20px;
+        font-weight: 600;
     }
     & .info-div {
         width: 30%;
@@ -29,4 +31,8 @@
             margin-top: 6px;
         }
     }
+}
+
+.margin-wrapper {
+    margin-top: 33px;
 }

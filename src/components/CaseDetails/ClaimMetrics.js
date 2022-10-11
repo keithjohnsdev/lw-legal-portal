@@ -72,7 +72,7 @@ const ClaimMetrics = (props) => {
               <h4>MEDICAL RECORDS MISSING</h4>
               <h1>{data.medRecordsMissing.toLocaleString("EN-US")}</h1>
             </div>
-            <div className="more-stats-div">
+            <div className="more-stats-div right">
               <h4>MILITARY SERVICE RECORDS MISSING</h4>
               <h1>{data.milRecordsMissing.toLocaleString("EN-US")}</h1>
             </div>

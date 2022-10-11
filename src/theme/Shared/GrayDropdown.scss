@@ -1,0 +1,40 @@
+.gray-dropdown {
+  position: relative;
+  min-width: fit-content;
+  white-space: nowrap;
+  border: solid 1px #cfd4d7;
+  background-color: #f6f8f8;
+  padding: 8px 70px 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.gray-dropdown select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  // Additional resets for further consistency
+  background-color: transparent;
+  padding: 8px 70px 8px 12px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 136%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  font-weight: 600;
+  z-index: 2;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.caret-div {
+  position: absolute;
+  right: 12px;
+  top: 7px;
+  z-index: 1;
+}

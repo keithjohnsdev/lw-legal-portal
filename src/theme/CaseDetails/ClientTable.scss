@@ -1,0 +1,141 @@
+.client-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+    cursor: default;
+    &::-webkit-scrollbar {
+      display: block;
+      width: 10px;
+    }
+    &::-webkit-scrollbar:horizontal {
+      display: block;
+      height: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(212, 212, 212);
+      border-radius: 5px;
+    }
+  }
+
+  .clients-header-row {
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 28px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    & .corner-cell {
+      padding-left: 60px;
+      min-width: 264px;
+    }
+    & .col2 {
+      flex: 0 0 186px;
+    }
+    & .col3 {
+      flex: 0 0 150px;
+    }
+    & .col4 {
+      flex: 0 0 120px;
+    }
+    & .col5 {
+      flex: 0 0 120px;
+    }
+    & .col6 {
+      flex: 0 0 120px;
+    }
+    & .col7 {
+      flex: 0 0 140px;
+    }
+    & .col8 {
+      flex: 0 0 160px;
+    }
+    & .col9 {
+      flex: 0 0 180px;
+    }
+  }
+
+  .client-title-column {
+    display: flex;
+    padding-left: 16px;
+    min-width: 264px;
+    box-shadow: 5px 0px 3px #31353729;
+    height: 100%;
+    z-index: 3;
+    position: sticky;
+    left: 0;
+    align-items: center;
+    border-bottom: solid 1px #CFD4D7;
+    background-color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    & .profile-div {
+      width: 32px;
+      margin-top: 2px;
+      margin-left: 21px;
+      margin-right: 11px;
+      position: relative;
+      background-color: transparent;
+      .profile-letters {
+        color: #FFFFFF;
+        z-index: 1;
+        position: absolute;
+        background-color: transparent;
+        font-size: 12px;
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 32px;
+      }
+      .profile-circle {
+        position: relative;
+        width: 32px;
+      }
+    }
+  }
+
+  .clients-col {
+    border-left: solid 1px #cfd4d7;
+    border-bottom: solid 1px #cfd4d7;
+    height: 100%;
+    min-width: fit-content;
+    white-space: nowrap;
+    &.open {
+      font-weight: 600 !important;
+      color: #3bc86b;
+    }
+    &.closed {
+      font-weight: 600 !important;
+      color: #fb3156;
+    }
+    &.col2 {
+      flex: 0 0 186px;
+    }
+    &.col3 {
+      flex: 0 0 150px;
+    }
+    &.col4 {
+      flex: 0 0 120px;
+    }
+    &.col5 {
+      flex: 0 0 120px;
+    }
+    &.col6 {
+      flex: 0 0 120px;
+    }
+    &.col7 {
+      flex: 0 0 140px;
+    }
+    &.col8 {
+      flex: 0 0 160px;
+    }
+    &.col9 {
+      flex: 0 0 180px;
+    }
+  }
+
+  .gray {
+    color: #73787B;
+    font-weight: 600;
+  }

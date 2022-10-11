@@ -13,12 +13,20 @@ const BarGraphs = (props) => {
               <p className="claim-numbers">{`${claim.num} - ${claim.percentage}%`}</p>
             </div>
             <div className="bar-graph-bg">
-              <div className="bar-graph" style={{width: `${claim.percentage}%`, backgroundColor: index === 0 ? "#1B93C5" : "#CFD4D7"}}></div>
+              <div
+                className="bar-graph"
+                style={{
+                  width: `${claim.percentage}%`,
+                  backgroundColor: index === 0 ? "#1B93C5" : "#CFD4D7",
+                }}
+              ></div>
             </div>
           </div>
         );
       })}
-    <BlueBorderButton>View All</BlueBorderButton>
+      <div className="view-all-btn">
+        <BlueBorderButton>View All</BlueBorderButton>
+      </div>
     </div>
   );
 };
