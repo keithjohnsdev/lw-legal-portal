@@ -1,6 +1,6 @@
 import { Header, Header1 } from "../Shared/Headers";
 import { CaseDetailsHeader1, CaseDetailsHeader2 } from "./CaseDetailsHeaders";
-import { dummyCasesData } from "../../graphql/dummyData";
+import { dummyCasesData, dummyClientsData } from "../../graphql/dummyData";
 import ClientTable from "./ClientTable";
 import ClientTableToolbar from "./ClientTableToolbar";
 import {
@@ -8,15 +8,30 @@ import {
   BlueBorderButton,
   RedBorderButton,
 } from "../Shared/Buttons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Clients = (props) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [allChecked, setAllChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [checklist, setChecklist] = useState([]);
+  const [effectTrigger, setEffectTrigger] = useState(true);
 
-  function handleCheck (event) {
-    setIsChecked(event.target.checked);
-    console.log(isChecked);
+  function handleCheckAll (event) {
+    setAllChecked(event.target.checked);
   }
+
+  function getChecklist (checklist) {
+    setChecklist(checklist);
+    setEffectTrigger(!effectTrigger);
+  }
+
+  useEffect (() => {
+    console.log("clients useeffect")
+    let rowChecked;
+    rowChecked = checklist.some(element => element === true);
+    console.log(rowChecked);
+    setChecked(allChecked || rowChecked);
+  }, [allChecked, checklist, effectTrigger])
 
   return (
     <div className="case-details-page fullscreen">
@@ -28,10 +43,10 @@ const Clients = (props) => {
       <ClientTableToolbar />
       <div className="client-actions-toolbar">
         <div className="checkbox-wrapper">
-          <input type="checkbox" onChange={handleCheck}/>
+          <input type="checkbox" onChange={handleCheckAll}/>
         </div>
         <div className="button-wrapper">
-          <BlueBorderButton style={{backgroundColor: isChecked && "red !important"}}>Message Group</BlueBorderButton>
+          <BlueBorderButton>Message Group</BlueBorderButton>
         </div>
         <div className="button-wrapper">
           <BlueBorderButton>Export to Excel</BlueBorderButton>
@@ -42,10 +57,9 @@ const Clients = (props) => {
         <div className="button-wrapper">
           <BlueButtonSmall>Submit Claims</BlueButtonSmall>
         </div>
-        {!isChecked && <div className="button-inactive-overlay" />}
+        {!checked && <div className="button-inactive-overlay" />}
       </div>
-
-      <ClientTable />
+      <ClientTable getChecklist={getChecklist} allChecked={allChecked}/>
     </div>
   );
 };

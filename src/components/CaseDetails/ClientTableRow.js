@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const ClientTableRow = (props) => {
-  const navigate = useNavigate();
+  const [rowChecked, setRowChecked] = useState(false);
 
   function generatePastelColor() {
     let R = Math.floor(Math.random() * 127 + 75);
@@ -15,14 +16,34 @@ const ClientTableRow = (props) => {
     let name = props.col1;
     let nameArray = name.split(" ");
     let initials = `${nameArray[0][0].toUpperCase()}${nameArray[1][0].toUpperCase()}`;
-    console.log(nameArray);
     return initials;
   }
 
+  function handleCheck(e) {
+    setRowChecked(e.target.checked);
+  }
+
+  function handleClick() {
+    setRowChecked(!rowChecked);
+  }
+
+  useEffect(() => {
+    setRowChecked(props.allChecked);
+  }, [props.allChecked])
+
+  useEffect(() => {
+    props.handleCheck(rowChecked, props.index)
+  }, [rowChecked])
+
   return (
-    <div className="whole-row" onClick={() => navigate("/case-details")}>
-      <div className="client-title-column">
-        <input type="checkbox" />
+    <div className="whole-row">
+      <div
+        className={
+          rowChecked ? "client-title-column selected" : "client-title-column"
+        }
+        onClick={handleClick}
+      >
+        <input type="checkbox" onChange={handleCheck} checked={rowChecked} />
         <div className="profile-div">
           <svg
             className="profile-circle"
@@ -39,41 +60,71 @@ const ClientTableRow = (props) => {
         {props.col1}
       </div>
       <div className="case-info-row">
-        <div className="clients-col col2">
+        <div
+          className={
+            rowChecked ? "clients-col col2 selected" : "clients-col col2"
+          }
+          onClick={handleClick}
+        >
           <p className="cell-text">{props.col2}</p>
-        </div>
-        <div className="clients-col col3">
-          <p className="cell-text">{props.col3}</p>
-        </div>
-        <div className="clients-col col4">
-          <p className="cell-text">{props.col4}</p>
-        </div>
-        <div className="clients-col col5">
-          <p className="cell-text">{props.col5}</p>
-        </div>
-        <div className="clients-col col6">
-          <p className="cell-text">{props.col6}</p>
-        </div>
-        <div className="clients-col col7">
-          <p className="cell-text">{props.col7}</p>
         </div>
         <div
           className={
-            props.col8 === "Satisfied"
-              ? "clients-col col8 open"
-              : "clients-col col8 closed"
+            rowChecked ? "clients-col col3 selected" : "clients-col col3"
           }
+          onClick={handleClick}
+        >
+          <p className="cell-text">{props.col3}</p>
+        </div>
+        <div
+          className={
+            rowChecked ? "clients-col col4 selected" : "clients-col col4"
+          }
+          onClick={handleClick}
+        >
+          <p className="cell-text">{props.col4}</p>
+        </div>
+        <div
+          className={
+            rowChecked ? "clients-col col5 selected" : "clients-col col5"
+          }
+          onClick={handleClick}
+        >
+          <p className="cell-text">{props.col5}</p>
+        </div>
+        <div
+          className={
+            rowChecked ? "clients-col col6 selected" : "clients-col col6"
+          }
+          onClick={handleClick}
+        >
+          <p className="cell-text">{props.col6}</p>
+        </div>
+        <div
+          className={
+            rowChecked ? "clients-col col7 selected" : "clients-col col7"
+          }
+          onClick={handleClick}
+        >
+          <p className="cell-text">{props.col7}</p>
+        </div>
+        <div
+          className={`clients-col col8 ${rowChecked && "selected"} ${
+            props.col8 === "Satisfied" ? "open" : "closed"
+          }`}
+          onClick={handleClick}
         >
           <p className="cell-text">{props.col8}</p>
         </div>
         <div
-          className={
+          className={`clients-col col9 end ${rowChecked && "selected"} ${
             props.col9 === "Not Submitted"
-              ? "clients-col col9 gray end"
+              ? "gray"
               : props.col9 === "Awaiting Response" || props.col9 === "Submitted"
-              ? "clients-col col9 open end"
-              : "clients-col col9 closed end"
-          }
+              ? "open"
+              : "closed"
+          }`}
+          onClick={handleClick}
         >
           <p className="cell-text">{props.col9}</p>
         </div>

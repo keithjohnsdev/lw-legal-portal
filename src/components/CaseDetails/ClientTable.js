@@ -1,5 +1,6 @@
 import { dummyClientsData } from "../../graphql/dummyData";
 import ClientTableRow from "./ClientTableRow";
+import { useState, useEffect } from "react";
 
 const ClientTable = (props) => {
   const titleArray = [
@@ -13,13 +14,40 @@ const ClientTable = (props) => {
     "Claim Status",
   ];
 
+  const [checklist, setChecklist] = useState(Array(dummyClientsData.length));
+  const [effectTrigger, setEffectTrigger] = useState(true);
+
+  // console.log(`checklist:`);
+  // console.log(checklist);
+
+  function handleRowCheck(checked, index) {
+    const newArr = checklist;
+    newArr[index] = checked;
+    // console.log(newArr)
+    // setChecklist([]);
+    setChecklist(newArr);
+    setEffectTrigger(!effectTrigger);
+    // console.log(checklist);
+  }
+
+  useEffect(() => {
+    props.getChecklist(checklist);
+  }, [checklist, effectTrigger]);
+
   return (
     <div className="client-table">
       <div className="clients-header-row">
         <div className="corner-cell">Name</div>
         {titleArray.map((title, index) => {
           return (
-            <div className={index === titleArray.length - 1 ? `header-cell col${index + 2} end` : `header-cell col${index + 2}`} key={index}>
+            <div
+              className={
+                index === titleArray.length - 1
+                  ? `header-cell col${index + 2} end`
+                  : `header-cell col${index + 2}`
+              }
+              key={index}
+            >
               {title}{" "}
               <span className="vertical-dots-div">
                 <svg
@@ -40,7 +68,23 @@ const ClientTable = (props) => {
         })}
       </div>
       {dummyClientsData.map((c, index) => {
-        return <ClientTableRow key={index} col1={c.name} col2={c.submittingParty} col3={c.armedForces} col4={c.diagnosis} col5={c.procedures} col6={c.ndcs} col7={c.disabilityRating} col8={c.elements} col9={c.claimStatus}/>
+        return (
+          <ClientTableRow
+            allChecked={props.allChecked}
+            handleCheck={handleRowCheck}
+            key={index}
+            index={index}
+            col1={c.name}
+            col2={c.submittingParty}
+            col3={c.armedForces}
+            col4={c.diagnosis}
+            col5={c.procedures}
+            col6={c.ndcs}
+            col7={c.disabilityRating}
+            col8={c.elements}
+            col9={c.claimStatus}
+          />
+        );
       })}
     </div>
   );
