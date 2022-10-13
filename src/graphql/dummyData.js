@@ -425,4 +425,43 @@ export const dummyClientsData = [
   },
 ];
 
+export const dummyClientViewData = {
+  name: "Edwin Rivera",
+  gender: "Male",
+  age: 67,
+  dobStr: "Oct 31, 1955",
+  dobNum: "10/31/1955",
+  SSN: "*** ** 1234",
+  VAID: 5849284830,
+  address1: "12345 SW 67 Street",
+  address2: "Miami, FL 33123",
+  phone: "(305) 123 - 4567",
+  email: "e.rivera@email.com",
+  fName: "Edwin",
+  lName: "Rivera",
+  division: "Marine Corps",
+  serviceTime: "Jan 1, 1973 - Jan 5, 1980",
+  insProvider: "Aetna",
+  claimType: "Bladder Cancer",
+  diagnosis: "C67.2 Malignant neoplasm of lateral wall of bladder",
+  procedureCodes: "CPT 52235",
+  NDCCodes: "63323-103-51 Cisplatin",
+  elements: "Satisfied",
+  status: "Submitted to JAG Navy Tort Claims Unit",
+  lienDue: 5000,
+  settlementValue: 50000,
+  VAReviewer: "Review and Approved",
+  reviewerName: "John Lewis",
+  claimAmtSought: 50000,
+  NPI: 3245734929283,
+  disabilityRating: 70,
+  submittingParty: "ABC Law Firm",
+  leadInternalAttorney: "John Smith",
+  addtlAttorneys: "N/A",
+  opposingCounsel: "David Clark",
+  caseReferredFrom: "Joe Smith",
+  linkToRetainer: "linktoretainer.com",
+  dateSignedRetainer: "Oct 4, 2022"
+};
+
 export default dummyInternalCounselData;

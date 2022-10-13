@@ -1,7 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ClientTableRow = (props) => {
+  const navigate = useNavigate();
   const [rowChecked, setRowChecked] = useState(false);
 
   function generatePastelColor() {
@@ -27,6 +28,11 @@ const ClientTableRow = (props) => {
     setRowChecked(!rowChecked);
   }
 
+  function handleTitleClick() {
+    //Later, when backend is up, remap this with arg to fetch for client
+    navigate("/client-detail");
+  }
+
   useEffect(() => {
     setRowChecked(props.allChecked);
   }, [props.allChecked])
@@ -41,7 +47,7 @@ const ClientTableRow = (props) => {
         className={
           rowChecked ? "client-title-column selected" : "client-title-column"
         }
-        onClick={handleClick}
+        onClick={handleTitleClick}
       >
         <input type="checkbox" onChange={handleCheck} checked={rowChecked} />
         <div className="profile-div">

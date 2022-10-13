@@ -14,7 +14,6 @@
 
 .modal {
   position: fixed;
-  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   z-index: 10;
@@ -41,15 +40,15 @@
 }
 
 @keyframes fadeOut {
-    0% {
-      background: rgba(0, 0, 0, 0.3);
-      display: block;
-    }
-    100% {
-      background: rgba(0, 0, 0, 0);
-      display: none;
-    }
+  0% {
+    background: rgba(0, 0, 0, 0.3);
+    display: block;
   }
+  100% {
+    background: rgba(0, 0, 0, 0);
+    display: none;
+  }
+}
 
 @keyframes scaleUp {
   0% {

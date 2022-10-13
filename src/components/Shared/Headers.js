@@ -61,7 +61,7 @@ export const ModalHeader = (props) => {
           Cancel
         </h6>
       </div>
-      <div className="header2-center">
+      <div className="header2-center modal-title">
         <h5>{props.centerTitle}</h5>
       </div>
       <div className="header2-right">

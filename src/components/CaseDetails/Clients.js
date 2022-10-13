@@ -26,10 +26,8 @@ const Clients = (props) => {
   }
 
   useEffect (() => {
-    console.log("clients useeffect")
     let rowChecked;
     rowChecked = checklist.some(element => element === true);
-    console.log(rowChecked);
     setChecked(allChecked || rowChecked);
   }, [allChecked, checklist, effectTrigger])
 
