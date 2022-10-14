@@ -21,11 +21,12 @@ const ClientTableRow = (props) => {
   }
 
   function handleCheck(e) {
+    e.stopPropagation();
     setRowChecked(e.target.checked);
   }
 
   function handleClick() {
-    setRowChecked(!rowChecked);
+    navigate("/client-detail");
   }
 
   function handleTitleClick() {
@@ -35,11 +36,11 @@ const ClientTableRow = (props) => {
 
   useEffect(() => {
     setRowChecked(props.allChecked);
-  }, [props.allChecked])
+  }, [props.allChecked]);
 
   useEffect(() => {
-    props.handleCheck(rowChecked, props.index)
-  }, [rowChecked])
+    props.handleCheck(rowChecked, props.index);
+  }, [rowChecked]);
 
   return (
     <div className="whole-row">
@@ -49,7 +50,12 @@ const ClientTableRow = (props) => {
         }
         onClick={handleTitleClick}
       >
-        <input type="checkbox" onChange={handleCheck} checked={rowChecked} />
+        <input
+          type="checkbox"
+          onChange={handleCheck}
+          onClick={handleCheck}
+          checked={rowChecked}
+        />
         <div className="profile-div">
           <svg
             className="profile-circle"

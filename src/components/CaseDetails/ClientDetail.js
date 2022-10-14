@@ -5,7 +5,7 @@ import {
   ClientDetailHeader3,
 } from "./ClientDetailHeaders";
 import { dummyClientViewData } from "../../graphql/dummyData";
-import { Container2 } from "../Shared/Container";
+import { default as Container } from "../Shared/Container";
 import { default as BlueButton } from "../Shared/Buttons";
 import Modal from "../Shared/Modal";
 import { ModalHeader } from "../Shared/Headers";
@@ -21,11 +21,11 @@ const ClientDetail = (props) => {
       <Header>
         <Header1 />
       </Header>
-      <ClientDetailHeader1 title={dummyClientViewData.name} />
+      <ClientDetailHeader1 title={dummyClientViewData.name}/>
       <ClientDetailHeader2 data={dummyClientViewData} />
       <ClientDetailHeader3 data={dummyClientViewData} />
       <div className="client-info">
-        <Container2>
+        <Container>
           <h3>Personal Information</h3>
           <div className="form-row">
             <div className="info-div">
@@ -69,10 +69,10 @@ const ClientDetail = (props) => {
               <p className="info-p">{data.insProvider}</p>
             </div>
           </div>
-        </Container2>
+        </Container>
       </div>
       <div className="client-info">
-        <Container2>
+        <Container>
           <h3>Claim Details</h3>
           <div className="form-row">
             <div className="info-div">
@@ -146,10 +146,10 @@ const ClientDetail = (props) => {
               <p className="info-p">{`${data.disabilityRating}%`}</p>
             </div>
           </div>
-        </Container2>
+        </Container>
       </div>
       <div className="client-info">
-        <Container2>
+        <Container>
           <h3>Counsel Details</h3>
           <div className="form-row">
             <div className="info-div">
@@ -192,10 +192,10 @@ const ClientDetail = (props) => {
               <p className="info-p">{data.dateSignedRetainer}</p>
             </div>
           </div>
-        </Container2>
+        </Container>
       </div>
       <section id="NDC-codes" className="general-external-form">
-        <Container2>
+        <Container>
           <div className="section-title">
             <h3>Private Notes</h3>
             <h5
@@ -220,7 +220,7 @@ const ClientDetail = (props) => {
               centerTitle="Add Note"
             />
             <div className="note-section">
-              <Container2>
+              <Container>
                 <form className="note-form">
                   <textarea
                     rows="8"
@@ -239,7 +239,7 @@ const ClientDetail = (props) => {
                     Submit
                   </BlueButton>
                 </form>
-              </Container2>
+              </Container>
             </div>
           </Modal>
           {notes ? (
@@ -253,7 +253,7 @@ const ClientDetail = (props) => {
               </p>
             </>
           )}
-        </Container2>
+        </Container>
       </section>
     </div>
   );

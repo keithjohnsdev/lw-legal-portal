@@ -464,4 +464,27 @@ export const dummyClientViewData = {
   dateSignedRetainer: "Oct 4, 2022"
 };
 
+export const dummyClaimSectionsData = [
+  {
+    title: "Medical Diagnosis",
+    status: "Complete"
+  },
+  {
+    title: "DD214",
+    status: "Complete"
+  },
+  {
+    title: "CLJA Claims Form",
+    status: "Complete"
+  }
+];
+
+export const dummyClaimLogData = [
+  {
+    title: "Claim Submitted",
+    by: "David Draper - ABC Law Firm",
+    date: "Jan 3, 2023"
+  }
+]
+
 export default dummyInternalCounselData;

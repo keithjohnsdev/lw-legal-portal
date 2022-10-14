@@ -11,7 +11,7 @@ const CaseDetails = () => {
       <Header>
         <Header1 />
       </Header>
-      <CaseDetailsHeader1 title={dummyCasesData[0].title} />
+      <CaseDetailsHeader1 title={dummyCasesData[0].title} backLinkTo="/"/>
       <CaseDetailsHeader2 />
       <div className="case-details">
         <Container2>

@@ -1,12 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 export const CaseDetailsHeader1 = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="case-details-header1">
       <div className="cd-header1-line1">
         <div className="cd-header1-line1-left flex">
-          <h6 className="gray-link">Back</h6>
+          <h6 className="gray-link" onClick={() => navigate(props.backLinkTo)}>Back</h6>
         </div>
         <div className="cd-header1-line1-middle flex">
           <h6 className="cd-title">{props.title}</h6>

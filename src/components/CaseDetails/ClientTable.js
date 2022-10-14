@@ -1,6 +1,7 @@
 import { dummyClientsData } from "../../graphql/dummyData";
 import ClientTableRow from "./ClientTableRow";
 import { useState, useEffect } from "react";
+import Modal from "../Shared/Modal";
 
 const ClientTable = (props) => {
   const titleArray = [

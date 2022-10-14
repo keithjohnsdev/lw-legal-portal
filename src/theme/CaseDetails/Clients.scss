@@ -1,30 +1,51 @@
 .client-actions-toolbar {
-    flex: 0 0 48px;
-    border-bottom: solid 1px #CFD4D7;
-    display: flex;
-    align-items: center;
-    padding: 0px 32px;
-    & * {
-        font-size: 12px;
-    }
-    & .lw-button {
-        padding: 7px;
-    }
+  flex: 0 0 48px;
+  border-bottom: solid 1px #cfd4d7;
+  display: flex;
+  align-items: center;
+  padding: 0px 32px;
+  & * {
+    font-size: 12px;
+  }
+  & .lw-button {
+    padding: 7px;
+  }
 }
 
 .checkbox-wrapper {
-    margin-right: 24px;
+  margin-right: 24px;
 }
 
 .button-wrapper {
-    padding: 0 2px;
+  padding: 0 2px;
+  & svg,
+  img {
+    margin: 0 10px -3px 5px;
+  }
+  &:hover {
+    & svg {
+      fill: #ffffff;
+      stroke: 1px #1b93c5;
+    }
+  }
+  &.red:hover {
+    & img {
+      filter: brightness(100);
+    }
+  }
+  &.blue:hover {
+    & svg {
+      fill: #56beeb;
+      stroke: 1px #1b93c5;
+    }
+  }
 }
 
 .button-inactive-overlay {
-    position: fixed;
-    width: 500px;
-    height: 44px;
-    background-color: rgba(255, 255, 255, 0.712);
-    left: 70px;
-    z-index: 2;
+  position: fixed;
+  width: 600px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.712);
+  left: 70px;
+  z-index: 2;
 }

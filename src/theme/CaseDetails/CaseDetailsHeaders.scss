@@ -66,6 +66,9 @@
     cursor: pointer;
     color: black;
     text-decoration: none;
+    &:hover {
+        background-color: #F3FBFD;
+    }
     &.active {
         background-color: #F3FBFD;
         border-bottom: solid 2px #0DAAE4;

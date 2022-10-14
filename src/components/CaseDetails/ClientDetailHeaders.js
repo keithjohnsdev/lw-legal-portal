@@ -1,13 +1,14 @@
-import { Container2 } from "../Shared/Container";
+import {default as Container } from "../Shared/Container";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const ClientDetailHeader1 = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="client-detail-header1">
       <div className="cd-header1-line1">
         <div className="cd-header1-line1-left flex">
-          <h6 className="gray-link">Back</h6>
+          <h6 className="gray-link" onClick={() => navigate("/clients")}>Back</h6>
         </div>
         <div className="client-header1-line1-middle flex">
           <h6 className="cd-title">{props.title}</h6>
@@ -39,7 +40,7 @@ export const ClientDetailHeader2 = (props) => {
 
   return (
     <div className={`client-detail-header2 ${collapsed && "collapsed"}`}>
-      <Container2>
+      <Container>
         <div className={`main-info ${collapsed && "collapsed"}`}>
           <div className="client-img">
             <img src={require("../../theme/assets/images/edwin.png")} alt="" />
@@ -90,7 +91,7 @@ export const ClientDetailHeader2 = (props) => {
             </div>
           </div>
         </div>
-      </Container2>
+      </Container>
     </div>
   );
 };
