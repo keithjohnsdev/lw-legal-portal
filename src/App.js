@@ -7,6 +7,7 @@ import Clients from "./components/CaseDetails/Clients";
 import ClientDetail from "./components/CaseDetails/ClientDetail";
 import ClaimDetails from "./components/CaseDetails/ClaimDetails";
 import ClaimLog from "./components/CaseDetails/ClaimLog";
+import DataToShare from "./components/CaseDetails/DataToShare";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/client-detail" element={<ClientDetail />}/>
         <Route path="/claim-details" element={<ClaimDetails />}/>
         <Route path="/claim-log" element={<ClaimLog />}/>
-        <Route path="/data-to-share" element={<ClientDetail />}/>
+        <Route path="/data-to-share" element={<DataToShare />}/>
       </Routes>
     </div>
   );

@@ -78,7 +78,7 @@
 
 .client-title-column {
   display: flex;
-  padding-left: 16px;
+  padding-left: 32px;
   min-width: 264px;
   box-shadow: 5px 0px 3px #31353729;
   height: 100%;
@@ -91,6 +91,9 @@
   font-weight: 600;
   cursor: pointer;
   font-size: 12px;
+  & input {
+    width: 13px;
+  }
   & .profile-div {
     width: 32px;
     margin-top: 3px;
@@ -107,6 +110,12 @@
       top: 8px;
       left: 8px;
       width: 32px;
+      &.mm {
+        left: 5px;
+      }
+      &.m {
+        left: 6px;
+      }
     }
     .profile-circle {
       position: relative;

@@ -6,12 +6,13 @@ import ClaimMetrics from "./ClaimMetrics";
 import ClientMetrics from "./ClientMetrics";
 
 const CaseDetails = () => {
+  const data = dummyCasesData;
   return (
     <div className="case-details-page">
       <Header>
         <Header1 />
       </Header>
-      <CaseDetailsHeader1 title={dummyCasesData[0].title} backLinkTo="/"/>
+      <CaseDetailsHeader1 title={data[0].title} backLinkTo="/"/>
       <CaseDetailsHeader2 />
       <div className="case-details">
         <Container2>
@@ -20,29 +21,29 @@ const CaseDetails = () => {
             <div className="form-row">
               <div className="info-div">
                 <p>Case Title</p>
-                <p className="info-p">{dummyCasesData[0].title}</p>
+                <p className="info-p">{data[0].title}</p>
               </div>
               <div className="info-div">
                 <p>Defendant Name</p>
-                <p className="info-p">{dummyCasesData[0].defendant}</p>
+                <p className="info-p">{data[0].defendant}</p>
               </div>
               <div className="info-div">
                 <p>Lawsuit Type</p>
-                <p className="info-p">{dummyCasesData[0].lawsuitType}</p>
+                <p className="info-p">{data[0].lawsuitType}</p>
               </div>
             </div>
             <div className="form-row">
               <div className="info-div">
                 <p>Jurisdiction</p>
-                <p className="info-p">{dummyCasesData[0].jurisdiction}</p>
+                <p className="info-p">{data[0].jurisdiction}</p>
               </div>
               <div className="info-div">
                 <p>Judge</p>
-                <p className="info-p">{dummyCasesData[0].judge}</p>
+                <p className="info-p">{data[0].judge}</p>
               </div>
               <div className="info-div">
                 <p>Court</p>
-                <p className="info-p">{dummyCasesData[0].court}</p>
+                <p className="info-p">{data[0].court}</p>
               </div>
             </div>
             <div className="form-row">

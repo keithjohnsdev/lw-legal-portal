@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Modal from "../Shared/Modal";
 
 const ClientTable = (props) => {
+  const data = dummyClientsData;
   const titleArray = [
     "Submitting Party",
     "Armed Forces",
@@ -15,7 +16,8 @@ const ClientTable = (props) => {
     "Claim Status",
   ];
 
-  const [checklist, setChecklist] = useState(Array(dummyClientsData.length));
+
+  const [checklist, setChecklist] = useState(Array(data.length));
   const [effectTrigger, setEffectTrigger] = useState(true);
 
   // console.log(`checklist:`);
@@ -68,7 +70,7 @@ const ClientTable = (props) => {
           );
         })}
       </div>
-      {dummyClientsData.map((c, index) => {
+      {data.map((c, index) => {
         return (
           <ClientTableRow
             allChecked={props.allChecked}

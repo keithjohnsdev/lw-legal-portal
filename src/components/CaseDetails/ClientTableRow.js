@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ClientTableRow = (props) => {
   const navigate = useNavigate();
   const [rowChecked, setRowChecked] = useState(false);
+  // const consistent = 1;
+  const color = useMemo(() => generatePastelColor(), []);
+  const initials = useMemo(() => generateInitials(), []);
 
   function generatePastelColor() {
     let R = Math.floor(Math.random() * 127 + 75);
@@ -65,9 +68,9 @@ const ClientTableRow = (props) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="16" cy="16" r="16" fill={generatePastelColor()} />
+            <circle cx="16" cy="16" r="16" fill={color}/>
           </svg>
-          <h4 className="profile-letters">{generateInitials()}</h4>
+          <h4 className={`profile-letters ${initials.includes("MM") || initials.includes("WW") ? "mm" : ((initials.includes("M") || initials.includes("W")) && "m")}`} >{initials}</h4>
         </div>
         {props.col1}
       </div>

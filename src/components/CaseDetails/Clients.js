@@ -1,6 +1,6 @@
 import { Header, Header1 } from "../Shared/Headers";
 import { CaseDetailsHeader1, CaseDetailsHeader2 } from "./CaseDetailsHeaders";
-import { dummyCasesData, dummyClientsData } from "../../graphql/dummyData";
+import { dummyCasesData } from "../../graphql/dummyData";
 import ClientTable from "./ClientTable";
 import ClientTableToolbar from "./ClientTableToolbar";
 import {
@@ -9,12 +9,14 @@ import {
   RedBorderButton,
 } from "../Shared/Buttons";
 import { useState, useEffect } from "react";
+import React from "react";
 
 const Clients = (props) => {
   const [allChecked, setAllChecked] = useState(false);
   const [checked, setChecked] = useState(false);
   const [checklist, setChecklist] = useState([]);
   const [effectTrigger, setEffectTrigger] = useState(true);
+  const data = dummyCasesData;
 
   function handleCheckAll(event) {
     setAllChecked(event.target.checked);
@@ -36,7 +38,7 @@ const Clients = (props) => {
       <Header>
         <Header1 />
       </Header>
-      <CaseDetailsHeader1 title={dummyCasesData[0].title} backLinkTo="/" />
+      <CaseDetailsHeader1 title={data[0].title} backLinkTo="/" />
       <CaseDetailsHeader2 />
       <ClientTableToolbar />
       <div className="client-actions-toolbar">
