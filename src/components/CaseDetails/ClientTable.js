@@ -1,7 +1,10 @@
-import { dummyClientsData } from "../../graphql/dummyData";
+import {
+  dummyClientsData,
+  dummyFilterOptionsData,
+} from "../../graphql/dummyData";
 import ClientTableRow from "./ClientTableRow";
 import { useState, useEffect } from "react";
-import Modal from "../Shared/Modal";
+import FilterModal from "../Shared/FilterModal";
 
 const ClientTable = (props) => {
   const data = dummyClientsData;
@@ -15,22 +18,27 @@ const ClientTable = (props) => {
     "Elements",
     "Claim Status",
   ];
-
+  const [showModal, setShowModal] = useState(false);
+  const [filterField, setFilterField] = useState("");
+  const [filterOptions, setFilterOptions] = useState([]);
+  const [filterName, setFilterName] = useState("");
 
   const [checklist, setChecklist] = useState(Array(data.length));
   const [effectTrigger, setEffectTrigger] = useState(true);
 
-  // console.log(`checklist:`);
-  // console.log(checklist);
-
   function handleRowCheck(checked, index) {
     const newArr = checklist;
     newArr[index] = checked;
-    // console.log(newArr)
-    // setChecklist([]);
     setChecklist(newArr);
     setEffectTrigger(!effectTrigger);
-    // console.log(checklist);
+  }
+
+  function handleShowModal(title) {
+    setShowModal(true);
+    setFilterField(title);
+    setFilterOptions(dummyFilterOptionsData.find((field) => field.title === title).filterOptions);
+    setFilterName(dummyFilterOptionsData.find((field) => field.title === title)
+    .name);
   }
 
   useEffect(() => {
@@ -52,7 +60,10 @@ const ClientTable = (props) => {
               key={index}
             >
               {title}{" "}
-              <span className="vertical-dots-div">
+              <span
+                className="vertical-dots-div"
+                onClick={() => handleShowModal(title)}
+              >
                 <svg
                   width="4"
                   height="12"
@@ -89,6 +100,15 @@ const ClientTable = (props) => {
           />
         );
       })}
+      <FilterModal
+        filterField={filterField}
+        filterOptions={filterOptions}
+        name={filterName}
+        show={showModal}
+        onBackdropClick={() => {
+          setShowModal(false);
+        }}
+      />
     </div>
   );
 };

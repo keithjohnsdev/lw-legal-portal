@@ -77,6 +77,45 @@ export const dummyCasesData = [
   },
 ];
 
+export const dummyCasesFilterOptionsData = [
+  {
+    title: "Defendant",
+    name: "Defendant",
+    filterOptions: ["Department of Justice", "Phillips"]
+  },
+  {
+    title: "Lawsuit Type",
+    name: "Lawsuit Type",
+    filterOptions: ["Tort", "Other"]
+  },
+  {
+    title: "Jurisdiction",
+    name: "Jurisdiction",
+    filterOptions: ["Federal", "State", "Municipal"]
+  },
+  {
+    title: "Judge",
+    filterOptions: ["George Smith", "Maria Mendelson"]
+  },
+  {
+    title: "Court",
+    filterOptions: ["E.D.N.C.", "W.D.PA."]
+  },
+  {
+    title: "Docket No.",
+    filterOptions: ["1234567890", "8475492873"]
+  },
+  {
+    title: "Opposing Counsel",
+    filterOptions: ["2 Members", "3 Members"]
+  },
+  {
+    title: "Case Status",
+    name: "Case Status",
+    filterOptions: ["Open", "Closed"]
+  }
+];
+
 export const dummyClaimMetricsData = {
   totalClaims: 1124895,
   approvedClaims: 633315,
@@ -89,38 +128,38 @@ export const dummyClaimMetricsData = {
 };
 
 export const dummyCommonClaimsData = [
-    {
-      name: "Camp Lejeune",
-      num: 83679,
-      percentage: 100,
-    },
-    {
-      name: "Hearing Loss",
-      num: 21232,
-      percentage: 9,
-    },
-    {
-      name: "Tinnitus",
-      num: 11240,
-      percentage: 7,
-    },
-    {
-      name: "PTSD",
-      num: 4995,
-      percentage: 4,
-    },
-    {
-      name: "Scars, General",
-      num: 2498,
-      percentage: 2,
-    }
-  ];
+  {
+    name: "Camp Lejeune",
+    num: 83679,
+    percentage: 100,
+  },
+  {
+    name: "Hearing Loss",
+    num: 21232,
+    percentage: 9,
+  },
+  {
+    name: "Tinnitus",
+    num: 11240,
+    percentage: 7,
+  },
+  {
+    name: "PTSD",
+    num: 4995,
+    percentage: 4,
+  },
+  {
+    name: "Scars, General",
+    num: 2498,
+    percentage: 2,
+  },
+];
 
 export const dummyDisabilityScoreData = [
   {
     name: "70% - 80%",
     num: 56202,
-    percentage: 45
+    percentage: 45,
   },
   {
     name: "40% - 50%",
@@ -141,14 +180,14 @@ export const dummyDisabilityScoreData = [
     name: "10% - 20%",
     num: 12489,
     percentage: 10,
-  }
+  },
 ];
 
 export const dummyPayoutRangeData = [
   {
     name: "$250,000 - $500,000",
     num: 71190,
-    percentage: 57
+    percentage: 57,
   },
   {
     name: "$1,000,000 - $1,500,000",
@@ -169,7 +208,7 @@ export const dummyPayoutRangeData = [
     name: "$3,000,000+",
     num: 6244,
     percentage: 5,
-  }
+  },
 ];
 
 export const dummyClientMetricsData = {
@@ -208,7 +247,7 @@ export const dummyMilitaryBranchData = [
     name: "Other",
     num: 4301,
     percentage: 1,
-  }
+  },
 ];
 
 export const dummyClientAgeRangeData = [
@@ -236,7 +275,7 @@ export const dummyClientAgeRangeData = [
     name: "18 - 25 yrs old",
     num: 25805,
     percentage: 6,
-  }
+  },
 ];
 
 export const dummyGenderBreakdownData = [
@@ -254,7 +293,7 @@ export const dummyGenderBreakdownData = [
     name: "Other",
     num: 4301,
     percentage: 1,
-  }
+  },
 ];
 
 export const dummyClientsData = [
@@ -425,6 +464,66 @@ export const dummyClientsData = [
   },
 ];
 
+export const dummyFilterOptionsData = [
+  {
+    title: "Submitting Party",
+    name: "Submitting Parties",
+    filterOptions: [
+      "Legal Firm 1",
+      "Legal Firm 2",
+      "Legal Firm 3",
+      "Legal Firm 4",
+    ],
+  },
+  {
+    title: "Armed Forces",
+    name: "Armed Services Branch",
+    filterOptions: ["Marine Corps", "Navy", "Air Force", "Army"],
+  },
+  {
+    title: "Diagnosis",
+    name: "Diagnosis Codes",
+    filterOptions: ["Dx 124.12", "Dx 125.15"],
+  },
+  {
+    title: "Procedures",
+    name: "Procedure Codes",
+    filterOptions: ["ICD-10 12345", "ICD-11 12345", "ICD-12 12345", "ICD-13 12345", "ICD-14 12345"],
+  },
+  {
+    title: "NDCs",
+    filterOptions: ["1", "2", "3", "4"],
+  },
+  {
+    title: "Disability Rating",
+    name: "Disability Score",
+    filterOptions: [
+      "Awaiting Rating",
+      "Not Rated",
+      "0 - 25%",
+      "25% - 50%",
+      "50% - 75%",
+      "75% - 100%",
+    ],
+  },
+  {
+    title: "Elements",
+    filterOptions: ["Satisfied", "Missing Data", "Missing Records"],
+  },
+  {
+    title: "Claim Status",
+    filterOptions: [
+      "Not Submitted",
+      "Rejected by the Navy",
+      "Awaiting Response",
+      "Submitted",
+      "Not Submitted to Navy Tort Claims Unit",
+      "Pending more than 6 months",
+      "Denied",
+    ],
+  },
+];
+
 export const dummyClientViewData = {
   name: "Edwin Rivera",
   gender: "Male",
@@ -461,30 +560,44 @@ export const dummyClientViewData = {
   opposingCounsel: "David Clark",
   caseReferredFrom: "Joe Smith",
   linkToRetainer: "linktoretainer.com",
-  dateSignedRetainer: "Oct 4, 2022"
+  dateSignedRetainer: "Oct 4, 2022",
 };
 
 export const dummyClaimSectionsData = [
   {
     title: "Medical Diagnosis",
-    status: "Complete"
+    status: "Complete",
   },
   {
     title: "DD214",
-    status: "Complete"
+    status: "Complete",
   },
   {
     title: "CLJA Claims Form",
-    status: "Complete"
-  }
+    status: "Complete",
+  },
 ];
 
 export const dummyClaimLogData = [
   {
     title: "Claim Submitted",
     by: "David Draper - ABC Law Firm",
-    date: "Jan 3, 2023"
-  }
-]
+    date: "Jan 3, 2023",
+  },
+];
+
+export const dummyMedicalDiagnosisData = {
+  insuranceProvider: "VA Administration",
+  facility: "Bruce W. Carter VA Medical Center",
+  provider: "Pablo Leon MD",
+  claimDate: "01/26/1990",
+  totalAmount: 216,
+  procedureCode: "CPT 52235",
+  prodedureDesc: "Under Urethra and Bladder Transurethral Surgical Procedures",
+  diagnosisCode: "C67.2 Malignant neoplasm of lateral wall of bladder",
+  diagnosisDesc: "Bladder Cancer",
+  prescriptionCode: "63323-103-51",
+  prescriptionDesc: "Cisplatin"
+}
 
 export default dummyInternalCounselData;

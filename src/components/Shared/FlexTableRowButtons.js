@@ -1,6 +1,7 @@
 import { BlueBorderButton } from "../Shared/Buttons";
 
 const FlexTableRowButtons = (props) => {
+  const title = props.title;
     return (
       <div className="table-row">
         <div className={`col ${props.col1mod}`}>
@@ -11,7 +12,7 @@ const FlexTableRowButtons = (props) => {
         {props.col4 && <div className={`col ${props.col4mod}`}>{props.col4}</div>}
         {props.col5 && <div className={`col ${props.col5mod}`}>{props.col5}</div>}
         <div className="dots-div">
-          <BlueBorderButton>View Results</BlueBorderButton>
+          <BlueBorderButton onClick={() => props.onButtonClick(title)}>View Results</BlueBorderButton>
         </div>
       </div>
     );

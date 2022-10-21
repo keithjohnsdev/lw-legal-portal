@@ -1,7 +1,10 @@
-import { dummyCasesData } from "../../graphql/dummyData";
+import {
+  dummyCasesData,
+  dummyCasesFilterOptionsData,
+} from "../../graphql/dummyData";
 import TableRow from "./TableRow";
 import { useState } from "react";
-import Modal from "../Shared/Modal";
+import FilterModal from "../Shared/FilterModal";
 
 const Table = (props) => {
   const titleArray = [
@@ -15,58 +18,23 @@ const Table = (props) => {
     "Case Status",
   ];
   const [showModal, setShowModal] = useState(false);
+  const [filterField, setFilterField] = useState(false);
+  const [filterOptions, setFilterOptions] = useState([]);
+  const [filterName, setFilterName] = useState("");
+
+  function handleShowModal(title) {
+    setShowModal(true);
+    setFilterField(title);
+    setFilterOptions(
+      dummyCasesFilterOptionsData.find((field) => field.title === title)
+        .filterOptions
+    );
+    setFilterName(dummyCasesFilterOptionsData.find((field) => field.title === title)
+    .name)
+  }
 
   return (
     <div className="cases-table">
-      <Modal
-        show={showModal}
-        onBackdropClick={() => {
-          setShowModal(false);
-        }}
-      >
-        <div className="filter-modal">
-          <div className="filter-header">
-            <p>Filter Case Elements</p>
-            <div
-              className="x-div"
-              onClick={() => {
-                setShowModal(false);
-              }}
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 15L15 1M15 15L1 1"
-                  stroke="#73787B"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="filter-body">
-            <h3>Case Elements</h3>
-            <p>Select the case elements you want displayed.</p>
-            <div className="filter-checkbox-div">
-              <input type="checkbox"/>
-              <p>Missing Data</p>
-            </div>
-            <div className="filter-checkbox-div">
-              <input type="checkbox"/>
-              <p>Missing Records</p>
-            </div>
-            <div className="filter-checkbox-div">
-              <input type="checkbox"/>
-              <p>Satisfied</p>
-            </div>
-          </div>
-        </div>
-      </Modal>
       <div className="cases-header-row">
         <div className="corner-cell">Title</div>
         {titleArray.map((title, index) => {
@@ -82,7 +50,7 @@ const Table = (props) => {
               {title}{" "}
               <span
                 className="vertical-dots-div"
-                onClick={() => setShowModal(true)}
+                onClick={() => handleShowModal(title)}
               >
                 <svg
                   width="4"
@@ -117,6 +85,15 @@ const Table = (props) => {
           />
         );
       })}
+      <FilterModal
+        filterField={filterField}
+        filterOptions={filterOptions}
+        name={filterName}
+        show={showModal}
+        onBackdropClick={() => {
+          setShowModal(false);
+        }}
+      />
     </div>
   );
 };

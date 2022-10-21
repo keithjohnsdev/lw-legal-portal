@@ -35,6 +35,8 @@ const FloatingInput = (props) => {
             position: "absolute",
             bottom: "-20px",
             color: "rgb(255, 145, 125)",
+            minWidth: "fit-content",
+            whiteSpace: "nowrap"
           }}
         >
           {props.invalidMsg}

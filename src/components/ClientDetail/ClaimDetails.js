@@ -11,10 +11,19 @@ import {
 import { default as Container } from "../Shared/Container";
 import FlexTable from "../Shared/FlexTable";
 import FlexTableRowButtons from "../Shared/FlexTableRowButtons";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ClaimDetails = (props) => {
+  const navigate = useNavigate();
   const clientViewData = dummyClientViewData;
   const data = dummyClaimSectionsData;
+
+  function handleButtonClick (title) {
+    if (title === "Medical Diagnosis") {
+      navigate("/view-medical-diagnosis");
+    }
+  }
   return (
     <div className="client-detail-page fullscreen">
       <Header>
@@ -43,6 +52,8 @@ const ClaimDetails = (props) => {
                     col2mod={`short ${
                       section.status === "Complete" && "green"
                     }`}
+                    title={section.title}
+                    onButtonClick={handleButtonClick}
                   />
                 );
               })}

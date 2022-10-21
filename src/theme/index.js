@@ -21,4 +21,5 @@ import "./CaseDetails/ClientMetrics.scss";
 import "./Shared/GrayDropdown.scss";
 import "./CaseDetails/Clients.scss";
 import "./CaseDetails/ClientTable.scss";
-import "./CaseDetails/ClientDetail.scss";
+import "./ClientDetail/index.scss";
+import "./Shared/FilterModal.scss";

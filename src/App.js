@@ -1,13 +1,14 @@
 import "./theme";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import AddCase from "./components/AddCase/AddCase";
+import AddCase from "./components/AddCase";
 import CaseDetails from "./components/CaseDetails/index";
 import Clients from "./components/CaseDetails/Clients";
-import ClientDetail from "./components/CaseDetails/ClientDetail";
-import ClaimDetails from "./components/CaseDetails/ClaimDetails";
-import ClaimLog from "./components/CaseDetails/ClaimLog";
-import DataToShare from "./components/CaseDetails/DataToShare";
+import ClientDetail from "./components/ClientDetail";
+import ClaimDetails from "./components/ClientDetail/ClaimDetails";
+import ClaimLog from "./components/ClientDetail/ClaimLog";
+import DataToShare from "./components/ClientDetail/DataToShare";
+import ViewMedicalDiagnosis from "./components/ClientDetail/ViewMedicalDiagnosis";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/claim-details" element={<ClaimDetails />}/>
         <Route path="/claim-log" element={<ClaimLog />}/>
         <Route path="/data-to-share" element={<DataToShare />}/>
+        <Route path="/view-medical-diagnosis" element={<ViewMedicalDiagnosis />}/>
       </Routes>
     </div>
   );

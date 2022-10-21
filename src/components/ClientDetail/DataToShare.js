@@ -7,7 +7,7 @@ import {
 import { dummyClientViewData } from "../../graphql/dummyData";
 import { default as Container } from "../Shared/Container";
 import { Reorder, motion } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 
 const DataToShare = (props) => {
   const clientViewData = dummyClientViewData;
@@ -27,12 +27,30 @@ const DataToShare = (props) => {
     { field: "Phone", checked: false },
   ]);
 
-  const FieldRow = (props) => {
-
-    function handleCheck(field) {
-      var newArr = fieldsList;
+  function handleCheckAll (e) {
+    var newArr = fieldsList;
+    for (var i in newArr) {
+        newArr[i].checked = e.target.checked;
     }
+    setFieldsList(newArr);
+    console.log(fieldsList);
+  }
 
+  const FieldRow = (props) => {
+    const index = props.index;
+
+    function handleCheck(e) {
+      console.log(e.target)
+      console.log(fieldsList[props.index]);
+      var newArr = fieldsList;
+      for (var i in newArr) {
+        if (newArr[i].field === e.target.name) {
+          newArr[i].checked = e.target.checked;
+        }
+      }
+      setFieldsList(newArr);
+      console.log(fieldsList);
+    }
     return (
       <div className="field-row">
         <div className="order-icon-div">
@@ -50,8 +68,14 @@ const DataToShare = (props) => {
           </svg>
         </div>
         <div className="checkbox-div">
-          <input type="checkbox" checked={props.checked} onChange={handleCheck(props.field)} />
-          <p>{props.field}</p>
+          <input
+            type="checkbox"
+            onChange={handleCheck}
+            value={fieldsList[index].checked}
+            name={props.field}
+            id={`checkbox-${index}`}
+          />
+          <label htmlFor={`checkbox-${index}`}><p>{props.field}</p></label>
         </div>
       </div>
     );
@@ -70,7 +94,7 @@ const DataToShare = (props) => {
           <div className="data-to-share">
             <h3>Select items to share as part of claim</h3>
             <div className="select-all-fields">
-              <input name="Checkbox1" type="checkbox" />
+              <input name="Checkbox1" type="checkbox" onChange={handleCheckAll}/>
               <p>Select All Fields</p>
             </div>
             <Reorder.Group
@@ -82,7 +106,7 @@ const DataToShare = (props) => {
               {fieldsList.map((field, index) => {
                 return (
                   <Reorder.Item key={field.field} value={field}>
-                    <FieldRow field={field.field} />
+                    <FieldRow field={field.field} index={index}/>
                   </Reorder.Item>
                 );
               })}
