@@ -1,0 +1,45 @@
+.graydient-dropdown {
+    position: relative;
+    min-width: fit-content;
+    white-space: nowrap;
+    border: none;
+    background: linear-gradient(180deg, #F6F8F8 0%, #E8ECEE 100%);
+    padding: 0px 170px 0px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .graydient-dropdown::placeholder {
+    font-weight: 600;
+  }
+  
+  .graydient-dropdown select {
+    // A reset of styles, including removing the default dropdown arrow
+    appearance: none;
+    // Additional resets for further consistency
+    background-color: transparent;
+    border: none;
+    padding: 10px 0 5px;
+    margin: 0;
+    width: 314%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+    font-weight: 400;
+    z-index: 2;
+    color: #313537;
+  }
+  
+  select::-ms-expand {
+    display: none;
+  }
+  
+  .caret-div {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    z-index: 0;
+  }
+  

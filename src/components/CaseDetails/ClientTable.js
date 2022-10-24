@@ -5,6 +5,7 @@ import {
 import ClientTableRow from "./ClientTableRow";
 import { useState, useEffect } from "react";
 import FilterModal from "../Shared/FilterModal";
+import FilterCodesModal from "../Shared/FilterCodesModal";
 
 const ClientTable = (props) => {
   const data = dummyClientsData;
@@ -23,6 +24,8 @@ const ClientTable = (props) => {
   const [filterOptions, setFilterOptions] = useState([]);
   const [filterName, setFilterName] = useState("");
 
+  const [showCodesModal, setShowCodesModal] = useState(false);
+
   const [checklist, setChecklist] = useState(Array(data.length));
   const [effectTrigger, setEffectTrigger] = useState(true);
 
@@ -34,11 +37,19 @@ const ClientTable = (props) => {
   }
 
   function handleShowModal(title) {
-    setShowModal(true);
     setFilterField(title);
-    setFilterOptions(dummyFilterOptionsData.find((field) => field.title === title).filterOptions);
-    setFilterName(dummyFilterOptionsData.find((field) => field.title === title)
-    .name);
+    setFilterName(
+      dummyFilterOptionsData.find((field) => field.title === title).name
+    );
+    if (title === "Diagnosis" || title === "Procedures") {
+      setShowCodesModal(true);
+    } else {
+      setShowModal(true);
+      setFilterOptions(
+        dummyFilterOptionsData.find((field) => field.title === title)
+          .filterOptions
+      );
+    }
   }
 
   useEffect(() => {
@@ -107,6 +118,15 @@ const ClientTable = (props) => {
         show={showModal}
         onBackdropClick={() => {
           setShowModal(false);
+        }}
+      />
+      <FilterCodesModal
+        show={showCodesModal}
+        filterField={filterField}
+        filterOptions={filterOptions}
+        name={filterName}
+        onBackdropClick={() => {
+          setShowCodesModal(false);
         }}
       />
     </div>

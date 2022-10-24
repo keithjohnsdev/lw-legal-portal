@@ -9,6 +9,8 @@ import ClaimDetails from "./components/ClientDetail/ClaimDetails";
 import ClaimLog from "./components/ClientDetail/ClaimLog";
 import DataToShare from "./components/ClientDetail/DataToShare";
 import ViewMedicalDiagnosis from "./components/ClientDetail/ViewMedicalDiagnosis";
+import ViewDocDD214 from "./components/ClientDetail/ViewDocDD214";
+import ViewDocCLJA from "./components/ClientDetail/ViewDocCLJA";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/claim-log" element={<ClaimLog />}/>
         <Route path="/data-to-share" element={<DataToShare />}/>
         <Route path="/view-medical-diagnosis" element={<ViewMedicalDiagnosis />}/>
+        <Route path="/view-document-DD214" element={<ViewDocDD214 />}/>
+        <Route path="/view-document-CLJA" element={<ViewDocCLJA />}/>
       </Routes>
     </div>
   );

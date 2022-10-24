@@ -22,6 +22,10 @@ const ClaimDetails = (props) => {
   function handleButtonClick (title) {
     if (title === "Medical Diagnosis") {
       navigate("/view-medical-diagnosis");
+    } else if (title === "DD214") {
+      navigate("/view-document-DD214");
+    } else if (title === "CLJA Claims Form") {
+      navigate("/view-document-CLJA");
     }
   }
   return (

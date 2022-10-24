@@ -23,3 +23,4 @@ import "./CaseDetails/Clients.scss";
 import "./CaseDetails/ClientTable.scss";
 import "./ClientDetail/index.scss";
 import "./Shared/FilterModal.scss";
+import "./Shared/GraydientDropdown.scss";

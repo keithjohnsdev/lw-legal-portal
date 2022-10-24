@@ -185,11 +185,12 @@
   }
 }
 
-.view-medical-diagnosis {
+.view-medical-diagnosis-page {
   display: flex;
   flex-direction: column;
+  min-width: 800px;
   & .client-header1-line1-middle {
-    margin-right: 0px;
+    margin-right: 6px;
     padding-right: 0px;
     padding-left: 0px;
   }
@@ -220,6 +221,78 @@
     border-top: solid 1px #cfd4d7;
     & h3 {
       margin-bottom: 13px;
+    }
+  }
+}
+
+.view-medical-diagnosis {
+  overflow-y: auto;
+}
+
+.view-doc-page {
+  display: flex;
+  flex-direction: column;
+  min-width: 860px;
+  & .client-header1-line1-middle {
+    margin-right: 6px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  & .cd-header1-line2-text {
+    color: #3BC86B;
+    font-weight: 600;
+  }
+  .view-doc {
+    overflow-y: auto;
+    & .requirement-banner {
+      display: flex;
+      flex-direction: row;
+      padding: 24px 0;
+      align-items: center;
+      min-width: fit-content;
+      white-space: nowrap;
+      & h3 {
+        padding-left: 24px;
+      }
+    }
+    & .document-section {
+      border-top: solid 1px #cfd4d7;
+      padding: 40px 0;
+      & h3 {
+        margin-bottom: 27px;
+      }
+    }
+    & .doc-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      margin-bottom: 10px;
+      & h6 {
+        font-size: 14px;
+      }
+      & p {
+        font-size: 12px;
+        padding: 7px;
+        color: #1b93c5;
+        cursor: pointer;
+        & svg {
+          margin-right: 6px;
+          margin-bottom: -1px;
+        }
+        &:hover {
+          color: #75cef5;
+          & svg path {
+            fill: #75cef5;
+          }
+        }
+      }
+    }
+    & .doc-div {
+      border: solid 1px #9AA0A3;
+      & .doc-img {
+        width: 100%;
+      }
     }
   }
 }

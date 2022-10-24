@@ -14,7 +14,6 @@
   appearance: none;
   // Additional resets for further consistency
   background-color: transparent;
-  padding: 8px 70px 8px 12px;
   border: none;
   padding: 0;
   margin: 0;
@@ -26,6 +25,7 @@
   outline: none;
   font-weight: 600;
   z-index: 2;
+  position: relative;
 }
 
 select::-ms-expand {

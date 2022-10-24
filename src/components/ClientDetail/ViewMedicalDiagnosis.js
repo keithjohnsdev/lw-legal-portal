@@ -8,29 +8,29 @@ const ViewMedicalDiagnosis = (props) => {
   const navigate = useNavigate();
   const data = dummyMedicalDiagnosisData;
   return (
-    <div className="fullscreen">
-      <div className="view-medical-diagnosis">
-        <div className="client-detail-header1">
-          <div className="cd-header1-line1">
-            <div className="cd-header1-line1-left flex">
-              <h6
-                className="gray-link"
-                onClick={() => navigate("/claim-details")}
-              >
-                Back
-              </h6>
-            </div>
-            <div className="client-header1-line1-middle flex">
-              <h6 className="cd-title">Medical Diagnosis</h6>
-            </div>
-            <div className="cd-header1-line1-right flex">
-              <h6 className="blue-link thin padding-adjust-left">Print</h6>
-            </div>
+    <div className="view-medical-diagnosis-page fullscreen">
+      <div className="client-detail-header1">
+        <div className="cd-header1-line1">
+          <div className="cd-header1-line1-left flex">
+            <h6
+              className="gray-link"
+              onClick={() => navigate("/claim-details")}
+            >
+              Back
+            </h6>
           </div>
-          <div className="cd-header1-line2">
-            <p className="cd-header1-line2-text">Complete</p>
+          <div className="client-header1-line1-middle flex">
+            <h6 className="cd-title">Medical Diagnosis</h6>
+          </div>
+          <div className="cd-header1-line1-right flex">
+            <h6 className="blue-link thin padding-adjust-left">Print</h6>
           </div>
         </div>
+        <div className="cd-header1-line2">
+          <p className="cd-header1-line2-text">Complete</p>
+        </div>
+      </div>
+      <div className="view-medical-diagnosis">
         <Container>
           <div className="requirement-banner">
             <svg
@@ -74,32 +74,70 @@ const ViewMedicalDiagnosis = (props) => {
                 <p>Total Amount</p>
                 <p className="info-p">${data.totalAmount.toFixed(2)}</p>
               </div>
-              <div className="info-div">
-              </div>
+              <div className="info-div"></div>
             </div>
           </Container>
         </div>
         <div className="codes-section">
           <Container>
             <h3>Procedure Codes (1)</h3>
-            <FlexTable header1="Code" header2="Description" col2mod="double-long">
-              <FlexTableRow col1="CPT 52235" col1mod="bold" col2="Under Urethra and Bladder Transurethral Surgical Procedures" col2mod="double-long"/>
+            <FlexTable
+              header1="Code"
+              header2="Description"
+              col2mod="double-long"
+              header3=" "
+              col3mod="spacer"
+            >
+              <FlexTableRow
+                col1="CPT 52235"
+                col1mod="bold"
+                col2="Under Urethra and Bladder Transurethral Surgical Procedures"
+                col2mod="double-long"
+                col3=" "
+                col3mod="spacer"
+              />
             </FlexTable>
           </Container>
         </div>
         <div className="codes-section">
           <Container>
             <h3>Diagnosis Codes (1)</h3>
-            <FlexTable header1="Code" header2="Description" col2mod="double-long">
-              <FlexTableRow col1="C67.2 Malignant neoplasm of lateral wall of bladder" col1mod="bold" col2="Bladder Cancer" col2mod="double-long"/>
+            <FlexTable
+              header1="Code"
+              header2="Description"
+              col2mod="double-long"
+              header3=" "
+              col3mod="spacer"
+            >
+              <FlexTableRow
+                col1="C67.2 Malignant neoplasm of lateral wall of bladder"
+                col1mod="bold"
+                col2="Bladder Cancer"
+                col2mod="double-long"
+                col3=" "
+                col3mod="spacer"
+              />
             </FlexTable>
           </Container>
         </div>
         <div className="codes-section">
           <Container>
             <h3>Prescription Codes (1)</h3>
-            <FlexTable header1="Code" header2="Description" col2mod="double-long">
-              <FlexTableRow col1="63323-103-51" col1mod="bold" col2="Cisplatin" col2mod="double-long"/>
+            <FlexTable
+              header1="Code"
+              header2="Description"
+              col2mod="double-long"
+              header3=" "
+              col3mod="spacer"
+            >
+              <FlexTableRow
+                col1="63323-103-51"
+                col1mod="bold"
+                col2="Cisplatin"
+                col2mod="double-long"
+                col3=" "
+                col3mod="spacer"
+              />
             </FlexTable>
           </Container>
         </div>
