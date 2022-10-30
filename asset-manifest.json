@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/lw-legal-portal/static/css/main.f2f272c8.css",
-    "main.js": "/lw-legal-portal/static/js/main.1c0dbc6c.js",
+    "main.js": "/lw-legal-portal/static/js/main.d3b497df.js",
     "index.html": "/lw-legal-portal/index.html",
     "main.f2f272c8.css.map": "/lw-legal-portal/static/css/main.f2f272c8.css.map",
-    "main.1c0dbc6c.js.map": "/lw-legal-portal/static/js/main.1c0dbc6c.js.map"
+    "main.d3b497df.js.map": "/lw-legal-portal/static/js/main.d3b497df.js.map"
   },
   "entrypoints": [
     "static/css/main.f2f272c8.css",
-    "static/js/main.1c0dbc6c.js"
+    "static/js/main.d3b497df.js"
   ]
 }
