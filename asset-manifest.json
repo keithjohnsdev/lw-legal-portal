@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lw-legal-portal/static/css/main.f2f272c8.css",
+    "main.js": "/lw-legal-portal/static/js/main.9bb16c60.js",
+    "index.html": "/lw-legal-portal/index.html",
+    "main.f2f272c8.css.map": "/lw-legal-portal/static/css/main.f2f272c8.css.map",
+    "main.9bb16c60.js.map": "/lw-legal-portal/static/js/main.9bb16c60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2f272c8.css",
+    "static/js/main.9bb16c60.js"
+  ]
+}
