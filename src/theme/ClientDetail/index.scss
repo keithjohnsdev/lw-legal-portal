@@ -133,36 +133,35 @@
 
 .client-info {
   border-bottom: solid 1px #cfd4d7;
-}
 
-.form-row {
-  margin-bottom: 40px;
-  cursor: default;
-  & .info-div {
-    width: 30%;
-  }
-  & p {
-    font-size: 12px;
-    color: #73787b;
-    line-height: 160%;
-  }
-  & .info-p {
-    color: #313537;
-    font-weight: 600;
-    &.green {
-      color: #3bc86b;
+  & .form-row {
+    margin-bottom: 40px;
+    cursor: default;
+    & .info-div {
+      width: 30%;
     }
-    &.link {
-      text-decoration: underline;
-      color: #1b93c5;
-      cursor: pointer;
-      &:hover {
-        color: #4ebeee;
+    & p {
+      font-size: 12px;
+      color: #73787b;
+      line-height: 160%;
+    }
+    & .info-p {
+      color: #313537;
+      font-weight: 600;
+      &.green {
+        color: #3bc86b;
+      }
+      &.link {
+        text-decoration: underline;
+        color: #1b93c5;
+        cursor: pointer;
+        &:hover {
+          color: #4ebeee;
+        }
       }
     }
   }
 }
-
 .note-section {
   border-top: solid 1px #cfd4d7;
   padding: 30px 0;
@@ -195,7 +194,7 @@
     padding-left: 0px;
   }
   & .cd-header1-line2-text {
-    color: #3BC86B;
+    color: #3bc86b;
     font-weight: 600;
   }
   & .requirement-banner {
@@ -215,6 +214,19 @@
     & h3 {
       margin-bottom: 36px;
     }
+    & .info-div {
+      width: 30%;
+      min-width: fit-content;
+      white-space: nowrap;
+      padding-bottom: 40px;
+      & p {
+          font-size: 12px;
+      }
+      & .info-p {
+          font-weight: 600;
+          margin-top: 6px;
+      }
+  }
   }
   & .codes-section {
     padding: 32px 0 41px;
@@ -239,7 +251,7 @@
     padding-left: 0px;
   }
   & .cd-header1-line2-text {
-    color: #3BC86B;
+    color: #3bc86b;
     font-weight: 600;
   }
   .view-doc {
@@ -289,7 +301,7 @@
       }
     }
     & .doc-div {
-      border: solid 1px #9AA0A3;
+      border: solid 1px #9aa0a3;
       & .doc-img {
         width: 100%;
       }

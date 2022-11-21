@@ -2,8 +2,8 @@ export const dummyInternalCounselData = [
   {
     city: "Miami",
     email: "bigdog@gmail.com",
-    firstName: "Big",
-    lastName: "Dog",
+    firstName: "Paul",
+    lastName: "Johnson",
     phone: "(123) 123-1332",
     state: "FL",
     street: "11100 SW 61st Ct.",
@@ -13,8 +13,8 @@ export const dummyInternalCounselData = [
   {
     city: "Albequerque",
     email: "largedog@yahoo.com",
-    firstName: "Large",
-    lastName: "Dog",
+    firstName: "Viviana",
+    lastName: "Schultz",
     phone: "(123) 348-3245",
     state: "NM",
     street: "1254 Wallaby Way",
@@ -27,8 +27,8 @@ export const dummyOpposingCounselData = [
   {
     city: "Baltimore",
     email: "sizablecanine@doj.com",
-    firstName: "Sizable",
-    lastName: "Canine",
+    firstName: "Harold",
+    lastName: "Wright",
     phone: "(123) 486-1332",
     state: "MD",
     street: "555 Cherry St.",

@@ -102,7 +102,7 @@ const AddCase = (props) => {
                 onChange={(e) => handleChange("lawsuitType", e.target.value)}
                 value={caseInfoData.lawsuitType}
                 options={[
-                  { value: "Type 1", label: "Type 1" },
+                  { value: "Type 1", label: "Tort" },
                   { value: "Type 2", label: "Type 2" },
                 ]}
                 modifier="right"
@@ -115,8 +115,8 @@ const AddCase = (props) => {
                 onChange={(e) => handleChange("jurisdiction", e.target.value)}
                 value={caseInfoData.jurisdiction}
                 options={[
-                  { value: "Type 1", label: "Type 1" },
-                  { value: "Type 2", label: "Type 2" },
+                  { value: "Type 1", label: "Federal" },
+                  { value: "Type 2", label: "State" },
                 ]}
               />
               <FloatingInput
@@ -130,8 +130,8 @@ const AddCase = (props) => {
                 onChange={(e) => handleChange("circuit", e.target.value)}
                 value={caseInfoData.circuit}
                 options={[
-                  { value: "Type 1", label: "Type 1" },
-                  { value: "Type 2", label: "Type 2" },
+                  { value: "Type 1", label: "Circuit 1" },
+                  { value: "Type 2", label: "Circuit 2" },
                 ]}
                 modifier="right"
               />

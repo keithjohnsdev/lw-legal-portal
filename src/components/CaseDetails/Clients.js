@@ -10,6 +10,7 @@ import {
 } from "../Shared/Buttons";
 import { useState, useEffect } from "react";
 import React from "react";
+import { default as MessageModal, MessageSuccessModal } from "../Shared/MessageModal";
 
 const Clients = (props) => {
   const [allChecked, setAllChecked] = useState(false);
@@ -17,6 +18,8 @@ const Clients = (props) => {
   const [checklist, setChecklist] = useState([]);
   const [effectTrigger, setEffectTrigger] = useState(true);
   const data = dummyCasesData;
+  const [showMessageModal, setShowMessageModal] = useState(false);
+  const [showMessageSuccessModal, setShowMessageSuccessModal] = useState(false);
 
   function handleCheckAll(event) {
     setAllChecked(event.target.checked);
@@ -33,6 +36,13 @@ const Clients = (props) => {
     setChecked(allChecked || rowChecked);
   }, [allChecked, checklist, effectTrigger]);
 
+  function handleSend () {
+    setShowMessageModal(false);
+    setTimeout(() => {
+      setShowMessageSuccessModal(true);
+    }, 1000)
+  }
+
   return (
     <div className="case-details-page fullscreen">
       <Header>
@@ -46,7 +56,7 @@ const Clients = (props) => {
           <input type="checkbox" onChange={handleCheckAll} />
         </div>
         <div className="button-wrapper">
-          <BlueBorderButton>
+          <BlueBorderButton onClick={() => setShowMessageModal(true)}>
             <svg
               width="18"
               height="15"
@@ -137,6 +147,8 @@ const Clients = (props) => {
         {!checked && <div className="button-inactive-overlay" />}
       </div>
       <ClientTable getChecklist={getChecklist} allChecked={allChecked} />
+      <MessageModal show={showMessageModal} onBackdropClick={() => setShowMessageModal(false)} handleSend={handleSend} />
+      <MessageSuccessModal show={showMessageSuccessModal} onBackdropClick={() => setShowMessageSuccessModal(false)} />
     </div>
   );
 };

@@ -18,7 +18,7 @@ const ViewDocCLJA = (props) => {
             </h6>
           </div>
           <div className="client-header1-line1-middle flex">
-            <h6 className="cd-title">CLJA Claims Form</h6>
+            <h6 className="cd-title">DD214</h6>
           </div>
           <div className="cd-header1-line1-right flex">
             <h6 className="blue-link thin padding-adjust-left">Print</h6>
@@ -50,7 +50,7 @@ const ViewDocCLJA = (props) => {
           <Container>
             <h3>Document</h3>
             <div className="doc-title">
-              <h6>CLJA Claims Form</h6>
+              <h6>DD214</h6>
               <p>
                 <svg
                   width="18"

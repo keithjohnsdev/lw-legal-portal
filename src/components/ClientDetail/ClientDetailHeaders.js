@@ -1,8 +1,10 @@
 import {default as Container } from "../Shared/Container";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import MessageModal from "../Shared/MessageModal";
 
 const ClientDetailHeader1 = (props) => {
+  const [showMessageModal, setShowMessageModal] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="client-detail-header1">
@@ -17,7 +19,7 @@ const ClientDetailHeader1 = (props) => {
           <h6 className="blue-link thin padding-adjust-right">
             Export to Excel
           </h6>
-          <h6 className="blue-link thin padding-adjust-left padding-adjust-right">
+          <h6 className="blue-link thin padding-adjust-left padding-adjust-right" onClick={() => {setShowMessageModal(true)}}>
             Message Client
           </h6>
           <h6 className="blue-link thin padding-adjust-left">Submit Claim</h6>
@@ -26,6 +28,7 @@ const ClientDetailHeader1 = (props) => {
       <div className="cd-header1-line2">
         <p className="cd-header1-line2-text">Claim Status: Not Submitted</p>
       </div>
+      <MessageModal show={showMessageModal} client="Edwin Rivera" onBackdropClick={() => {setShowMessageModal(false)}} />
     </div>
   );
 };

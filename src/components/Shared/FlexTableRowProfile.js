@@ -1,4 +1,9 @@
+import { useMemo } from "react";
+
 const FlexTableRowProfile = (props) => {
+
+  const color = useMemo(() => generatePastelColor(), []);
+
   function generatePastelColor() {
     let R = Math.floor(Math.random() * 127 + 75);
     let G = Math.floor(Math.random() * 127 + 75);
@@ -20,7 +25,7 @@ const FlexTableRowProfile = (props) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="16" cy="16" r="16" fill={generatePastelColor()} />
+            <circle cx="16" cy="16" r="16" fill={color} />
           </svg>
           <h4 className="profile-letters">{props.profile}</h4>
         </div>
