@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/lw-legal-portal/static/css/main.8e5c24b4.css",
-    "main.js": "/lw-legal-portal/static/js/main.e9d95f6a.js",
+    "main.css": "/lw-legal-portal/static/css/main.9a9845d0.css",
+    "main.js": "/lw-legal-portal/static/js/main.765921f4.js",
     "static/media/DD214.png": "/lw-legal-portal/static/media/DD214.5d3cddc7f38c7f7ea9de.png",
     "static/media/map.png": "/lw-legal-portal/static/media/map.fed660bd316e3e2b2084.png",
     "static/media/CLJA.png": "/lw-legal-portal/static/media/CLJA.1d439e5124f997c3bcb7.png",
     "static/media/edwin.png": "/lw-legal-portal/static/media/edwin.0e999f6734a455748334.png",
     "index.html": "/lw-legal-portal/index.html",
-    "main.8e5c24b4.css.map": "/lw-legal-portal/static/css/main.8e5c24b4.css.map",
-    "main.e9d95f6a.js.map": "/lw-legal-portal/static/js/main.e9d95f6a.js.map"
+    "main.9a9845d0.css.map": "/lw-legal-portal/static/css/main.9a9845d0.css.map",
+    "main.765921f4.js.map": "/lw-legal-portal/static/js/main.765921f4.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e5c24b4.css",
-    "static/js/main.e9d95f6a.js"
+    "static/css/main.9a9845d0.css",
+    "static/js/main.765921f4.js"
   ]
 }
